@@ -19,7 +19,56 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+div#face {
+    width: 4000vw;
+    height: 180vw;
+    max-width: 4000px;
+    max-height: 1800px;
+    margin: 0 auto;
+    position: relative;
+    background: palegreen;
+    margin-top: 2rem;
+}
 
+div#face, div#face * {
+    border-radius: 90%;
+}
+
+.eye {
+    width: 25%;
+    height: 25%;
+    background: #9cbae1;
+    position: absolute;
+    top: 20%;
+}
+
+.left.eye {
+    left: 7%;
+}
+
+.right.eye {
+    right: 84%;
+}
+
+.pupil {
+    background: #7e6666d7;
+    width: 20%;
+    height: 90%;
+    position: relative;
+    left: 25%;
+    transform-origin: bottom;
+}
+
+#mouth {
+    position: relative;
+    width: 60%;
+    left: 20%;
+    height: 25%;
+    border: 1vw solid transparent;
+    border-radius: 50%;
+    top: 50%;
+    border-bottom-color: #4514e6b9;
+}
     </style>
 </head>
 
@@ -63,6 +112,16 @@
         <div id="banner">
         </div>
         <div id="face">
+            <div class="left eye">
+                <div class="pupil">
+                </div>
+           </div>
+           <div class="right eye">
+                <div class="pupil">
+                </div>
+           </div>
+           <div id="mouth">
+           </div>
 
         </div>
     </main>
