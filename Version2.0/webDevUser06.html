@@ -7,7 +7,7 @@
 
 <head>
 
-    <title>User ## Version 2.0 </title>
+    <title>User 06 </title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -19,10 +19,64 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+#banner{
+    border: 100px outset rgb(10, 12, 138);
+    background-color: rgb(11, 163, 163);
+    text-align: center;
+}
+div#face {
+    width: 40vw;
+    height: 40vw;
+    max-width: 400px;
+    max-height: 400px;
+    margin: 0 auto;
+    position: relative;
+    background: yellow;
+    margin-top: 2rem;
+}
 
+div#face, div#face * {
+    border-radius: 50%;
+}
+
+.eye {
+    width: 25%;
+    height: 25%;
+    background: #fff;
+    position: absolute;
+    top: 20%;
+}
+
+.left.eye {
+    left: 20%;
+}
+
+.right.eye {
+    right: 20%;
+}
+
+.pupil {
+    background: #000;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    left: 25%;
+    transform-origin: bottom;
+}
+
+#mouth {
+    position: relative;
+    width: 60%;
+    left: 20%;
+    height: 25%;
+    border: 1vw solid transparent;
+    border-radius: 50%;
+    top: 50%;
+    border-bottom-color: #000;
+}
     </style>
 </head>
-
+<div id="banner">i like this class</div>
 <body>
     <main class="wideMargin">
 
@@ -37,18 +91,38 @@
             <h2>Heading Examples</h2>
 
             <!-- Put your Headings ↓↓↓↓↓↓Below↓↓↓↓↓↓ here-->
-
+            <h1>i dont know</h1>
+            <h2>im learning</h2>
+            <h3>i understand</h3>
+            <h4>im close to being the goat</h4>
+            <h5>i thing mathew likes guys</h5>
+            <h6>yea he def dose</h6>
             <!-- Put your Headings ↑↑↑↑↑↑Above↑↑↑↑↑↑ here-->
 
             <h2>Examples of "Other" HTML elements</h2>
 
             <!-- Put your 8 examples of other elements ↓↓↓↓↓↓Below↓↓↓↓↓↓ here-->
+            <del>i think mathew is weird</del>
+            <ins>howdy im sigma</ins>
+            <sub>tj thinks he funny</sub>
+            <sup>tj thinks he can pull</sup>
+            <small>small</small>
 
             <!-- Put your 8 examples of other elements ↑↑↑↑↑↑Above↑↑↑↑↑↑ here-->
         </div>
-        <div id="banner">
-        </div>
+        <div id="banner"> 
+       
         <div id="face">
+            <div class="left eye">
+                <div class="pupil">
+                </div>
+           </div>
+           <div class="right eye">
+                <div class="pupil">
+                </div>
+           </div>
+           <div id="mouth">
+           </div>
 
         </div>
     </main>
@@ -62,5 +136,3 @@
 
     </footer>
 </body>
-
-</html>
