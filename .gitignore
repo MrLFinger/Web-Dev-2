@@ -1,5 +1,4 @@
  main
+git config --global core.excludesfile ~/.gitignore
 
-
- main
-.DS_Store
+echo .DS_Store >> ~/.gitignore
