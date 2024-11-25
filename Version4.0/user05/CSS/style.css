@@ -116,3 +116,19 @@ ButtonRed{
 	position:relative;
 	top:1px;
 }
+.title{
+	color: red;
+	font-family: 'Trebuchet MS', sans-serif; 
+  }
+  
+  .title-large {
+	font-size: 2rem;
+  }
+  
+  .title-small {
+	font-size: .5rem;
+  }
+  *{
+    text-align:right;
+    border: 2px solid black;
+}
