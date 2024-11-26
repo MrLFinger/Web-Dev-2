@@ -128,7 +128,6 @@ ButtonRed{
   .title-small {
 	font-size: .5rem;
   }
-  *{
-    text-align:right;
-    border: 2px solid black;
-}
+  inline-block{
+  .card {width: 100%}
+  }
