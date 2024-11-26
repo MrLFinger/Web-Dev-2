@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--Version 4.0
-        Name:
-        Date Completed:
+<!--Version 3.0
+        Name: Freddie Steffen
+        Date Completed: 11/15/24
     -->
 
 <head>
 
-    <title>Hire Me For Your Web Development Needs</title>
+    <title>Music for Web Dev User 05 Freddie</title>
+    <link rel="icon" type="images/x-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="CSS/style.css">
 
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="SHS WebDev Version 4.0 - Index">
+    <meta name="description" content="SHS WebDev Version 3.0 - My Favorite Music">
 
     <!-- CSS -->
     <!-- Bootstrap -->
@@ -21,9 +23,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Animate -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <!-- Custom -->
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="">
 
     <!-- JavaScript -->
     <!-- These are needed to get the responsive menu to work -->
@@ -37,10 +39,14 @@
             font-size: 12px;
             text-align: center;
         }
+        td {
+     color: #ffffff;
+    }
     </style>
 </head>
 
 <body>
+    <body background="images/Monkey.jpeg"></body>
     <!---------------------------------- Begin the nav-bar ------------->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container-fluid">
@@ -53,16 +59,16 @@
                 <ul class="navbar-nav me-auto">
                     <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Edit These Items in your NavBar ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">Home</a>
+                        <a href="index.html" class="nav-link active">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="display.html" class="nav-link">Display</a>
+                        <a href="aboutMe.html" class="nav-link">About Me</a>
                     </li>
                     <li class="nav-item">
-                        <a href="portfolio.html" class="nav-link">Portfolio</a>
+                        <a href="music.html" class="nav-link">Music</a>
                     </li>
                     <li class="nav-item">
-                        <a href="gallery.html" class="nav-link">Gallery</a>
+                        <a href="list.html" class="nav-link">Lists</a>
                     </li>
                     <li class="nav-item">
                         <a href="mailto:sample@gmail.com?Subject=Hello" class="nav-link disabled" tabindex="-1">Contact</a>
@@ -79,87 +85,59 @@
 
     <main class="container-fluid mt-3">
 
-        <h1 class="text-left my-3 title" tabindex="0">Check out my work!</h1>
+        <h1 class="text-left my-3" tabindex="0">Music</h1>
         <!-- Edit this line for the title of your page -->
 
         <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Put your content below this line ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
-        <h3 id="topHeading">I'm a Web Developer</h3>
-        <table id="hireButtons">
+        <h2>My Top 5 Favorite Songs (Joke)</h2>
+        <table id="songs">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Artist</th>
+                    <th>Song</th>
+                    <th>Album Art</th>
+                </tr>
+            </thead>
             <tr>
-                <td>
-                    <button>Hire me</button>
-                </td>
-                <td>
-                    <button class="button">Hire me</button>
-                </td>
-                <td>
-                    <button class="button button1">Hire me</button>
-                </td>
-                <td>
-                    <button class="button button2">Hire me</button>
-                </td>
+                <td>1</td>
+                <td style="color:#000000; background-color:#ff0000">Kendrick Lamar</td>
+                <td>They Not Like Us</td>
+                <td><img src="images/TheyNotLikeUs.jpeg"style="width:300px;height:300px;" alt="They Not Like Us Cover Art." /><td>
             </tr>
             <tr>
-                <td>
-                    <button class="button button2 red">Hire me</button>
-                </td>
-                <td>
-                    <td>
-                        <button class="myButton">Green </button>
-                      </td>
-                </td>
-                <td>
-                    <button class="FunnyButton">Look</button>
-                  </td>
-                  <td>
-                    <button class="buttonRed">This button is clickable</button>
-                  </td>
+                <td>2</td>
+                <td style="color:#000000; background-color:#ff4d00">Travis Scott</td>
+                <td>FE!N</td>
+                <td><img src="images/FE!N.png"style="width:300px;height:300px;" alt="FE!N Cover Art." /><td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td style="color:#000000; background-color:#fff200">Katy Perry</td>
+                <td>California Girls</td>
+                <td><img src="images/CaliforniaGirls.jpeg"style="width:300px;height:300px;" alt="California Girls Cover Art." /><td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td style="color:#000000; background-color:#11ff00">Shakira</td>
+                <td>Hips don't lie</td>
+                <td><img src="images/HipsDontLie.jpeg"style="width:300px;height:300px;" alt="Hips Don't Lie Cover Art." /><td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td style="color:#000000; background-color:#000dff">Spice Girls</td>
+                <td>Wannabe</td>
+                <td><img src="images/Wannabe.jpeg"style="width:300px;height:300px;" alt="Wannabe Cover Art." /><td>
             </tr>
         </table>
-        <div class="pt-3">
-            <!-- spacing div-->
-
-            <span class="title title-large">Example of a Heading Title</span>
-            <span class="title title-small">Example of a Footer Title</span>
-
-                <p>
-                    Page content..
-                </p>
-
-                <p>
-                    Some more page content..
-                </p>
-
-            </div>
-
-            <p id="morecontent">
-                Even more content
-            </p>
-
-            <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Make sure all your content is above this line ↑↑↑↑↑↑↑↑↑-->
     </main>
+    <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Make sure all your content is above this line ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
+
 
     <!---------------------------------- Begin the footer ------------->
     <footer>
-        <span class="title">Example of a Footer Title</span>
-        <div class="container py-4" id="footerTable">
-            <ul class="list-unstyled d-flex justify-content-center">
-                <li class="mx-3">
-                    <i class="fa-brands fa-facebook fa-3x" aria-hidden="true"></i>
-                </li>
-                <li class="mx-3">
-                    <i class="fa-brands fa-x-twitter fa-3x" aria-hidden="true"></i>
-                </li>
-                <li class="mx-3">
-                    <i class="fa-brands fa-instagram fa-3x" aria-hidden="true"></i>
-                </li>
-                <li class="mx-3">
-                    <i class="fa-brands fa-github fa-3x" aria-hidden="true"></i>
-                </li>
-                <li class="mx-3">
-                    <i class="fa-brands fa-tiktok fa-3x" aria-hidden="true"></i>
-                </li>
-            </ul>
+        <div>
+            Music can be found here <a href="https://open.spotify.com/"> Spodify</a>
         </div>
     </footer>
     <!---------------------------------- End the footer ------------->
