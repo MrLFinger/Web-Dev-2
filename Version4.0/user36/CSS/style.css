@@ -20,6 +20,62 @@
 }
 
 .red {
+< main>
+	background-color: #ed0101;
+}
+
+td{
+	padding:20px;
+}
+
+table{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1, h2, h3, h4, h5, h6{
+	text-align:center;
+}
+
+.button9{
+	background-color: aqua;
+}
+
+.button5{background-color: beige;}
+
+.button7{background-color: #10ae8a;}
+
+.title{
+	color: red;
+	font-family: 'Trebuchet MS', sans-serif; 
+  }
+  
+  .title-large {
+	font-size: 2rem;
+  }
+  
+  .title-small {
+	font-size: .5rem;
+  }
+
+  #morecontent {
+	background-color: yellow;
+  }
+
+  #hireButtons {color: #ed0101;
+	background-color: rgb(43, 123, 89);
+	border-radius: 20%;
+}
+
+	#footerTable {background-color: #ed0101;
+	}
+
+	*{
+		color: rgb(152, 101, 38);
+	transform: rotate(.5deg);
+	}
+#card {width: 100%;}
+=======
 	background-color: #ff0000;
 }
 
@@ -40,3 +96,4 @@ h5,
 h6 {
 	text-align: center;
 }
+< main>
