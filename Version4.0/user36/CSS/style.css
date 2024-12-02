@@ -1,3 +1,4 @@
+@import url(rainbow.css);
 .button {
 	background-color: #4CAF50;
 	border: none;
@@ -66,11 +67,12 @@ h1, h2, h3, h4, h5, h6{
 	border-radius: 20%;
 }
 
-	#footerTable {background-color: #ed0101;
-	}
 
 	*{
 		color: rgb(152, 101, 38);
-	transform: rotate(.5deg);
+	
 	}
 #card {width: 100%;}
+
+
+
