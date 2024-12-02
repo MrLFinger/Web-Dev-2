@@ -21,8 +21,15 @@ th {
 }
 body {
 
-    background-image: "image/The Strokes"; 
+    background-image: "images/pinksky.jpeg"; 
 
     background-size: cover; /* Optional: Make image cover the entire page */
 
 }
+title {    background-image: "images/pinksky.jpeg"; 
+}
+p{    background-image: "images/pinksky.jpeg"; 
+}
+main {    background-image: "images/pinksky.jpeg"; 
+}
+.background-image {background-image: url(images/pinksky.jpeg); }
