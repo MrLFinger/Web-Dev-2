@@ -1,3 +1,4 @@
+@import url(rainbow.css);
 table {
 	font-family: "Marker Felt", "Comic Sans MS", fantasy;
 	color: #003366;
@@ -130,4 +131,34 @@ ButtonRed{
   }
   inline-block{
   .card {width: 100%}
+  }
+  #knowledge > * {
+	border: 3px red solid;
+  }
+  p + * {
+	background-color: #FFFF00;
+  }
+  div li::marker{
+	color: red;
+  }
+  div li::marker{
+	content:"😜 ";
+  }
+  td:hover {
+	background-color: black;
+  }
+  div li :hover {
+	color: #FFC0CB;
+  }
+  p {
+	display: none;
+	background-color: yellow;
+	padding: 20px;
+  }
+  
+  div:hover p {
+	display: block;
+  }
+  p:first-child {
+	color: plum;
   }
