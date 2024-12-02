@@ -141,7 +141,7 @@ ButtonRed{
   div li::marker{
 	color: red;
   }
-  div li::marker{
+  div li *::marker{
 	content:"😜 ";
   }
   td:hover {
