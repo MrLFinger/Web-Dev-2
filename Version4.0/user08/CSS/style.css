@@ -137,8 +137,8 @@ h6 {
 #knowledge > * {
 	border: 3px red solid;
   }
- p + * {
-	background-color: #FFFF00;
+ p +  {
+	background-color: #ffa200;
   }
 div li::marker{
 	color: red;
