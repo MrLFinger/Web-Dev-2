@@ -40,9 +40,25 @@
             font-size: 12px;
             text-align: center;
         }
-        
+
         #rainbow {
             width: 100%;
+        }
+
+        #knowledge>* {
+            border: 3px red solid;
+        }
+
+        p+* {
+            background-color: #FFFF00;
+        }
+
+        div li * ::marker {
+            color: red;
+        }
+
+        div li * ::marker {
+            content: "😜 ";
         }
     </style>
 </head>
@@ -72,7 +88,8 @@
                         <a href="gallery.html" class="nav-link">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a href="mailto:sample@gmail.com?Subject=Hello" class="nav-link disabled" tabindex="-1">Contact</a>
+                        <a href="mailto:sample@gmail.com?Subject=Hello" class="nav-link disabled"
+                            tabindex="-1">Contact</a>
                     </li>
                     <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Edit These Items in your NavBar ↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
                 </ul>
