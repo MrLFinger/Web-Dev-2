@@ -136,7 +136,7 @@ ButtonRed{
 	border: 3px red solid;
   }
   p + * {
-	background-color: #FFFF00;
+	background-color: #FFFFFF;
   }
   div li::marker{
 	color: red;
