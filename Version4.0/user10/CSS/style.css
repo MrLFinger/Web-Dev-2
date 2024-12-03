@@ -1,3 +1,22 @@
+@import url(rainbow.css);
+td:hover {
+	background-color: black;
+  }
+.title{
+	color: red;
+	font-family: 'Trebuchet MS', sans-serif; 
+  }
+
+  .title-large {
+	font-size: 2rem;
+  }
+  
+  .title-small {
+	font-size: .5rem;
+  }
+  #morecontent {
+	background-color: yellow;
+  }
 .button {
 	background-color: #4CAF50;
 	border: none;
@@ -105,3 +124,12 @@ h1, h2, h3, h4, h5, h6{
 	position:relative;
 	top:1px;
 }
+#knowledge > * {
+	border: 3px red solid;
+  }
+  div li::marker{
+	color: red;
+  }
+  div li::marker{
+	content:"😜 ";
+  }
