@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Version 4.0
+        Name:
+        Date Completed:
+    -->
+
+<head>
+
+    <title>Gallery</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="SHS WebDev Version 4.0 - Gallery">
+
+    <!-- CSS -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Custom -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/gallery.css">
+
+    <!-- JavaScript -->
+    <!-- These are needed to get the responsive menu to work -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Custom styles for this template -->
+    <style type="text/css">
+        footer {
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        #rainbow {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!---------------------------------- Begin the nav-bar ------------->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a href="http://shakonet.isd720.com" class="navbar-brand">WebDev</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto">
+                    <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Edit These Items in your NavBar ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="display.html" class="nav-link">Display</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="portfolio.html" class="nav-link">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mailto:sample@gmail.com?Subject=Hello" class="nav-link disabled" tabindex="-1">Contact</a>
+                    </li>
+                    <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Edit These Items in your NavBar ↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
+                </ul>
+                <form class="d-flex">
+                    <button class="btn btn-primary" type="button">Login</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!---------------------------------- End the nav-bar ------------------------------------->
+
+    <main class="container-fluid mt-3">
+
+        <h1 class="text-left my-3 title" tabindex="0">Check out my favorite images</h1>
+        <!-- Edit this line for the title of your page -->
+
+        <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Put your content below this line ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
+
+        <div id="gallery">
+            <p>Hover over the images to get the answer</p>
+            <div class="container">
+                <div class="flipper">
+                    <div class="front">
+                        <img height="400" src="https://upload.wikimedia.org/wikipedia/en/0/01/Shrek_the_Third_video_game_console_neutral_boxart.png" alt="ATX_Motherboard">
+                        <p class="caption">Amazing game</p>
+                    </div>
+                    <div class="back">
+                        <a href="https://en.wikipedia.org/wiki/Shrek_the_Third_(video_game)" target="_blank">
+                            <h2 class="mh-100">Shrek the Third</h2>
+                        </a>
+                        <p class="description">Shrek the Third is an action-adventure video game based on the 2007 DreamWorks Animation animated film of the same name, developed by Amaze Entertainment, 7 Studios, Shaba Games and Vicarious Visions.[3] The game was published by Activision in May 2007, for Game Boy Advance, Microsoft Windows, Nintendo DS, Wii, Xbox 360, PlayStation 2 and PlayStation Portable.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="flipper">
+                    <div class="front">
+                        <img height="400" src="https://upload.wikimedia.org/wikipedia/en/d/d1/Sonic_the_Hedgehog_Next-Gen_Box_Art.JPG" alt="RAM Stick">
+                        <p class="caption">Bad game</p>
+                    </div>
+                    <div class="back">
+                        <a href="https://en.wikipedia.org/wiki/Sonic_the_Hedgehog_(2006_video_game)" target="_blank">
+                            <h2>Sonic 06</h2>
+                        </a>
+                        <p class="description">Sonic the Hedgehog[a] (commonly referred to as Sonic '06) is a 2006 platform game developed by Sonic Team and published by Sega. It was produced in commemoration of the Sonic series' 15th anniversary and as a reboot for seventh-generation video game consoles.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="flipper">
+                    <div class="front">
+                        <img height="400" src="https://upload.wikimedia.org/wikipedia/en/c/c2/Sonic_Mean_Bean_Machine.jpg" alt="NVIDIA GPU">
+                        <p class="caption">Weird game</p>
+                    </div>
+                    <div class="back">
+                        <a href="https://en.wikipedia.org/wiki/Dr._Robotnik%27s_Mean_Bean_Machine" target="_blank">
+                            <h2 class="">Mean Bean Machine</h2>
+                        </a>
+                        <p class="description">Dr. Robotnik's Mean Bean Machine is a Westernised version of Puyo Puyo (1991), a Japanese falling-block puzzle game developed by Compile and released for the MSX2 in 1991.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="flipper">
+                    <div class="front">
+                        <img height="400" src="https://media.tenor.com/qTcr4S0GDn4AAAAM/shadow-the-hedgehog.gif" alt="NVIDIA GPU">
+                        <p class="caption">Peace and Love</p>
+                    </div>
+                    <div class="back">
+                        <a href="https://stupid-fanfiction.fandom.com/wiki/Shrek_x_Shadow:_The_final_chapter" target="_blank">
+                            <h2 class="">Peace and Love</h2>
+                        </a>
+                        <p class="description">This beautiful image shows what true peace and harmony is, and what our world could be like without things like hate, and war.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Make sure all your content is above this line ↑↑↑↑↑↑↑↑↑-->
+    </main>
+
+    <!---------------------------------- Begin the footer ------------->
+    <footer>
+        <span class="title d-block">Example of a Footer Title</span>
+        <div class="container py-1" id="footerTable">
+            <ul class="list-unstyled d-flex justify-content-center">
+                <li class="mx-3">
+                    <i class="fa-brands fa-facebook fa-3x" aria-hidden="true"></i>
+                </li>
+                <li class="mx-3">
+                    <i class="fa-brands fa-x-twitter fa-3x" aria-hidden="true"></i>
+                </li>
+                <li class="mx-3">
+                    <i class="fa-brands fa-instagram fa-3x" aria-hidden="true"></i>
+                </li>
+                <li class="mx-3">
+                    <i class="fa-brands fa-github fa-3x" aria-hidden="true"></i>
+                </li>
+                <li class="mx-3">
+                    <i class="fa-brands fa-tiktok fa-3x" aria-hidden="true"></i>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <!---------------------------------- End the footer ------------->
+</body>
+
+</html>
