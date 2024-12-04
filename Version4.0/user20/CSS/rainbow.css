@@ -1,49 +1,27 @@
-
-.background-red:hover {
-	background-color: black;
-  }
-  .background-orange:hover {
-	background-color: black;
-  }
-  .background-yellow:hover {
-	background-color: black;
-  }
-  .background-green:hover {
-	background-color: black;
-  }
-  .background-blue:hover {
-	background-color: black;
-  }
-  .background-indigo:hover {
-	background-color: black;
-  }
-  .background-violet:hover {
-	background-color: black;
-  }
 .background-red {
-    background-color: red;
+  background-color: red;
 }
 
 .background-orange {
-    background-color: orange;
+  background-color: orange;
 }
 
 .background-yellow {
-    background-color: yellow;
+  background-color: yellow;
 }
 
 .background-green {
-    background-color: green;
+  background-color: green;
 }
 
 .background-blue {
-    background-color: blue;
+  background-color: blue;
 }
 
 .background-indigo {
-    background-color: indigo;
+  background-color: indigo;
 }
 
 .background-violet {
-    background-color: violet;
+  background-color: violet;
 }
