@@ -1,21 +1,4 @@
-<html lang="en">
-    <!--Version 4.0 
-	Name:Danyil 
-	Date Completed:dec 5
-    -->
-    <head>
-        
-        <title>Web Development User #04</title>
-    
-    </head>
-    
-    <body>
-        
-        <center>My name is User #04</center>
-    
-    </body>
-
-</html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <!--Version 4.0
         Name:
@@ -24,13 +7,13 @@
 
 <head>
 
-    <title>Hire Me For Your Web Development Needs</title>
+    <title>Gallery</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="SHS WebDev Version 4.0 - Index">
+    <meta name="description" content="SHS WebDev Version 4.0 - Gallery">
 
     <!-- CSS -->
     <!-- Bootstrap -->
@@ -41,6 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <!-- Custom -->
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/gallery.css">
 
     <!-- JavaScript -->
     <!-- These are needed to get the responsive menu to work -->
@@ -48,11 +32,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 
+
     <!-- Custom styles for this template -->
     <style type="text/css">
         footer {
             font-size: 12px;
             text-align: center;
+        }
+        
+        #rainbow {
+            width: 100%;
         }
     </style>
 </head>
@@ -96,68 +85,66 @@
 
     <main class="container-fluid mt-3">
 
-        <h1 class="text-left my-3 title" tabindex="0">Check out my work!</h1>
+        <h1 class="text-left my-3 title" tabindex="0">Check out my favorite images</h1>
         <!-- Edit this line for the title of your page -->
 
         <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Put your content below this line ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
-        <h3 id="topHeading">I'm a Web Developer</h3>
-        <table id="hireButtons">
-            <tr>
-                <td>
-                    <button>Hire me</button>
-                </td>
-                <td>
-                    <button class="button">Hire me</button>
-                </td>
-                <td>
-                    <button class="button button1">Hire me</button>
-                </td>
-                <td>
-                    <button class="button button2">Hire me</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button class="button button2 red">Hire me</button>
-                </td>
-                <td>
-                    <a href="#" class="myButton">twitter</a>                </td>
-                <td>
-                    <!-- New button 2 here-->
-                </td>
-                <td>
-                    <!-- New button 3 here-->
-                </td>
-            </tr>
-        </table>
-        <div class="pt-3">
-            <!-- spacing div-->
 
-            <span class="title title-large">Example of a Heading Title</span>
-
-            <div class="content">
-
-                <p>
-                    Page content..
-                </p>
-
-                <p>
-                    Some more page content..
-                </p>
-
+        <div id="gallery">
+            <p>Hover over the images to get the answer</p>
+            <div class="container">
+                <div class="flipper">
+                    <div class="front">
+                        <img src="https://www.axiomtek.com/Download/Ptype3/en-US/ATX_Motherboard.jpg" alt="ATX_Motherboard">
+                        <p class="caption">Computer Part</p>
+                    </div>
+                    <div class="back">
+                        <a href="https://en.wikipedia.org/wiki/Motherboard" target="_blank">
+                            <h2 class="mh-100">Motherboard</h2>
+                        </a>
+                        <p class="description">A motherboard (also called mainboard, main circuit board, or mobo) is the main printed circuit board (PCB) in general-purpose computers and other expandable systems.</p>
+                    </div>
+                </div>
             </div>
 
-            <p id="morecontent">
-                Even more content
-            </p>
+            <div class="container">
+                <div class="flipper">
+                    <div class="front">
+                        <img src="https://sc04.alicdn.com/kf/H2d9c1b6b8d5748efb5cc2fca2c0ae8e2U.jpg" alt="RAM Stick">
+                        <p class="caption">Computer Part</p>
+                    </div>
+                    <div class="back">
+                        <a href="https://en.wikipedia.org/wiki/Random-access_memory" target="_blank">
+                            <h2>RAM</h2>
+                        </a>
+                        <p class="description">Random-access memory is a form of computer memory that can be read and changed in any order, typically used to store working data and machine code</p>
+                    </div>
+                </div>
+            </div>
 
-            <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Make sure all your content is above this line ↑↑↑↑↑↑↑↑↑-->
+            <div class="container">
+                <div class="flipper">
+                    <div class="front">
+                        <img src="https://www.notebookcheck.net/fileadmin/Notebooks/NVIDIA/Turing/nvidia_TU117_chip.jpg" alt="NVIDIA GPU">
+                        <p class="caption">Computer Part</p>
+                    </div>
+                    <div class="back">
+                        <a href="https://en.wikipedia.org/wiki/Graphics_processing_unit" target="_blank">
+                            <h2 class="">GPU</h2>
+                        </a>
+                        <p class="description">A graphics processing unit (GPU) is a specialized electronic circuit designed to rapidly manipulate and alter memory to accelerate the creation of images in a frame buffer intended for output to a display device.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Make sure all your content is above this line ↑↑↑↑↑↑↑↑↑-->
     </main>
 
     <!---------------------------------- Begin the footer ------------->
     <footer>
-        <span class="title">Example of a Footer Title</span>
-        <div class="container py-4" id="footerTable">
+        <span class="title d-block">Example of a Footer Title</span>
+        <div class="container py-1" id="footerTable">
             <ul class="list-unstyled d-flex justify-content-center">
                 <li class="mx-3">
                     <i class="fa-brands fa-facebook fa-3x" aria-hidden="true"></i>
@@ -180,68 +167,4 @@
     <!---------------------------------- End the footer ------------->
 </body>
 
-</html><!DOCTYPE html>
-<html lang="en">
-<!--Version 4.0
-        Name:
-        Date Completed:
-    -->
-
-<head>
-
-    <title>Web Development Candidates</title>
-
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="SHS WebDev Version 4.0 - Gallery">
-
-    <!-- CSS -->
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Animate -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <!-- Custom -->
-    <link rel="stylesheet" href="CSS/style.css">
-
-    <!-- JavaScript -->
-    <!-- These are needed to get the responsive menu to work -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Custom styles for this template -->
-    <style type="text/css">
-        footer {
-            font-size: 12px;
-            text-align: center;
-        }
-        
-        .card {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-            width: 32%;
-            margin-bottom: .6em;
-        }
-        
-        .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-        }
-        
-        .nameplate {
-            padding: 2px 16px;
-        }
-        
-        .paragraph {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        
-        .orange {
-            color: orange;
-        }
-    </style>
-</head>
-
+</html>

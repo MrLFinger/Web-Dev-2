@@ -1,3 +1,4 @@
+@import url(rainbow.css);
 table {
 	font-family: "Marker Felt", "Comic Sans MS", fantasy;
 	color: #003366;
@@ -94,5 +95,8 @@ h1, h2, h3, h4, h5, h6{
 	background-color: yellow;
   }*{
     text-align:right;
-    border: 2px solid rgb(0, 30, 255);
+    
 }
+td:hover {
+	background-color: black;
+  }
