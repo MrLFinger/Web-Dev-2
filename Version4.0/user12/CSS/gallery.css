@@ -17,7 +17,7 @@
 
 .flipper {
   position: relative;
-  transition: 3s;
+  transition: .75s;
   transform-style:preserve-3d;
 }
 
