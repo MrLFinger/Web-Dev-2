@@ -39,4 +39,26 @@ img {
 .container:hover .flipper {
     transform: rotateY(180deg);
   }
+  a {
+    color: black;
+  }
+  .caption, .back h1 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.7em;
+    padding: 10px 10px 0 10px;
+    margin: 0;
+    text-align: center;
+  }
+  p.caption {
+    position: absolute;
+    bottom: 1vh;
+  }
   
+  .description {
+    font-size: 0.9em;
+    padding: 0 20px 20px 20px;
+    text-align: left;
+  }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap" rel="stylesheet">
