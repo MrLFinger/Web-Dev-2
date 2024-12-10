@@ -62,7 +62,8 @@ a {
   font-size: 1.7em;
   padding: 10px 10px 0 10px;
   margin: 0;
-  text-align: center
+  text-align: center;
+  -webkit-text-fill-color: aquamarine;
 }
 
 p.caption {
@@ -71,37 +72,12 @@ p.caption {
 }
 
 .description {
+  font-family: 'Times New Roman', Times, serif;
   font-size: 0.9em;
   padding: 0 20px 20px 20px;
   text-align: left;
+  -webkit-text-fill-color: rgb(237, 26, 11);
 }
-a {
-    color: black;
-  }
-  .caption, .back h1 {
-    font-family: "Orbitron", sans-serif;
-    font-size: 1.7em;
-    padding: 10px 10px 0 10px;
-    margin: 0;
-    text-align: center;
-  }
-  p.caption {
-    position: absolute;
-    bottom: 1vh;
-  }
-  
-  .description {
-    font-size: 0.9em;
-    padding: 0 20px 20px 20px;
-    text-align: left;
-  }
-  p.caption {
-    position: absolute;
-    bottom: 1vh;
-  }
-  
-  .description {
-    font-size: 0.9em;
-    padding: 0 20px 20px 20px;
-    text-align: left;
-  }
+.designer {
+  font-family:Impact, 'Arial Narrow Bold', sans-serif
+}
