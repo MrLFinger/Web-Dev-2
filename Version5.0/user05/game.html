@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #34373a;
+            color: #ecf0f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .game-container {
+            background-color: #35414e;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 1000px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #ff0000;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        .scoreboard {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .player, .dealer {
+            width: 45%;
+        }
+
+        .cards {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-img {
+            width: 100px;
+            height: 140px;
+            margin: 0 10px;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease;
+        }
+
+        .card-img.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .btn {
+            background-color: #1abc9c;
+            color: white;
+            padding: 12px 30px;
+            margin: 15px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #16a085;
+            transform: scale(1.05);
+        }
+
+        .btn:disabled {
+            background-color: #7f8c8d;
+            cursor: not-allowed;
+        }
+
+        .result {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #f39c12;
+        }
+
+        .card-back {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a2/Red_back_playing_card.jpg');
+            background-size: cover;
+            width: 100px;
+            height: 140px;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        #player-score, #dealer-score {
+            font-weight: bold;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .actions button {
+            font-size: 1.3rem;
+            width: 160px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .game-container {
+                padding: 20px;
+                width: 90%;
+            }
+
+            .card-img {
+                width: 80px;
+                height: 110px;
+            }
+
+            .btn {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <h1>Blackjack</h1>
+
+        <div class="scoreboard">
+            <div class="player">
+                <h3>Your Hand:</h3>
+                <div id="player-cards" class="cards"></div>
+                <p>Score: <span id="player-score">0</span></p>
+            </div>
+
+            <div class="dealer">
+                <h3>Dealer's Hand:</h3>
+                <div id="dealer-cards" class="cards"></div>
+                <p>Score: <span id="dealer-score">0</span></p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button id="hit-btn" class="btn">Hit</button>
+            <button id="stand-btn" class="btn">Stand</button>
+            <button id="new-game-btn" class="btn">New Game</button>
+        </div>
+
+        <div class="result" id="game-result"></div>
+    </div>
+
+    <script>
+        // Game Variables
+        const deck = [];
+        const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
+        const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+        let playerHand = [];
+        let dealerHand = [];
+        let playerScore = 0;
+        let dealerScore = 0;
+        let gameOver = false;
+        let isPlayerTurn = true;
+
+        // Card images for the game (updated)
+        const cardImages = {
+            '2': 'https://example.com/cards/2_of_hearts.png',
+            '3': 'https://example.com/cards/3_of_hearts.png',
+            '4': 'https://example.com/cards/4_of_hearts.png',
+            '5': 'https://example.com/cards/5_of_hearts.png',
+            '6': 'https://example.com/cards/6_of_hearts.png',
+            '7': 'https://example.com/cards/7_of_hearts.png',
+            '8': 'https://example.com/cards/8_of_hearts.png',
+            '9': 'https://example.com/cards/9_of_hearts.png',
+            '10': 'https://example.com/cards/10_of_hearts.png',
+            'J': 'https://example.com/cards/jack_of_hearts.png',
+            'Q': 'https://example.com/cards/queen_of_hearts.png',
+            'K': 'https://example.com/cards/king_of_hearts.png',
+            'A': 'https://example.com/cards/ace_of_hearts.png'
+        };
+
+        // Cache DOM elements
+        const hitBtn = document.getElementById('hit-btn');
+        const standBtn = document.getElementById('stand-btn');
+        const newGameBtn = document.getElementById('new-game-btn');
+        const playerCards = document.getElementById('player-cards');
+        const dealerCards = document.getElementById('dealer-cards');
+        const playerScoreElem = document.getElementById('player-score');
+        const dealerScoreElem = document.getElementById('dealer-score');
+        const gameResultElem = document.getElementById('game-result');
+
+        // Sound Effects
+        const cardSound = new Audio('https://example.com/sounds/card-deal.mp3');
+        const winSound = new Audio('https://example.com/sounds/win.mp3');
+        const loseSound = new Audio('https://example.com/sounds/lose.mp3');
+        const bustSound = new Audio('https://example.com/sounds/bust.mp3');
+
+        // Create deck and shuffle
+        function createDeck() {
+            for (let suit of suits) {
+                for (let value of values) {
+                    deck.push({ suit: suit, value: value, image: cardImages[value] });
+                }
+            }
+        }
+
+        // Shuffle the deck
+        function shuffleDeck() {
+            for (let i = deck.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [deck[i], deck[j]] = [deck[j], deck[i]];
+            }
+        }
+
+        // Card value calculation
+        function cardValue(card) {
+            if (card.value === 'A') return 11;
+            if (['K', 'Q', 'J'].includes(card.value)) return 10;
+            return parseInt(card.value);
+        }
+
+        // Start a new game
+        function startNewGame() {
+            deck.length = 0;
+            createDeck();
+            shuffleDeck();
+            playerHand = [];
+            dealerHand = [];
+            playerScore = 0;
+            dealerScore = 0;
+            gameOver = false;
+            isPlayerTurn = true;
+            gameResultElem.textContent = '';
+
+            hitBtn.disabled = false;
+            standBtn.disabled = false;
+
+            // Deal two cards to player and dealer
+            playerHand.push(deck.pop(), deck.pop());
+            dealerHand.push(deck.pop(), deck.pop());
+
+            updateGame();
+        }
+
+        // Update game display
+        function updateGame() {
+            playerCards.innerHTML = playerHand.map(card => `<img src="${card.image}" class="card-img">`).join('');
+            dealerCards.innerHTML = gameOver ? dealerHand.map(card => `<img src="${card.image}" class="card-img">`).join('') : `<img src="${dealerHand[0].image}" class="card-img flipped"> <div class="card-back"></div>`;
+            playerScoreElem.textContent = playerScore;
+            dealerScoreElem.textContent = dealerScore;
+
+            // Check for Blackjack
+            if (playerScore === 21) {
+                gameResultElem.textContent = 'Blackjack! You win!';
+                winSound.play();
+                endGame();
+            } else if (dealerScore === 21) {
+                gameResultElem.textContent = 'Dealer got Blackjack! You lose.';
+                loseSound.play();
+                endGame();
+            }
+        }
+
+        // Calculate the score of a hand
+        function calculateScore(hand) {
+            let score = hand.reduce((total, card) => total + cardValue(card), 0);
+            let aces = hand.filter(card => card.value === 'A').length;
+
+            while (score > 21 && aces > 0) {
+                score -= 10;
+                aces--;
+            }
+            return score;
+        }
+
+        // Player's turn: Draw a card (Hit)
+        function hit() {
+            if (gameOver || !isPlayerTurn) return;
+            playerHand.push(deck.pop());
+            playerScore = calculateScore(playerHand);
+            cardSound.play();
+
+            if (playerScore > 21) {
+                gameResultElem.textContent = 'You busted! Dealer wins.';
+                bustSound.play();
+                gameOver = true;
+                endGame();
+            }
+
+            updateGame();
+        }
+
+        // Dealer's turn: Draw cards until score is at least 17
+        function dealerTurn() {
+            while (dealerScore < 17) {
+                dealerHand.push(deck.pop());
+                dealerScore = calculateScore(dealerHand);
+                cardSound.play();
+                updateGame();
+            }
+            checkWinner();
+        }
+
+        // Check who won the game
+        function checkWinner() {
+            if (dealerScore > 21) {
+                gameResultElem.textContent = 'Dealer busted! You win!';
+                winSound.play();
+            } else if (playerScore > dealerScore) {
+                gameResultElem.textContent = 'You win!';
+                winSound.play();
+            } else if (playerScore < dealerScore) {
+                gameResultElem.textContent = 'Dealer wins.';
+                loseSound.play();
+            } else {
+                gameResultElem.textContent = 'It\'s a tie!';
+            }
+            endGame();
+        }
+
+        // End the game
+        function endGame() {
+            hitBtn.disabled = true;
+            standBtn.disabled = true;
+            isPlayerTurn = false;
+            dealerTurn();
+        }
+
+        // Stand (Dealer's turn)
+        function stand() {
+            if (gameOver || !isPlayerTurn) return;
+            dealerScore = calculateScore(dealerHand);
+            dealerTurn();
+        }
+
+        // Event listeners
+        hitBtn.addEventListener('click', hit);
+        standBtn.addEventListener('click', stand);
+        newGameBtn.addEventListener('click', startNewGame);
+
+        // Initialize game
+        startNewGame();
+    </script>
+</body>
+</html>
