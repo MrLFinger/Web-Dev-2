@@ -1,0 +1,91 @@
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+// Game constants
+const GRAVITY = 0.5;
+const FRICTION = 0.9;
+const JUMP_STRENGTH = -15;
+const MOVEMENT_SPEED = 5;
+
+// Player properties
+let player = {
+    x: 50,
+    y: 300,
+    width: 50,
+    height: 50,
+    speedX: 0,
+    speedY: 0,
+    grounded: false,
+    jumping: false
+};
+
+// Controls
+let keys = {
+    right: false,
+    left: false,
+    up: false
+};
+
+// Event listeners for keydown and keyup
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') keys.right = true;
+    if (e.key === 'ArrowLeft') keys.left = true;
+    if (e.key === ' ' || e.key === 'ArrowUp') keys.up = true;
+});
+
+document.addEventListener('keyup', (e) => {
+    if (e.key === 'ArrowRight') keys.right = false;
+    if (e.key === 'ArrowLeft') keys.left = false;
+    if (e.key === ' ' || e.key === 'ArrowUp') keys.up = false;
+});
+
+// Game loop
+function update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Handle player movement
+    if (keys.right) {
+        player.speedX = MOVEMENT_SPEED;
+    } else if (keys.left) {
+        player.speedX = -MOVEMENT_SPEED;
+    } else {
+        player.speedX *= FRICTION;
+    }
+
+    // Jumping logic
+    if (keys.up && player.grounded) {
+        player.speedY = JUMP_STRENGTH;
+        player.grounded = false;
+        keys.up = false;
+    }
+
+    // Apply gravity
+    if (!player.grounded) {
+        player.speedY += GRAVITY;
+    }
+
+    // Collision detection with ground (simple floor)
+    if (player.y + player.height >= canvas.height - 50) {
+        player.y = canvas.height - 50 - player.height;
+        player.speedY = 0;
+        player.grounded = true;
+    }
+
+    // Update player position
+    player.x += player.speedX;
+    player.y += player.speedY;
+
+    // Keep the player within the canvas boundaries
+    if (player.x < 0) player.x = 0;
+    if (player.x + player.width > canvas.width) player.x = canvas.width - player.width;
+
+    // Draw the player (Mario-like)
+    ctx.fillStyle = 'red';
+    ctx.fillRect(player.x, player.y, player.width, player.height);
+
+    // Request the next frame
+    requestAnimationFrame(update);
+}
+
+// Start the game
+update();
