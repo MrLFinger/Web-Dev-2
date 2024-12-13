@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--Version 4.0
-        Name:
+        Name: finger
+        
         Date Completed:
     -->
 
@@ -40,10 +41,29 @@
             font-size: 12px;
             text-align: center;
         }
-        
+
         #rainbow {
             width: 100%;
         }
+
+        #knowledge>* {
+            border: 3px red solid;
+        }
+
+        p+* {
+            background-color: #FFFF00;
+        }
+
+        div li * ::marker {
+            color: rgb(0, 34, 255);
+        }
+
+        div li * ::marker {
+            content: "✅";
+        }
+        div li>* :hover {
+	background-color: rgba(0, 0, 0, 0.335);
+  }
     </style>
 </head>
 
@@ -72,7 +92,8 @@
                         <a href="gallery.html" class="nav-link">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a href="mailto:sample@gmail.com?Subject=Hello" class="nav-link disabled" tabindex="-1">Contact</a>
+                        <a href="mailto:sample@gmail.com?Subject=Hello" class="nav-link disabled"
+                            tabindex="-1">Contact</a>
                     </li>
                     <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Edit These Items in your NavBar ↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
                 </ul>
