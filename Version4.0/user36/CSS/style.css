@@ -1,3 +1,4 @@
+@import url(rainbow.css);
 .button {
 	background-color: #4CAF50;
 	border: none;
@@ -20,7 +21,7 @@
 }
 
 .red {
-< main>
+
 	background-color: #ed0101;
 }
 
@@ -38,12 +39,21 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .button9{
-	background-color: aqua;
+	background-color: rgb(33, 143, 143);
 }
 
-.button5{background-color: beige;}
+.button5{background-color: rgb(197, 197, 25);}
 
-.button7{background-color: #10ae8a;}
+.button7{background-color: #5a3e9b;}
+
+.button10{background-color: azure;}
+
+.button1{background-color: #45180d;}
+
+.button2{background-color: #570a43;}
+
+.button3{background-color: rgb(11, 60, 61);}
+
 
 .title{
 	color: red;
@@ -67,33 +77,11 @@ h1, h2, h3, h4, h5, h6{
 	border-radius: 20%;
 }
 
-	#footerTable {background-color: #ed0101;
-	}
 
 	*{
 		color: rgb(152, 101, 38);
-	transform: rotate(.5deg);
+	
 	}
-#card {width: 100%;}
-=======
-	background-color: #ff0000;
-}
+	#card {width: 100%;}
 
-td {
-	padding: 20px;
-}
-
-table {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	text-align: center;
-}
-< main>
+	

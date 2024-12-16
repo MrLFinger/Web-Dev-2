@@ -1,10 +1,9 @@
-@import url(https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap);
-* {
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat+Underline:ital,wght@0,100..900;1,100..900&family=Yuji+Mai&display=swap');* {
   box-sizing: border-box;
 }
 
 #gallery {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Bodoni Moda SC", sans-serif;
   line-height: 1.5em;
   text-align: center;
 }
@@ -17,8 +16,8 @@
 
 .flipper {
   position: relative;
-  transition: 0.6s;
-  transform-style: preserve-3d;
+  transition: 3s;
+  transform-style:preserve-3d;
 }
 
 .front, .back {
@@ -57,7 +56,7 @@ a {
 }
 
 .caption, .back h1 {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Bodoni Moda SC", sans-serif;
   font-size: 1.7em;
   padding: 10px 10px 0 10px;
   margin: 0;
