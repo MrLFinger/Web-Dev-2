@@ -1,3 +1,23 @@
+@import url(rainbow.css);
+
+#knowledge > * {
+	border: 3px red solid;
+  }
+  p + * {
+	background-color: #FFFF00;
+  }
+  div li::marker{
+	color: red;
+  }
+  div li::marker{
+	content:"🌚🌚🌚 ";
+  }
+  td:hover {
+	background-color: rgb(127, 214, 92);
+  }
+  p:first-child i {
+	color: blue;
+  }
 table {
 	font-family: "Marker Felt", "Comic Sans MS", fantasy;
 	color: #003366;

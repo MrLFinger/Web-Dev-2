@@ -1,7 +1,8 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css">
 <!DOCTYPE html>
 <html lang="en">
 <!--Version 5.0
-    Name:Andrew Johnson
+    Name:
     Date Completed:
 -->
 
@@ -40,116 +41,54 @@
         .demo-content {
             padding: 15px;
             font-size: 18px;
-            background: #2bff00;
+            background: #dbdfe5;
             margin-bottom: 15px;
         }
         
         .demo-content.bg-alt {
-            background: #0077ff;
+            background: #abb1b8;
         }
-        .table-striped > tbody > tr:nth-of-type(odd) > * {
-  --bs-table-color-type: var(--bs-table-striped-color);
-  --bs-table-bg-type: rgba(0, 255, 0, 0.3)
-}
     </style>
 
     <body>
         <!---------------------------------- Begin the nav-bar ----------------------------------->
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Navigation Bar</title>
-            <style>
-                body {
-                    margin: 0;
-                    font-family: Arial, sans-serif;
-                }
-                .navbar {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    background-color: black;
-                    padding: 0.5rem 1rem;
-                }
-                .navbar a {
-                    color: red;
-                    text-decoration: none;
-                    padding: 0.5rem 1rem;
-                    transition: background-color 0.3s;
-                }
-                .navbar a:hover {
-                    background-color: #575757;
-                }
-                .navbar .logo {
-                    font-size: 1.5rem;
-                    font-weight: bold;
-                    color: red;
-                }
-                .navbar .nav-links {
-                    display: flex;
-                }
-                .navbar .nav-links a {
-                    margin: 0 0.5rem;
-                }
-                .hamburger {
-                    display: none;
-                    flex-direction: column;
-                    cursor: pointer;
-                }
-                .hamburger div {
-                    width: 25px;
-                    height: 3px;
-                    background-color: red;
-                    margin: 3px 0;
-                }
-                @media (max-width: 768px) {
-                    .navbar .nav-links {
-                        display: none;
-                        flex-direction: column;
-                        background-color: black;
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        width: 100%;
-                    }
-                    .navbar .nav-links.active {
-                        display: flex;
-                    }
-                    .hamburger {
-                        display: flex;
-                    }
-                }
-            </style>
-        </head>
-        <body>
-        
-            <nav class="navbar">
-                <div class="logo">MyWebsite</div>
-                <div class="nav-links">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Services</a>
-                    <a href="#">Contact</a>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a href="http://shakonet.isd720.com" class="navbar-brand">WebDev</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav me-auto">
+                        <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Edit These Items in your NavBar ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Link
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="mailto:sample@gmail.com?Subject=Hello" class="nav-link disabled" tabindex="-1">Contact</a>
+                        </li>
+                        <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Edit These Items in your NavBar ↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-primary" type="button">Login</button>
+                    </form>
                 </div>
-                <div class="hamburger" onclick="toggleMenu()">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </nav>
-        
-            <script>
-                function toggleMenu() {
-                    const navLinks = document.querySelector('.nav-links');
-                    navLinks.classList.toggle('active');
-                }
-            </script>
-        
-        </body>
-        </html>
-        
+            </div>
+        </nav>
         <!---------------------------------- End the nav-bar ------------------------------------->
         <!---------Jumbotron---------------------------------------------->
         <header class="p-5 bg-primary-subtle text-black" name="Jumbotron">
@@ -215,65 +154,20 @@
 
             <!---------Table-Striped------------------------------------------->
             <div class="container mt-3" name="table-striped">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Row</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Clark</td>
-                            <td>Kent</td>
-                            <td>clarkkent@mail.com</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>John</td>
-                            <td>Carter</td>
-                            <td>johncarter@mail.com</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Peter</td>
-                            <td>Parker</td>
-                            <td>peterparker@mail.com</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
 
             <!---------List-Group---------------------------------------------->
             <div class="container mt-3" name="list-group">
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action active">
-                        <i class="fa fa-home"></i> Home
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fa fa-camera"></i> Pictures <span class="badge bg-secondary badge-pill badge-primary pull-right active">145</span>
-                    </a>
-                    <a href="https://www.spotify.com/" target="_blank" class="list-group-item list-group-item-action">
-                        <i class="fa fa-music"></i> Music <span class="badge bg-secondary badge-pill badge-primary pull-right active">50</span>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fa fa-film"></i> Videos <span class="badge bg-secondary badge-pill badge-primary pull-right">8</span>
-                    </a>
-                </div>
             </div>
 
             <!---------Form Button--------------------------------------------->
             <div class="container mt-3 vstack" name="form-button">
-                <a href="form.html" class="btn btn-success btn-lg" role="button" aria-pressed="true">Form Page</a>
             </div>
         </main>
 
         <!---------------------------------- Begin the footer ------------------------------------->
-       <!-- Footer -->
-<footer class="footer" class="text-center text-lg-start bg-body-tertiary text-muted">
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
     <!-- Section: Social media -->
     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
       <!-- Left -->
@@ -316,10 +210,10 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3"></i>Web Dev
+              <i class="fas fa-gem me-3"></i>Dope Startup
             </h6>
             <p>
-                Web development is creating, designing, and maintaining websites or web applications using coding languages like HTML, CSS, JavaScript, and backend frameworks to ensure functionality, performance, and user engagement.
+              Please click on my links, I promise there is nothing weird hidden in there!
             </p>
           </div>
           <!-- Grid column -->
@@ -328,19 +222,19 @@
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">
-              Other Versions
+              Products
             </h6>
             <p>
-              <a href="http://127.0.0.1:5500/Version1.0/webDevUser10.html" target="_blank" class="text-reset">Version 1</a>
+              <a href="https://sadxmodinstaller.unreliable.network" class="text-reset">Dope stuff</a>
             </p>
             <p>
-              <a href="http://127.0.0.1:5500/Version2.0/webDevUser10.html" target="_blank" class="text-reset">Version 2</a>
+              <a href="https://whatismyipaddress.com/" class="text-reset">Cool stuff</a>
             </p>
             <p>
-              <a href="http://127.0.0.1:5500/Version3.0/user10/music.html" target="_blank" class="text-reset">Version 3</a>
+              <a href="https://www.lingscars.com/" class="text-reset">Weird stuff</a>
             </p>
             <p>
-              <a href="http://127.0.0.1:5500/Version4.0/user10/index.html" target="_blank" class="text-reset">Version 4</a>
+              <a href="https://optical.toys/" class="text-reset">Intersting stuff</a>
             </p>
           </div>
           <!-- Grid column -->
@@ -352,16 +246,16 @@
               Useful links
             </h6>
             <p>
-              <a href="#!" class="text-reset">Home</a>
+              <a href="https://www.usdebtclock.org/" class="text-reset">Pricing</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Help</a>
+              <a href="https://www.reddit.com/r/softwaregore/comments/a1d6tu/guys_i_think_im_addicted_to_settings/" class="text-reset">Settings</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Login</a>
+              <a href="https://images.squarespace-cdn.com/content/v1/5dba169fbbf89c515397661d/1633442669115-41JGDPMVIBOB7Q9K6JDG/Sale+meme.jpg" class="text-reset">Orders</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Singles In Your Area</a>
+              <a href="https://www.youtube.com/watch?v=l60MnDJklnM" class="text-reset">Help</a>
             </p>
           </div>
           <!-- Grid column -->
@@ -370,13 +264,12 @@
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-            <p><i class="fas fa-home me-3"></i> Shakopee MN</p>
+            <p><i class="fas fa-home me-3"></i> Old York, OY 10012, UK</p>
             <p>
               <i class="fas fa-envelope me-3"></i>
-              305626@shakopeeschools.org
+              jenny@email.com
             </p>
-            <p><i class="fas fa-phone me-3"></i>612-400-2936</p>
-            <p><i class="fas fa-print me-3"></i>N/A</p>
+            <p><i class="fas fa-phone me-3"></i> + (320) 867 5309</p>
           </div>
           <!-- Grid column -->
         </div>
@@ -384,6 +277,13 @@
       </div>
     </section>
     <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2021 Copyright:
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
   </footer>
   <!-- Footer -->
         <!---------------------------------- End the footer --------------------------------------->
