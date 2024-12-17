@@ -1,16 +1,176 @@
-.n {
-	box-shadow: 0px 10px 14px -7px #3e7327;
-	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
-	background-color:#77b55a;
-	border-radius:4px;
-	border:1px solid #4b8f29;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:12px;
-	font-weight:bold;
-	padding:10px 25px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #5b8a3c;
+body {
+	margin: 0;
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	background-color: black;
 }
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: black;
+	padding: 10px 20px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.navbar .logo {
+	font-size: 24px;
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
+}
+
+.navbar .nav-links {
+	list-style: none;
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar .nav-links li {
+	margin: 0 15px;
+}
+
+.navbar .nav-links a {
+	text-decoration: none;
+	color: white;
+	font-size: 16px;
+	transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+	color: #d4d4d4;
+}
+
+.banner {
+	background: url('https://static.vecteezy.com/system/resources/previews/020/328/693/non_2x/3d-white-particle-wave-pattern-on-a-black-background-digital-abstract-background-can-be-applied-for-web-design-website-wallpaper-banner-or-cover-illustration-vector.jpg') no-repeat center center/cover;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	text-align: center;
+}
+
+.banner h1 {
+	font-size: 48px;
+	margin: 0;
+}
+
+footer {
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+  }
+  .foottable {
+	width: 100%;
+	margin: 0 auto;
+	border-spacing: 10px;
+  }
+  .tablerow {
+	text-align: left;
+	vertical-align: top;
+  }
+  .footer-bottom {
+	margin-top: 20px;
+	font-size: 0.9em;
+  }
+
+  .storytxt {
+	color: white;
+  }
+
+.container {
+  padding: 16px;
+  color: white;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+a {
+  color: dodgerblue;
+}
+
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+#gallery {
+    font-family: "Orbitron", sans-serif;
+    line-height: 1.5em;
+    text-align: center;
+  }
+  .container {
+    display: inline-block;
+    margin: 3%;
+    perspective: 1000px;
+}
+.flipper {
+    position: relative;    
+    transition: 0.6s;
+    transform-style: preserve-3d;
+}
+.front, .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 320px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    backface-visibility: hidden;
+}
+.front{
+    z-index:2;
+}
+
+.back{
+    transform:rotateY(180deg);
+}
+img {
+    width: 100%;
+  }
+  .container, .front, .back {
+    width: 250px;
+    height: 320px;
+}
+.container:hover .flipper {
+    transform: rotateY(180deg);
+  }
