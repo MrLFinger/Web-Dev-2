@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Underline:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Yuji+Mai&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -506,4 +507,9 @@ body {
 /* Add a smooth transition for the navbar links */
 .navbar a {
     transition: 0.3s ease;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
