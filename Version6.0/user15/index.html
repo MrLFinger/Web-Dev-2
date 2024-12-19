@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href=
+    "https://i5.walmartimages.com/seo/Disney-Pixar-Cars-Track-Talkers-Lightning-McQueen-Talking-Toy-Car-5-5-inch-Collectible_39dc9e8e-46db-4c94-901b-169561d879a6.96d0b1baad1d973200ac2517b9d4411f.jpeg" 
+              type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Stolen Cars</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #ff0000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+        }
+
+        /* Navbar styling */
+        nav {
+            background-color: #ff0000;
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        nav ul li {
+            padding: 14px 20px;
+        }
+
+        nav ul li a {
+    color: white;               /* White text */
+    text-decoration: none;      /* Remove underline from links */
+    padding: 10px 20px;         /* Padding inside the link */
+    border-radius: 12px;        /* Smooth corners for the navbar items */
+    transition: background-color 1s;  /* Smooth color transition */
+    display: inline-block;      /* Make the links behave like a block */
+    font-size: 1.2rem;          /* Set font size */
+    text-align: center;         /* Center the text */
+}
+
+
+        nav ul li a:hover {
+            background-color: #000000;
+        }
+
+        /* Main content styling */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+
+        .vehicle-card {
+            background-color: rgb(255, 0, 0);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            margin: 15px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .vehicle-card:hover {
+            transform: scale(1.1);
+        }
+
+        .vehicle-card img {
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .vehicle-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .vehicle-info h3 {
+            color: #fff8f8;
+        }
+
+        .vehicle-info p {
+            color: #ffffff;
+        }
+
+        .vehicle-info .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .cta-button {
+    background-color: #ff0000;  /* Red background */
+    color: white;               /* White text */
+    padding: 10px 20px;         /* Padding inside the button */
+    text-decoration: none;      /* Remove underline from links */
+    border-radius: 12px;        /* Smooth corners (more rounded) */
+    transition: background-color 1s;  /* Smooth color transition */
+    display: inline-block;      /* Ensure it's displayed like a block, but in-line */
+    font-size: 1rem;            /* Set the font size */
+    text-align: center;         /* Center the text */
+}
+
+.cta-button:hover {
+    background-color: #cc0000;  /* Darker red on hover */
+}
+
+
+        .cta-button:hover {
+            background-color: #000000;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #ff0000;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Not Stolen Cars</h1>
+        <p>Find your Favorite Lightly Used Cars Today</p>
+     <p>Featured cars</p>
+    </header>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="inventory.html">Inventory</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Vehicle Card 1 -->
+        <div class="vehicle-card">
+            <img src="https://robbreport.com/wp-content/uploads/2020/11/6-11.jpg" alt=LamboSTO.png>
+            <div class="vehicle-info">
+                <h3>2020 Lamborghini STO</h3>
+                <p>Pricy super car with very good track specs.</p>
+                <p class="price">$327,838</p>
+                <a href="lambo.html" class="cta-button">Buy Now!</a>
+            </div>
+        </div>
+
+        <!-- Vehicle Card 2 -->
+        <div class="vehicle-card">
+            <img src="https://media.ed.edmunds-media.com/dodge/charger/2018/oem/2018_dodge_charger_sedan_daytona-392_fq_oem_1_1600.jpg" alt="Car Image">
+            <div class="vehicle-info">
+                <h3>2018 Dodge Charger</h3>
+                <p>Sporty sedan with powerful V8 engine and sleek design.</p>
+                <p class="price">$26,800</p>
+                <a href="charger.html" class="cta-button">Buy Now!</a>
+            </div>
+        </div>
+
+        <!-- Vehicle Card 3 -->
+        <div class="vehicle-card">
+            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSLmZUcgZP9UzkvL-tj-CLvH2RhPKyyYJ_sZXDy9ESjPjMjfAhG" alt="Car Image">
+            <div class="vehicle-info">
+                <h3>2019 subaru WRX</h3>
+                <p>Powerful Sedan With 2.5L 4 cylinder with a sleek design </p>
+                <p class="price">$37,000</p>
+                <a href="wrx.html" class="cta-button">Buy Now!</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Not Stolen Cars | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
