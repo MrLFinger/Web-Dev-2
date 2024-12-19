@@ -1,23 +1,147 @@
-<section id="newest-car">
-    <h2>Newest Car: Tesla Model S Plaid</h2>
-    <div class="car-details">
-        <img src="https://via.placeholder.com/800x400?text=Newest+Car" alt="Tesla Model S Plaid">
-        <p>The Tesla Model S Plaid redefines speed, luxury, and innovation. With a 0-60 mph time under 2 seconds, this electric car offers unparalleled performance while maintaining Tesla's commitment to sustainability.</p>
-    </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newest Car: Tesla Model S Plaid</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+        }
 
-<!-- Contact Section -->
-<section id="contact">
-    <h2>Contact Us</h2>
-    <p>Reach out for more information!</p>
-    <form>
-        <input type="text" id="name" placeholder="Your Name">
-        <input type="email" id="email" placeholder="Your Email">
-        <textarea id="message" rows="5" placeholder="Your Message"></textarea>
-        <button type="submit">Submit</button>
-    </form>
-</section>
+        h1, h2 {
+            color: #2c3e50;
+        }
 
-<button id="backToTop" onclick="scrollToTop()">↑</button>
+        a {
+            text-decoration: none;
+            color: #3498db;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Layout Styles */
+        header {
+            background: #3498db;
+            color: #fff;
+            padding: 20px 10px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-section img {
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .content > div {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .features ul, .specifications ul {
+            list-style-type: disc;
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            background: #2c3e50;
+            color: #fff;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Newest Car: Tesla Model S Plaid</h1>
+    </header>
+
+    <section class="image-section">
+        <img src="https://via.placeholder.com/1200x600?text=Tesla+Model+S+Plaid" alt="Tesla Model S Plaid">
+    </section>
+
+    <section>
+        <h2>About the Tesla Model S Plaid</h2>
+        <p>The Tesla Model S Plaid is the latest innovation in electric vehicles, offering groundbreaking performance, luxurious design, and cutting-edge technology. Known for its unparalleled acceleration, reaching 0-60 mph in under 2 seconds, it has set a new standard for electric vehicles worldwide.</p>
+    </section>
+
+    <section class="content">
+        <div class="features">
+            <h2>Key Features</h2>
+            <ul>
+                <li>Top speed of 200 mph</li>
+                <li>Range of up to 396 miles on a single charge</li>
+                <li>Three-motor all-wheel-drive system</li>
+                <li>17-inch cinematic display with a gaming computer</li>
+                <li>Full self-driving capabilities (available as an option)</li>
+                <li>Luxurious interior with ventilated seats</li>
+            </ul>
+        </div>
+
+        <div class="specifications">
+            <h2>Specifications</h2>
+            <ul>
+                <li>Battery: 100 kWh lithium-ion</li>
+                <li>Horsepower: Over 1,000 HP</li>
+                <li>Torque: Instant electric torque</li>
+                <li>Charging: Supercharging network compatible</li>
+                <li>Wheels: 19" or 21" aluminum-alloy wheels</li>
+                <li>Weight: 4,766 lbs</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Additional Information</h2>
+        <p>The Tesla Model S Plaid is designed for drivers seeking peak performance, with industry-leading aerodynamics and advanced thermal management systems. Tesla continues to redefine what an electric car can achieve by blending efficiency and power in one sleek package.</p>
+        <p>With over-the-air software updates, the Model S Plaid ensures that your car gets better with time, delivering new features and optimizations without needing a visit to the service center.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Tesla, Inc. All rights reserved. <a href="https://www.tesla.com/models" target="_blank">Learn More</a></p>
+    </footer>
 </body>
 </html>
