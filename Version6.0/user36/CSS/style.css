@@ -1,0 +1,16 @@
+/* styles.css */
+
+/* Box Model Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+/* Custom
+
