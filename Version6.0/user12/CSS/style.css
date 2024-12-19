@@ -1,0 +1,59 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #681c6e;
+    color: white;
+    
+}
+
+header {
+    background-color: #808080;
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin: 20px 0;
+}
+
+#hellcat, #demon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#hellcat img, #demon img {
+    width: 45%;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+footer {
+    background-color: #808080;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
