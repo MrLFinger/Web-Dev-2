@@ -1,0 +1,28 @@
+.centeredtext {
+    text-align: center;
+    font: impact;
+}
+
+.footer {
+    margin:0px;
+}
+
+.body {
+    color: #0088ff;
+    text-align: center;
+    min-height: 10000px;
+    text-shadow: 0 0 5px #178df4,
+    0 0 10px #1a69ae,
+    0 0 20px rgb(33, 165, 195),
+    0 0 30px rgb(14, 153, 223),
+    0 0 40px rgb(24, 147, 199),
+    0 0 55px rgb(29, 114, 211),
+    0 0 70px rgb(53, 77, 232);
+    background-image: linear-gradient(to bottom right, rgb(4, 0, 255), rgb(25, 2, 7));
+    font-style: italic;
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(sansation_light.woff);
+  }
