@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Blast - Ultimate Edition</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            color: white;
+        }
+
+        .game-container {
+            position: relative;
+            width: 80%;
+            height: 80%;
+            background: #222;
+            border: 5px solid #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .block, .power-up {
+            position: absolute;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .block {
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, #61dafb, #21a1f1);
+            border: 2px solid #1b6ca8;
+            transition: transform 0.2s, box-shadow 0.2s;
+            animation: bounce 3s infinite ease-in-out;
+        }
+
+        .block:hover {
+            transform: scale(1.3);
+            box-shadow: 0 0 30px #61dafb, 0 0 50px #21a1f1;
+        }
+
+        .power-up {
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, gold, orange);
+            border: 2px solid #e0a800;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 10px gold; }
+            50% { transform: scale(1.2); box-shadow: 0 0 20px orange; }
+        }
+
+        .info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .leaderboard {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+
+        .game-over {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .game-over button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .game-over button:hover {
+            background-color: #21a1f1;
+        }
+
+        .timer-warning {
+            color: red;
+            font-weight: bold;
+        }
+
+        .start-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .start-screen button {
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .start-screen button:hover {
+            background-color: #21a1f1;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="start-screen" id="startScreen">
+        <h1>Welcome to Block Blast!</h1>
+        <p>Can you achieve the highest score?</p>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <div class="game-container" id="gameContainer">
+        <div class="info" id="info">Score: 0 | Time: 30</div>
+        <div class="leaderboard" id="leaderboard"></div>
+    </div>
+
+    <script>
+        const gameContainer = document.getElementById('gameContainer');
+        const infoDisplay = document.getElementById('info');
+        const leaderboardDisplay = document.getElementById('leaderboard');
+        const startScreen = document.getElementById('startScreen');
+
+        let score = 0;
+        let timeLeft = 30;
+        let blockCount = 5;
+        let isDoublePoints = false;
+        let interval;
+        let spawnInterval = 2000;
+        let blocks = [];
+
+        const clickSound = new Audio('https://freesound.org/data/previews/337/337049_3248244-lq.mp3');
+        const powerUpSound = new Audio('https://freesound.org/data/previews/250/250629_4486188-lq.mp3');
+        const gameOverSound = new Audio('https://freesound.org/data/previews/250/250629_4486188-lq.mp3');
+
+        const getRandomPosition = () => ({
+            x: Math.random() * (gameContainer.offsetWidth - 50),
+            y: Math.random() * (gameContainer.offsetHeight - 50),
+        });
+
+        const createBlock = () => {
+            const block = document.createElement('div');
+            block.classList.add('block');
+            const { x, y } = getRandomPosition();
+            block.style.left = `${x}px`;
+            block.style.top = `${y}px`;
+
+            block.addEventListener('click', () => {
+                clickSound.play();
+                block.remove();
+                score += isDoublePoints ? 2 : 1;
+                updateInfo();
+            });
+
+            gameContainer.appendChild(block);
+            blocks.push(block);
+            setTimeout(() => block.remove(), spawnInterval);
+        };
+
+        const updateInfo = () => {
+            infoDisplay.textContent = `Score: ${score} | Time: ${timeLeft}`;
+            if (timeLeft < 10) infoDisplay.classList.add('timer-warning');
+            else infoDisplay.classList.remove('timer-warning');
+        };
+
+        const startGame = () => {
+            startScreen.style.display = 'none';
+            score = 0;
+            timeLeft = 30;
+            updateInfo();
+            interval = setInterval(() => {
+                timeLeft--;
+                if (timeLeft <= 0) endGame();
+                updateInfo();
+            }, 1000);
+
+            setInterval(createBlock, spawnInterval);
+        };
+
+        const endGame = () => {
+            clearInterval(interval);
+            gameOverSound.play();
+            gameContainer.innerHTML = `
+                <div class="game-over">
+                    <p>Game Over!</p>
+                    <p>Your Score: ${score}</p>
+                    <button onclick="location.reload()">Restart</button>
+                </div>`;
+        };
+    </script>
+</body>
+</html>

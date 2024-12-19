@@ -1,52 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--Version 5.0
-    Name:
-    Date Completed:
--->
-
 <head>
-    <title>Confirmation</title>
-
-    <!-- Confirmation meta data -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Confirmation">
-
-    <!-- CSS -->
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Animate -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <!-- Custom -->
-    <link rel="stylesheet" href="CSS/style.css">
-
-    <!-- JavaScript -->
-    <!-- These are needed to get the responsive menu to work -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Custom styles for this template -->
-    <style type="text/css">
-        i {
-            width: 60px;
-            height: 60px;
-            border-radius: 60px;
-            line-height: 62px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Game with Transparent Ground</title>
+  <style>
+    body { margin: 0; overflow: hidden; cursor: none; }
+    canvas { display: block; }
+    #crosshair {
+      position: absolute;
+      top: 50%; 
+      left: 50%; 
+      width: 30px; 
+      height: 30px;
+      border: 2px solid white; 
+      border-top: none; 
+      border-left: none;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+  </style>
 </head>
+<body>
+  <div id="crosshair"></div>
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
 
-<body class="mt-5">
-    <main class="text-center text-success pb-3">
-        <i class="icon-box text-success bg-light d-inline-block fs-2"><span class="fa-regular fa-circle-check" aria-hidden="true"></span></i>
-        <h1 class="fw-bold">Confirmation</h1>
-        <p class="fs-5 text-secondary">Form submitted successfully. It's just for testing purpose, data not saved.</p>
-    </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <script>
+    let scene, camera, renderer, ground, sun, birds = [];
+    let movementSpeed = 0.1;  // Speed of movement
+    let mouseX = 0, mouseY = 0; // Mouse position for camera look
+    let isMoving = { forward: false, backward: false, left: false, right: false };  // Movement flags
+
+    // Initialize scene, camera, renderer
+    function init() {
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      camera.position.set(0, 1.8, 5);  // Start position of the camera
+      scene.add(camera);
+
+      // Set the sky color to blue
+      scene.background = new THREE.Color(0x87CEEB);  // Light blue sky
+
+      // Add light (sunlight)
+      let light = new THREE.DirectionalLight(0xffffff, 1);
+      light.position.set(1, 10, 1).normalize();
+      scene.add(light);
+
+      // Create ground (green grass) with transparency
+      let groundGeometry = new THREE.PlaneGeometry(1000, 1000);
+      let groundTexture = new THREE.TextureLoader().load('https://www.transparenttextures.com/patterns/asfalt.png'); // You can change to any grass texture URL
+      let groundMaterial = new THREE.MeshBasicMaterial({ 
+        map: groundTexture,
+        transparent: true,
+        opacity: 0.5,
+        side: THREE.DoubleSide
+      });
+      ground = new THREE.Mesh(groundGeometry, groundMaterial);
+      ground.rotation.x = Math.PI / 2;
+      scene.add(ground);
+
+      // Create sun
+      let sunGeometry = new THREE.SphereGeometry(3, 32, 32);
+      let sunMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFF00 });
+      sun = new THREE.Mesh(sunGeometry, sunMaterial);
+      sun.position.set(20, 30, 0);
+      scene.add(sun);
+
+      // Create transparent trees
+      createTrees();
+
+      // Create birds
+      createBirds();
+
+      // Event listeners for mouse and keyboard
+      window.addEventListener('mousemove', onMouseMove);
+      window.addEventListener('keydown', onKeyDown);
+      window.addEventListener('keyup', onKeyUp);
+      window.addEventListener('resize', onWindowResize);
+
+      animate();
+    }
+
+    // Handle window resizing
+    function onWindowResize() {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    }
+
+    // Mouse movement for camera look
+    function onMouseMove(event) {
+      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+      mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+      camera.rotation.y = mouseX * Math.PI;  // Horizontal mouse movement
+      camera.rotation.x = mouseY * Math.PI / 4;  // Vertical mouse movement
+    }
+
+    // Keydown event for moving the camera
+    function onKeyDown(event) {
+      if (event.key === 'w') isMoving.forward = true; // Move forward
+      if (event.key === 's') isMoving.backward = true; // Move backward
+      if (event.key === 'a') isMoving.left = true; // Move left
+      if (event.key === 'd') isMoving.right = true; // Move right
+    }
+
+    // Keyup event to stop moving the camera
+    function onKeyUp(event) {
+      if (event.key === 'w') isMoving.forward = false;
+      if (event.key === 's') isMoving.backward = false;
+      if (event.key === 'a') isMoving.left = false;
+      if (event.key === 'd') isMoving.right = false;
+    }
+
+    // Update camera position based on movement
+    function updateMovement() {
+      if (isMoving.forward) camera.position.z -= movementSpeed;
+      if (isMoving.backward) camera.position.z += movementSpeed;
+      if (isMoving.left) camera.position.x -= movementSpeed;
+      if (isMoving.right) camera.position.x += movementSpeed;
+    }
+
+    // Create transparent trees
+    function createTrees() {
+      for (let x = -10; x < 10; x++) {
+        for (let z = -10; z < 10; z++) {
+          if (Math.random() > 0.7) {
+            let trunk = new THREE.Mesh(
+              new THREE.CylinderGeometry(1, 1, 10),
+              new THREE.MeshBasicMaterial({ color: 0x8B4513, transparent: true, opacity: 0.6 })
+            );
+            trunk.position.set(x * 5, 5, z * 5);
+            scene.add(trunk);
+
+            let leaves = new THREE.Mesh(
+              new THREE.SphereGeometry(4),
+              new THREE.MeshBasicMaterial({ color: 0x228B22, transparent: true, opacity: 0.4 })
+            );
+            leaves.position.set(x * 5, 15, z * 5);
+            scene.add(leaves);
+          }
+        }
+      }
+    }
+
+    // Create birds
+    function createBirds() {
+      for (let i = 0; i < 5; i++) {
+        let bird = new THREE.Mesh(new THREE.SphereGeometry(0.2), new THREE.MeshBasicMaterial({ color: 0x000000 }));
+        bird.position.set(Math.random() * 50 - 25, Math.random() * 30 + 10, Math.random() * 50 - 25);
+        bird.velocity = new THREE.Vector3(Math.random() * 0.1 - 0.05, Math.random() * 0.05 - 0.025, Math.random() * 0.1 - 0.05);
+        birds.push(bird);
+        scene.add(bird);
+      }
+    }
+
+    // Update birds movement
+    function updateBirds() {
+      birds.forEach(bird => {
+        bird.position.add(bird.velocity);
+        if (bird.position.x > 30 || bird.position.x < -30) bird.velocity.x *= -1;
+        if (bird.position.y > 40 || bird.position.y < 10) bird.velocity.y *= -1;
+        if (bird.position.z > 30 || bird.position.z < -30) bird.velocity.z *= -1;
+      });
+    }
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Update camera movement
+      updateMovement();
+
+      // Update birds movement
+      updateBirds();
+
+      // Render the scene
+      renderer.render(scene, camera);
+    }
+
+    // Initialize the scene
+    init();
+  </script>
 </body>
-
 </html>
