@@ -19,7 +19,56 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+div#face {
+    width: 400vw;
+    height: 180vw;
+    max-width: 4000px;
+    max-height: 1800px;
+    margin: 0 auto;
+    position: relative;
+    background: palegreen;
+    margin-top: 2rem;
+}
 
+div#face, div#face * {
+    border-radius: 90%;
+}
+
+.eye {
+    width: 25%;
+    height: 25%;
+    background: #9cbae1;
+    position: absolute;
+    top: 20%;
+}
+
+.left.eye {
+    left: 7%;
+}
+
+.right.eye {
+    right: 84%;
+}
+
+.pupil {
+    background: #7e6666d7;
+    width: 20%;
+    height: 90%;
+    position: relative;
+    left: 25%;
+    transform-origin: bottom;
+}
+
+#mouth {
+    position: relative;
+    width: 60%;
+    left: 20%;
+    height: 25%;
+    border: 1vw solid transparent;
+    border-radius: 50%;
+    top: 50%;
+    border-bottom-color: #4514e6b9;
+}
     </style>
 </head>
 
@@ -37,18 +86,42 @@
             <h2>Heading Examples</h2>
 
             <!-- Put your Headings ↓↓↓↓↓↓Below↓↓↓↓↓↓ here-->
+             <h1>Im getting good at this</h1>
+             <h2>Anderew is gonna be a producer cause hes making a fire beat</h2>
+             <h3>Sigma is a math thing and in the greek alphabet not that dumb thing 3 year olds</h3>
+             <h4>Whats up</h4>
+             <h5>XC is better than mountain biking</h5>
+             <h6>Yay im done with these</h6>
 
             <!-- Put your Headings ↑↑↑↑↑↑Above↑↑↑↑↑↑ here-->
 
             <h2>Examples of "Other" HTML elements</h2>
 
             <!-- Put your 8 examples of other elements ↓↓↓↓↓↓Below↓↓↓↓↓↓ here-->
+<ins>This is adding a line underneath<ins>
+    <del>striking through the words</del>
+    <sub>subscript</sub>
+    <sup>superscript</sup>
+    <small>makes the text smaller</small> 
+    <progress value="45" max="100" > this is the progress between </progress > 
+    <hr> this is a horrizontal line though it <hr>
+    <abbr title="National basketball asosiation" > NBA </abbr> this one added the abbriviation.
 
             <!-- Put your 8 examples of other elements ↑↑↑↑↑↑Above↑↑↑↑↑↑ here-->
         </div>
         <div id="banner">
         </div>
         <div id="face">
+            <div class="left eye">
+                <div class="pupil">
+                </div>
+           </div>
+           <div class="right eye">
+                <div class="pupil">
+                </div>
+           </div>
+           <div id="mouth">
+           </div>
 
         </div>
     </main>
@@ -57,9 +130,10 @@
     <footer>
 
         <p>
-            <center> Webpage made by <a href="#" target="_blank">[your name]</a></center>
+            <center> Webpage made by Freddie Steffen><center>
         </p>
-
+        <center>watch this <a href="https://www.youtube.com/watch?v=j5a0jTc9S10" target="_blank">[Video]</a> of my dogs</center>
+        </p>
     </footer>
 </body>
 
