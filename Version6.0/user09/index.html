@@ -1,0 +1,250 @@
+
+
+
+
+
+
+You said:
+                 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The First Car Ever Made</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #dda4c9;
+            color: #2b2b2b;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #d33118;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(22, 13, 142, 0.1);
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 90vh;
+            background: url('https://via.placeholder.com/1600x900?text=First+Car') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: rgb(255, 0, 0);
+            padding: 0 20px;
+        }
+
+        #hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        #hero p {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+
+      
+
+        #hero .cta:hover {
+            background-color: #ff9a8b;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 50px 30px;
+            margin: 50px auto;
+            max-width: 1200px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: #ff6f61;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* Features Section */
+        #features {
+            background-color: #fdf6f3;
+        }
+
+        .feature-item {
+            background-color: white;
+            border: 1px solid #ff6f61;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-item strong {
+            color: #ff6f61;
+        }
+
+        /* Contact Section */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 1.2rem;
+            display: none;
+            cursor: pointer;
+        }
+
+        #backToTop:hover {
+            background-color: #ff9a8b;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>The First Car Ever Made</h1>
+        <p>Discover the story of the automobile that started it all.</p>
+        <a href="#about" class="cta">Learn More</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About the Benz Patent-Motorwagen</h2>
+        <p>The Benz Patent-Motorwagen, created in 1885, was the world's first gasoline-powered automobile.</p>
+        <p>One of the remarkable aspects of the Motorwagen was its engineering ingenuity, offering a paradigm shift in personal transportation.</p>
+        <p>In 1888, Bertha Benz embarked on a historic journey to prove the vehicle's reliability. This journey not only showcased the potential of the Motorwagen but also became one of the first public relations stunts in history.</p>
+        <p>The Motorwagen paved the way for further innovations, leading to mass production techniques that made automobiles essential in modern life.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <h2>Key Features of the Benz Patent-Motorwagen</h2>
+        <div class="feature-item">
+            <strong>Single-Cylinder Internal Combustion Engine:</strong> Powered by a 0.75-horsepower engine using gasoline.
+        </div>
+        <div class="feature-item">
+            <strong>Lightweight Chassis Design:</strong> Made of tubular steel for durability and ease of maneuverability.
+        </div>
+        <div class="feature-item">
+            <strong>Innovative Steering Mechanism:</strong> A tiller guided its front wheels.
+        </div>
+        <div class="feature-item">
+            <strong>Rubber Tires:</strong> Reduced friction and enhanced ride comfort.
+        </div>
+        <div class="feature-item">
+            <strong>Manual Drive Chain:</strong> Transmitted power to rear wheels via a manual chain-drive system.
+        </div>
+        <div class="feature-item">
+            <strong>Carburetor for Fuel Efficiency:</strong> Allowed efficient fuel combustion, a precursor to modern fuel systems.
+        </div>
+        <div class="feature-item">
+            <strong>Cooling System:</strong> Water-cooled engine to prevent overheating.
+        </div>
+        <div class="feature-item">
+            <strong>Compact Fuel Tank:</strong> Efficiently designed and located at the rear.
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Reach out for more information!</p>
+        <form>
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="email" id="email" placeholder="Your Email">
+            <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Blank Page Section -->
+    <section id="blank-page" style="height: 100vh; background-color: white;">
+    </section>
+
+    <button id="backToTop" onclick="scrollToTop()">↑</button>
+</body>
+</html> 
+

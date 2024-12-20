@@ -1,5 +1,5 @@
 @import url(rainbow.css);
-
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat+Underline:ital,wght@0,100..900;1,100..900&family=Yuji+Mai&display=swap');
 .button {
 	background-color: #4CAF50;
 	border: none;
