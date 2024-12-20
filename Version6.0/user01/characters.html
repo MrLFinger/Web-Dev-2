@@ -47,7 +47,7 @@
                         <a class="nav-link" href="story.html">Story</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=chao.html">Chao</a>
+                        <a class="nav-link" href="comparisons.html">Comparisons</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="characters.html">Characters</a>
@@ -57,68 +57,135 @@
         </div>
     </nav>
     <style>
-        /* Custom Styles for the Table */
-        table {
-            width: 100%;
-            margin-top: 20px;
-            background-color: #2b8ef0;
-        }
-        table th, table td {
-            text-align: center;
-            vertical-align: middle;
-        }
-        .image-cell img {
-            width: 200px;
-            height: auto;
-            border-radius: 8px;
-        }
+#gallery {
+    text-align: center;
+}
+  
+  .container {
+    display: inline-block;
+    margin: 3%;
+    perspective: 1000px;
+  }
+  
+  .flipper {
+    position: relative;
+    transition: 2s;
+    transform-style: preserve-3d;
+  }
+  
+  .front, .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 450px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    backface-visibility: hidden;
+  }
+  
+  .front {
+    z-index: 2;
+  }
+  
+  .back {
+    transform: rotateY(540deg);
+  }
+  
+  img {
+    width: 100%;
+  }
+  
+  .container, .front, .back {
+    width: 250px;
+    height: 450px;
+  }
+  
+  .container:hover .flipper {
+    transform: rotateY(540deg);
+  }
+  
+  .caption, .back h1 {
+    font-size: 1.7em;
+    padding: 10px 10px 0 10px;
+    margin: 0;
+    text-align: center;
+  }
+  
+  p.caption {
+    position: absolute;
+    bottom: 1vh;
+  }
+  
+  .description {
+    font-size: 0.9em;
+    padding: 0 20px 20px 20px;
+    text-align: left;
+  }
     </style>
 </head>
-    <!-- Main content -->
-    <div class="container-fluid flex-grow-1">
-        <div class="container mt-5">
-            <h1 class="text-center mb-4">Character Comparison: Game vs Movie</h1>
-    
-            <table class="table table-bordered table-striped table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col">Character</th>
-                        <th scope="col">Game Image</th>
-                        <th scope="col">Movie Image</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Sonic the Hedgehog</td>
-                        <td class="image-cell">
-                            <img src="https://www.models-resource.com/resources/big_icons/72/71382.png?updated=1704269859" alt="Sonic in the Game">
-                        </td>
-                        <td class="image-cell">
-                            <img src="images/sonic_movie.webp" alt="Sonic in the Movie">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Tails</td>
-                        <td class="image-cell">
-                            <img src="images/tails_game.webp" alt="Tails in the Game">
-                        </td>
-                        <td class="image-cell">
-                            <img src="images/tails_movie.jpg" alt="Tails in the Movie">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Knuckles</td>
-                        <td class="image-cell">
-                            <img src="https://tcrf.net/images/b/bb/SonicAdventure2Battle_KnucklesModel.png" alt="Knuckles in the Game">
-                        </td>
-                        <td class="image-cell">
-                            <img src="images/knuckles_movie.webp" alt="Knuckles in the Movie">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+<div >
+    <p style="text-align: center;">Hover over the Character image to read their bio!</p>
+    <div class="container">
+        <div class="flipper">
+            <div class="front">
+                <img height="400" src="images/sonic_movie.webp" alt="ATX_Motherboard">
+                <p class="caption">Sonic</p>
+            </div>
+            <div class="back">
+                <a href="https://sonic.fandom.com/wiki/Sonic_the_Hedgehog_(Paramount)" target="_blank">
+                    <h2 class="mh-100">Sonic</h2>
+                </a>
+                <p class="description">Sonic the Hedgehog is the titular main protagonist of the Sonic the Hedgehog film series produced by Paramount Pictures and its spin-offs. He is an anthropomorphic alien hedgehog with super speed who hails from Mobius.</p>
+            </div>
         </div>
     </div>
+
+    <div class="container">
+        <div class="flipper">
+            <div class="front">
+                <img height="400" src="images/shadow_movie.webp" alt="Shadow">
+                <p class="caption">Shadow</p>
+            </div>
+            <div class="back">
+                <a href="https://en.wikipedia.org/wiki/Sonic_the_Hedgehog_(2006_video_game)" target="_blank">
+                    <h2>Shadow</h2>
+                </a>
+                <p class="description">Shadow the Hedgehog (シャドウ・ザ・ヘッジホッグ Shadō za Hejjihoggu?) Characterized by his sharp attitude and strong sense of purpose, Shadow is a recurrent arch-rival of Sonic the Hedgehog, whom he resembles and with whom he shares many abilities.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="flipper">
+            <div class="front">
+                <img height="400" src="https://upload.wikimedia.org/wikipedia/en/c/c2/Sonic_Mean_Bean_Machine.jpg" alt="NVIDIA GPU">
+                <p class="caption">Weird game</p>
+            </div>
+            <div class="back">
+                <a href="https://en.wikipedia.org/wiki/Dr._Robotnik%27s_Mean_Bean_Machine" target="_blank">
+                    <h2 class="">Mean Bean Machine</h2>
+                </a>
+                <p class="description">Dr. Robotnik's Mean Bean Machine is a Westernised version of Puyo Puyo (1991), a Japanese falling-block puzzle game developed by Compile and released for the MSX2 in 1991.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="flipper">
+            <div class="front">
+                <img height="400" src="https://media.tenor.com/qTcr4S0GDn4AAAAM/shadow-the-hedgehog.gif" alt="NVIDIA GPU">
+                <p class="caption">Peace and Love</p>
+            </div>
+            <div class="back">
+                <a href="https://stupid-fanfiction.fandom.com/wiki/Shrek_x_Shadow:_The_final_chapter" target="_blank">
+                    <h2 class="">Peace and Love</h2>
+                </a>
+                <p class="description">This beautiful image shows what true peace and harmony is, and what our world could be like without things like hate, and war.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <!-- Footer -->
     <footer class="text-center text-lg-start mt-auto">
