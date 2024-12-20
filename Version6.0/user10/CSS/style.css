@@ -180,3 +180,9 @@ hr {
 .container:hover .flipper {
     transform: rotateY(180deg);
   }
+
+  .scam {
+	text-align: center;
+	font-size: 100px;
+	color: white;
+  }
