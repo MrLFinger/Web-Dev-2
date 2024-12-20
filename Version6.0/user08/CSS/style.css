@@ -78,6 +78,7 @@
   
   .container:hover .flipper {
     transform: rotateY(1980deg);
+
   }
 
   .container:hover .flipper2 {
