@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cart</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Add your styles here */
+        .cart-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .price {
+            color: #e74c3c;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 50px;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Cart</title>
+        <style>
+            /* Add your styles here */
+            .cart-item {
+                padding: 10px;
+                border: 1px solid #ddd;
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+    
+            .price {
+                color: #e74c3c;
+            }
+    
+            .remove-btn {
+                background-color: #e74c3c;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+    
+            .remove-btn:hover {
+                background-color: #c0392b;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Your Cart</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="jkcge.html">jkcge</a></li>
+                    <li><a href="vkjbdfg.html">vkjbdfg</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <section class="cart">
+            <div id="cart-items"></div>
+            <button onclick="checkout()">Proceed to Checkout</button>
+        </section>
+    
+        <script>
+            // Function to display items in the cart
+            function displayCart() {
+                const cartItemsContainer = document.getElementById('cart-items');
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+                // If the cart is empty, display a message
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p>Your cart is empty!</p>';
+                    return;
+                }
+    
+                // Clear previous cart items
+                cartItemsContainer.innerHTML = '';
+    
+                // Loop through the cart and display each item
+                cart.forEach((item, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('cart-item');
+                    itemDiv.innerHTML = `
+                        <span>${item.productName}</span>
+                        <span class="price">$${item.price.toFixed(2)}</span>
+                        <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+                    `;
+                    cartItemsContainer.appendChild(itemDiv);
+                });
+            }
+    
+            // Call the displayCart function when the page loads
+            displayCart();
+    
+            // Function to remove item from the cart
+            function removeFromCart(index) {
+                // Get the current cart from localStorage
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+                // Remove the item at the specified index
+                cart.splice(index, 1);
+    
+                // Update localStorage with the updated cart
+                localStorage.setItem('cart', JSON.stringify(cart));
+    
+                // Re-render the cart to reflect the changes
+                displayCart();
+            }
+    
+            // Function for proceeding to checkout (for now it just logs the cart)
+            function checkout() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                if (cart.length === 0) {
+                    alert('Your cart is empty. Please add items to your cart.');
+                } else {
+                    alert('Proceeding to checkout...');
+                }
+            }
+        </script>
+
+        
+        
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Shoe Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    </body>
+    </html>
+    
