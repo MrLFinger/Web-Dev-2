@@ -68,7 +68,7 @@
 
     <main class="m-3" id="content">
 
-        <h1 class="text-left my-3">Games</h1>
+        <h1 class="text-left my-3">Javascript Games!!!</h1>
         <!-- Edit this line for the title of your page -->
 
         <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Put your content below this line ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
@@ -91,19 +91,19 @@
                 
                 function remark(responseTime)
                 {
-                 var responseString="";
+                 var responseString="Amazing!!";
                  if (responseTime < 0.20)
                  responseString="Well done!";
-                 if (responseTime >= 0.20 && responseTime < 0.30)
+                 if (responseTime >= 0.30 && responseTime < 0.40)
                  responseString="Nice!";
                  if (responseTime >=0.40 && responseTime < 0.50)
-                 responseString="Could be better...";
+                 responseString="Not bad...";
                  if (responseTime >=0.50 && responseTime < 0.80)
                  responseString="Keep practicing!";
                  if (responseTime >=0.80 && responseTime < 1.1)
-                 responseString="Have you been day dreaming again?";
+                 responseString="You get enough sleep?";
                  if (responseTime >=1.1)
-                 responseString="Did you fall asleep?";
+                 responseString="Goodnight?";
                  return responseString;
                 }
                 
@@ -129,7 +129,7 @@
                  { 
                  clearTimeout(timerID);
                  startPressed=false; 
-                 alert("cheater! you pressed too early!");
+                 alert("try again, you pressed slightly early!");
                  } 
                  }
                 }
@@ -149,7 +149,7 @@
                 {
                  if(startPressed)
                  {
-                 alert("Already started. Press stop to stop");
+                 alert("You have already started. Press stop to stop");
                  return;
                  }
                  else
@@ -160,7 +160,7 @@
                 }
                 
                 </script>
-                <p>Test your Response time!</p>
+                <p>I changed the name of the text at the top and some of the alert responses and then one of the response time frames.</p>
                 Click on "Start" first, and wait until the background color changes. As soon as it changes, hit "stop!"
                 
                 <form name="response">
@@ -178,6 +178,125 @@
                 <input type="button" value="stop" onClick="stopTest()">
                 </form>
         </p>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        h1 {
+            color: #3498db;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guess the Number Game</h1>
+    <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
+    <input type="number" id="guessInput" placeholder="Enter a number" min="1" max="100" />
+    <button onclick="checkGuess()">Guess</button>
+    <div id="message"></div>
+    <div id="attempts"></div>
+
+    <script>
+        // Game variables
+        let targetNumber = Math.floor(Math.random() * 100) + 1; // Random number between 1 and 100
+        let attempts = 0;
+
+        // Function to check the guess
+        function checkGuess() {
+            const guess = parseInt(document.getElementById('guessInput').value);
+            const messageElement = document.getElementById('message');
+            const attemptsElement = document.getElementById('attempts');
+            
+            if (isNaN(guess) || guess < 1 || guess > 100) {
+                messageElement.textContent = "Please enter a number between 1 and 100.";
+                return;
+            }
+
+            attempts++;
+
+            if (guess < targetNumber) {
+                messageElement.textContent = "Too low! Try again.";
+            } else if (guess > targetNumber) {
+                messageElement.textContent = "Too high! Try again.";
+            } else {
+                messageElement.textContent = `Congratulations! You guessed the number in ${attempts} attempts!`;
+                attemptsElement.textContent = "";
+                return;
+            }
+
+            attemptsElement.textContent = `Attempts: ${attempts}`;
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        h1 {
+            color: #3498db;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Coin Flip Game</h1>
+    <p>Guess whether the coin flip will be Heads or Tails!</p>
+    <button onclick="flipCoin('heads')">Heads</button>
+    <button onclick="flipCoin('tails')">Tails</button>
+    <div id="message"></div>
+
+    <script>
+        // Function to simulate the coin flip
+        function flipCoin(playerGuess) {
+            const coin = Math.random() < 0.5 ? 'heads' : 'tails'; // Randomly choose 'heads' or 'tails'
+
+            // Check if the player's guess is correct
+            const message = playerGuess === coin ? "You guessed right! It's " + coin + "!" : "Oops! It's " + coin + ". Try again!";
+            
+            // Display the message
+            document.getElementById('message').textContent = message;
+        }
+    </script>
+</body>
+</html>
         <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Make sure all your content is above this line ↑↑↑↑↑↑↑↑↑↑↑↑-->
     </main>
 
