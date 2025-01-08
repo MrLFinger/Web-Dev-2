@@ -1,5 +1,12 @@
 <script language="JavaScript">
 
+window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
+
+
     var startTime=new Date();
     var endTime=new Date();
     var startPressed=false;
@@ -102,3 +109,129 @@
     <input type="button" value="start" onClick="startit()">
     <input type="button" value="stop" onClick="stopTest()">
     </form>
+
+<script>
+// Pong Game in JavaScript using Canvas
+
+const canvas = document.createElement('canvas');
+const ctx = canvas.getContext('2d');
+
+// Set canvas dimensions
+canvas.width = 800;
+canvas.height = 600;
+document.body.appendChild(canvas);
+
+// Game properties
+const PADDLE_WIDTH = 10;
+const PADDLE_HEIGHT = 100;
+const BALL_RADIUS = 10;
+
+let leftPaddleY = (canvas.height - PADDLE_HEIGHT) / 2;
+let rightPaddleY = (canvas.height - PADDLE_HEIGHT) / 2;
+let ballX = canvas.width / 2;
+let ballY = canvas.height / 2;
+let ballDX = 4;
+let ballDY = 4;
+
+let leftScore = 0;
+let rightScore = 0;
+
+// Paddle movement
+let leftPaddleDY = 0;
+let rightPaddleDY = 0;
+const PADDLE_SPEED = 6;
+
+// Event listeners for paddle controls
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'w') leftPaddleDY = -PADDLE_SPEED;
+    if (e.key === 's') leftPaddleDY = PADDLE_SPEED;
+    if (e.key === 'ArrowUp') rightPaddleDY = -PADDLE_SPEED;
+    if (e.key === 'ArrowDown') rightPaddleDY = PADDLE_SPEED;
+});
+
+window.addEventListener('keyup', (e) => {
+    if (e.key === 'w' || e.key === 's') leftPaddleDY = 0;
+    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') rightPaddleDY = 0;
+});
+
+// Game loop
+function gameLoop() {
+    // Clear the canvas
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw paddles
+    ctx.fillStyle = 'white';
+    ctx.fillRect(10, leftPaddleY, PADDLE_WIDTH, PADDLE_HEIGHT);
+    ctx.fillRect(canvas.width - 20, rightPaddleY, PADDLE_WIDTH, PADDLE_HEIGHT);
+
+    // Draw ball
+    ctx.beginPath();
+    ctx.arc(ballX, ballY, BALL_RADIUS, 0, Math.PI * 2);
+    ctx.fillStyle = 'white';
+    ctx.fill();
+    ctx.closePath();
+
+    // Draw scores
+    ctx.font = '48px Arial';
+    ctx.fillText(leftScore, canvas.width / 4, 50);
+    ctx.fillText(rightScore, (3 * canvas.width) / 4, 50);
+
+    // Move paddles
+    leftPaddleY += leftPaddleDY;
+    rightPaddleY += rightPaddleDY;
+
+    // Prevent paddles from going out of bounds
+    leftPaddleY = Math.max(0, Math.min(canvas.height - PADDLE_HEIGHT, leftPaddleY));
+    rightPaddleY = Math.max(0, Math.min(canvas.height - PADDLE_HEIGHT, rightPaddleY));
+
+    // Move ball
+    ballX += ballDX;
+    ballY += ballDY;
+
+    // Ball collision with top and bottom walls
+    if (ballY - BALL_RADIUS <= 0 || ballY + BALL_RADIUS >= canvas.height) {
+        ballDY = -ballDY;
+    }
+
+    // Ball collision with paddles
+    if (
+        ballX - BALL_RADIUS <= 20 &&
+        ballY >= leftPaddleY &&
+        ballY <= leftPaddleY + PADDLE_HEIGHT
+    ) {
+        ballDX = -ballDX;
+    }
+
+    if (
+        ballX + BALL_RADIUS >= canvas.width - 20 &&
+        ballY >= rightPaddleY &&
+        ballY <= rightPaddleY + PADDLE_HEIGHT
+    ) {
+        ballDX = -ballDX;
+    }
+
+    // Ball out of bounds
+    if (ballX < 0) {
+        rightScore++;
+        resetBall();
+    }
+
+    if (ballX > canvas.width) {
+        leftScore++;
+        resetBall();
+    }
+
+    requestAnimationFrame(gameLoop);
+}
+
+function resetBall() {
+    ballX = canvas.width / 2;
+    ballY = canvas.height / 2;
+    ballDX = -ballDX;
+}
+
+// Start the game loop
+gameLoop();
+
+</script>
