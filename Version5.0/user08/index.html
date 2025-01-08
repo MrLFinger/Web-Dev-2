@@ -33,10 +33,16 @@
     <!-- Custom styles for this template -->
     <style type="text/css">
         footer {
-            font-size: 12px;
-            text-align: center;
+            padding: 15px;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: left;
+            background: #1e10e55a;
+            color: #df0a0a; 
         }
-        
+        body {
+            background-color: #0adf7542;
+        }
         .demo-content {
             padding: 15px;
             font-size: 18px;
@@ -47,7 +53,15 @@
         .demo-content.bg-alt {
             background: #74441b;
         }
-        
+
+        li:hover{
+            background-color: black;
+            text-align: center;
+            font-style: italic;
+            font-weight: 1000;
+            font-size: larger;
+        }
+
         .table-striped > tbody > tr:nth-of-type(odd) > * {
   --bs-table-color-type: var(--bs-table-striped-color);
   --bs-table-bg-type: rgba(0, 126, 127, 1.3)
@@ -60,11 +74,9 @@
   color: #df0a0a !important;
   background-color: #df0a0a !important;
 }
-
     </style>
-
     <body>
-        <!---------------------------------- Begin the nav-bar ----------------------------------->
+        <!--------------------------begin navbar------------------------->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container-fluid">
                 <a href="http://shakonet.isd720.com" class="navbar-brand">WebDev</a>
@@ -79,20 +91,30 @@
                             <a href="#" class="nav-link active">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Link
-                            </a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> geography </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="https://www.geoguessr.com/vgp/3199">Know your countys and beat my 65%</a></li>
+                                <li><a class="dropdown-item" href="https://www.geoguessr.com/vgp/3522">At least know your counties</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">^Pick one^</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="mailto:sample@gmail.com?Subject=Hello" class="nav-link disabled" tabindex="-1">Contact</a>
+                        <li class="nav-item dropdown">
+                            <a  class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" >funny youtube videos</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=d54mygVAPFk">funny video 1</a></li>
+                                <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=Ha3PktcY5yA">funny gaming 1</a></li>
+                                <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=u_QjKGhZTSk">funny gaming 2</a></li>
+                                <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=EOQhEsxCGeA">funny food 1</a></li>
+                                <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=08L9sNuik5M">funny and happy 1</a></li>
+                                <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=K6Cpxjx2oUg">funny music 1</a></li>
+                                <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=SNgNBsCI4EA">funny gaming 3</a></li>
+                                <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=V0ODG8bFme0">funny not a movie 1</a></li>
+                                <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=tkkvQ0tb5TE">funky action 1</a></li>
+
+                            </ul>
                         </li>
                         <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Edit These Items in your NavBar ↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
                     </ul>
@@ -102,6 +124,7 @@
                 </div>
             </div>
         </nav>
+        
         <!---------------------------------- End the nav-bar ------------------------------------->
         <!---------Jumbotron---------------------------------------------->
         <header class="p-5 bg-primary-subtle text-black" name="Jumbotron">
@@ -109,7 +132,7 @@
             <p class="lead"> Let's look at the man different examples of how we can use bootstrap and what bootstrap can do!
             </p>
         </header>
-
+        <br>
         <main>
             <div class="container mt-12">
                 <div class="row">
@@ -207,13 +230,13 @@
                 <!---------Flexible Layouts--------->
                 <div class="row">
                     <div class="col-md-4 col-lg-3">
-                        <div class="demo-content">4/12</div>
+                        <div class="demo-content">3/12</div>
                     </div>
                     <div class="col-md-8 col-lg-6">
-                        <div class="demo-content bg-alt">8/12</div>
+                        <div class="demo-content bg-alt">6/12</div>
                     </div>
                     <div class="col-md-12 col-lg-3">
-                        <div class="demo-content">4/12</div>
+                        <div class="demo-content">3/12</div>
                     </div>
                 </div>
             </div>
@@ -274,29 +297,43 @@
             <div class="container mt-3 vstack" name="form-button">
                 <a href="form.html" class="btn btn-success btn-lg" role="button" aria-pressed="true">Form Page</a>
             </div>
+            <br>
         </main>
 
         <!---------------------------------- Begin the footer ------------------------------------->
         <footer>
-            <span class="title">Example of a Footer Title</span>
+            <span class="title"></span>
             <div class="container py-4" id="footerTable">
-                <ul class="list-unstyled d-flex justify-content-center">
-                    <li class="mx-3">
-                        <i class="fa-brands fa-facebook fa-3x" aria-hidden="true"></i>
-                    </li>
-                    <li class="mx-3">
-                        <i class="fa-brands fa-x-twitter fa-3x" aria-hidden="true"></i>
-                    </li>
-                    <li class="mx-3">
-                        <i class="fa-brands fa-instagram fa-3x" aria-hidden="true"></i>
-                    </li>
-                    <li class="mx-3">
-                        <i class="fa-brands fa-github fa-3x" aria-hidden="true"></i>
-                    </li>
-                    <li class="mx-3">
-                        <i class="fa-brands fa-tiktok fa-3x" aria-hidden="true"></i>
-                    </li>
-                </ul>
+                    <div class="row">
+                        <li class="col-md-4">
+                            <a href="http://127.0.0.1:3000/Version5.0/user08/index.html#" >Go to top of the page</a>
+                        </li>
+                        <li class="col-md-8">
+                            <a href="https://www.youtube.com/watch?v=cDj2r8QEzzk" >life is roadblocks</a>
+                        </li>
+                    </div>
+                    <div class="row">
+                        <li class="col-md-8">
+                            <a href="http://shakonet.isd720.com" >Web Dev</a>
+                        </li>
+                        <li class="col-md-4">
+                            <a href="" >🗣️🔥🔥🔥</a>
+                        </li>
+                    </div>
+                    <div class="row">
+                        <li class="col-md-12">
+                             <a href="https://www.geoguessr.com/vgp/3007">Geo guesser, try to beat my 46/46 in 1:13</a>
+                        </li>
+                    </div>
+                    <div class="row">
+                        <li class="col-md-6">
+                            <i >© 1991 COMMUNISTSTAY</i>
+                        </li>
+                        <li class="col-md-6">
+                            <i>contact me at 318008 1337</i>
+                        </li>
+                    </div>
+                </div>
             </div>
         </footer>
         <!---------------------------------- End the footer --------------------------------------->
