@@ -73,12 +73,15 @@
         <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Put your content below this line ↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-4" style="background-color:yellow;"><center><p id="textChange"> My name is Freddie Steffen User05</p></center></div>
+                <div class="col-sm-4" style="background-color:yellow;"><center><p id="textChange"> My name is User05</p></center></div>
                 <div class="col-sm-4" style="background-color:orange;"><center><button type="button" onclick="changeText()">Click if you like</button></center></div>
-                <div class="col-sm-4" style="background-color:yellow;"><center><p id="textChange"> Yellow and orange more like not</p></center></div>
+                <div class="col-sm-4" style="background-color:yellow;"><center><p id=""> Yellow and orange more like not</p></center></div>
             </div>
         </div>
-        Enter your name: <input type="text" id="fname" onblur="Blur()"><p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+        Enter your name: <input type="text" id="fname" onblur="myFunction()">
+
+<p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+
         <form onsubmit="confirmInput()" action="https://shakopee.instructure.com/">Enter your name: <input id="fname" type="text" size="20"><input type="submit"></form>
         <p>Click the button to trigger a function.</p><button onclick="onClick()">Click me</button><p id="demo"></p>
         <body onload="onLoad()"><h1>JavaScript HTML Events</h1><h2>The onload Attribute</h2></body>
@@ -86,6 +89,11 @@
         <p>A function is triggered when the user is pressing a key in the input field.</p><input type="text" onkeypress="PressDown()">
         <p>Click on this paragraph. An alert box will tell you if you pressed the shift key or not.</p><p id="demo"></p>
         <p ondblclick="DoubleClick()">Doubleclick this paragraph to trigger a function.</p><p id="demo"></p>
+        <h2>The onreset Attribute</h2>
+        <form onreset="message()">
+            Enter your name: <input type="text" size="20">
+            <input type="reset">
+        </form>
     </main>
     <!--↑↑↑↑↑↑↑↑↑↑ Make sure all your content is above this line ↑↑↑↑↑↑↑↑↑↑-->
 
