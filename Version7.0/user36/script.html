@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <!--Version 5.0
@@ -6,6 +7,8 @@
 -->
 
 <head>
+    	
+
     <title>JavaScript</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,6 +31,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="JS/script.js"></script>
+   
 
     <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Put your .js files here ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
 
@@ -73,13 +77,35 @@
         <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Put your content below this line ↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-4" style="background-color:yellow;">PUT YOUR CODE HERE</div>
-                <div class="col-sm-4" style="background-color:orange;">PUT YOUR CODE HERE</div>
-                <div class="col-sm-4" style="background-color:yellow;">PUT YOUR CODE HERE</div>
+              
+                <div class="col-sm-4" style="background-color:yellow;"><center><p id="textChange"> My name is User ##</p></center>
+                    <center><button type="button" onclick="changeText()">Click if you like</button></center></div>
+                <div class="col-sm-4" style="background-color:orange;">
+                    <center><p id="textChange">My name is User ## </p></center>
+                    <center><button type="button" onclick="changeText()">Click if you like</button></center>
+                </div>
+                <div class="col-sm-4" style="background-color:yellow;"><center><p id="textChange"> My name is User ##</p></center>
+                    <center><button type="button" onclick="changeText()">Click if you like</button></center></div>
+                
             </div>
         </div>
+        <input type="text" id="fname" onblur="myFunction()">
+        <input type="text" id="fname" onchange="upperCase()">
+        <input type="text" onkeypress="myFunction()">
+        <button type="button" onclick="displayDate()">January 8th 2025</button>
+        <body onkeyup="whichButton(event)"></body>
+        <p><b>Note:</b> Make sure the right frame has focus when trying this example!</p>
+
+        <p>Click on this page, and press a key on your keyboard.</p>
+        <p id="demo"></p>
+        <p onmousedown="getEventType(event)">
+            Click on this paragraph. A message will tell what type of event was triggered.</p>
+         <p id="demo"></p>
+         <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="images/smiley.jpeg" alt="Smiley" width="32" height="32">
+
+<p>The function bigImg() is triggered when the user moves the mouse pointer over the image.</p>
+<p>The function normalImg() is triggered when the mouse pointer is moved out of the image.</p>
     </main>
-  
     <!--↑↑↑↑↑↑↑↑↑↑ Make sure all your content is above this line ↑↑↑↑↑↑↑↑↑↑-->
 
 

@@ -15,7 +15,7 @@ window.setTimeout("Scroll()", 0);
 function Blur() {
     const x = document.getElementById("fname");
     x.value = x.value.toUpperCase();
-  }
+}
 function confirmInput() {
     fname = document.forms[0].fname.value;
     alert("Hello " + fname + "! You will now be redirected to www.w3Schools.com");
@@ -40,4 +40,7 @@ function isKeyPressed(event) {
       text = "The shift key was pressed!";
     }
     document.getElementById("demo").innerHTML = text;
+}
+function message() {
+    alert("This alert box was triggered by the onreset event handler");
 }
