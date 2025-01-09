@@ -43,6 +43,22 @@
             justify-content: center;
             font-size: 18px;
         }
+        #timeDisplay {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: lightblue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: lightcoral;
+        }
     </style>
 </head>
 
@@ -117,8 +133,24 @@
                 Click this paragraph to display the x and y coordinates of the mouse pointer.</p>
 
             <p id="demo"></p>
-
-
+            <h1>JavaScript Button to Show Time</h1>
+            <button id="showTimeButton">Show Current Time</button>
+            <div id="timeDisplay"></div>
+        
+            <script>
+                // Select the button and the display area
+                const showTimeButton = document.getElementById('showTimeButton');
+                const timeDisplay = document.getElementById('timeDisplay');
+        
+                // Add a click event listener to the button
+                showTimeButton.addEventListener('click', () => {
+                    // Get the current time
+                    const currentTime = new Date().toLocaleTimeString();
+                    
+                    // Display the current time in the timeDisplay div
+                    timeDisplay.textContent = `The current time is: ${currentTime}`;
+                });
+            </script>
 
 
 
