@@ -44,11 +44,14 @@
     </style>
 
     <script>
-        function myFunction() {
+        function myFunctionO() {
             document.getElementById("demo").innerHTML = ":O";
         }
         function myFunction() {
-        alert("You pressed a key inside the input field");
+            alert("You pressed a key inside the input field");
+        }
+        function show_coords(event) {
+        document.getElementById("demo").innerHTML = "X= " + event.clientX + "<br>Y= " + event.clientY;
         }
     </script>
 </head>
@@ -91,9 +94,9 @@
         <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Put your content below this line ↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-4" style="background-color:yellow;"><center><p id="textChange"> (╯°□°）╯︵ ┻━┻</p></center></div>
-                <div class="col-sm-4" style="background-color:orange;"><center><button type="button" onclick="changeText()">Click if you like</button></center></div>
-                <div class="col-sm-4" style="background-color:yellow;"><center><button type="button" onclick=javascript:document.body.contentEditable='true'; document.designMode='on'; void 0">Edit Mode</button></center></div>
+                <div class="col-sm-4" style="background-color:rgb(112, 152, 96);"><center><p id="textChange"> (╯°□°）╯︵ ┻━┻</p></center></div>
+                <div class="col-sm-4" style="background-color:rgb(74, 98, 147);"><center><button type="button" onclick="changeText()">Click if you like</button></center></div>
+                <div class="col-sm-4" style="background-color:rgb(111, 67, 125);"><center><button type="button" onclick=javascript:document.body.contentEditable='true'; document.designMode='on'; void 0">Edit Mode</button></center></div>
             </div>
         </div>
     </main>
@@ -120,7 +123,7 @@
         <h1>JavaScript HTML Events</h1>
         <h2>The ondblclick Attribute</h2>
         
-        <p ondblclick="myFunction()">Doubleclick this paragraph to trigger a function.</p>
+        <p ondblclick="myFunctionO()">Doubleclick this paragraph to trigger a function.</p>
         
         <p id="demo"></p>
 
@@ -149,8 +152,22 @@
         <p>.</p>
         <p>.</p>
 
-        <input type="text" onkeypress="myFunction()">
-
+        <form>
+            <input type="text" onkeypress="myFunction()">
+            <input type="reset">
+        </form>
+        <form>
+            Choose your favorite text face:
+            <select id="browsers" onchange="preferedBrowser()">
+                <option value="ʕ•ᴥ•ʔ">ʕ•ᴥ•ʔ</option>
+                <option value="ಠ_ಠ">ಠ_ಠ</option>
+                <option value="(ಥ﹏ಥ)">(ಥ﹏ಥ)</option>
+            </select>
+        </form>
+        <p onmousedown="show_coords(event)">
+            Click this paragraph to display the x and y coordinates of the mouse pointer.</p>
+            
+        <p id="demo"></p>
     </body>
 
 </body>
