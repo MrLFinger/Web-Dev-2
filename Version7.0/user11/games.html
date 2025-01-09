@@ -112,50 +112,110 @@
         </style>
       </head>
       <body>
-        <div id="game-container">
-          <h1>Guess the Number</h1>
-          <p>I am thinking of a number between 1 and 100.</p>
-          <p>Can you guess what it is?</p>
-          <input id="guessInput" type="number" placeholder="Enter your guess" min="1" max="100">
-          <button onclick="checkGuess()">Submit Guess</button>
-          <button onclick="resetGame()">Restart Game</button>
-          <div id="result"></div>
-        </div>
-      
-        <script>
-          let randomNumber = Math.floor(Math.random() * 100) + 1;
-          let attempts = 0;
-      
-          function checkGuess() {
-            const guessInput = document.getElementById("guessInput");
-            const resultDiv = document.getElementById("result");
-            const guess = Number(guessInput.value);
-      
-            if (!guess || guess < 1 || guess > 100) {
-              resultDiv.textContent = "Please enter a valid number between 1 and 100.";
-              return;
+        <br>
+        <body>
+          <script>
+            // Set up the canvas and context
+            const canvas = document.createElement('canvas');
+            canvas.width = 400;
+            canvas.height = 600;
+            document.body.appendChild(canvas);
+            const ctx = canvas.getContext('2d');
+        
+            // Game variables
+            let playerX = canvas.width / 2 - 25;
+            const playerWidth = 50;
+            const playerHeight = 10;
+            const playerSpeed = 7;
+        
+            let objectX = Math.random() * (canvas.width - 20);
+            let objectY = 0;
+            const objectSize = 20;
+            const objectSpeed = 3;
+        
+            let score = 0;
+            let isGameOver = false;
+        
+            // Key press tracking
+            const keys = {
+              left: false,
+              right: false,
+              a: false,
+              d: false,
+            };
+        
+            window.addEventListener('keydown', (e) => {
+              if (e.key === 'ArrowLeft' || e.key === 'a') keys.left = true;
+              if (e.key === 'ArrowRight' || e.key === 'd') keys.right = true;
+            });
+        
+            window.addEventListener('keyup', (e) => {
+              if (e.key === 'ArrowLeft' || e.key === 'a') keys.left = false;
+              if (e.key === 'ArrowRight' || e.key === 'd') keys.right = false;
+            });
+        
+            // Game loop
+            function update() {
+              if ((keys.left || keys.a) && playerX > 0) playerX -= playerSpeed;
+              if ((keys.right || keys.d) && playerX < canvas.width - playerWidth) playerX += playerSpeed;
+        
+              objectY += objectSpeed;
+        
+              // Check collision
+              if (
+                objectY + objectSize > canvas.height - playerHeight &&
+                objectX + objectSize > playerX &&
+                objectX < playerX + playerWidth
+              ) {
+                score++;
+                resetObject();
+              }
+        
+              // Check if object hits the bottom
+              if (objectY > canvas.height) {
+                isGameOver = true;
+              }
             }
-      
-            attempts++;
-      
-            if (guess === randomNumber) {
-              resultDiv.textContent = `🎉 Congratulations! You guessed it in ${attempts} attempts.`;
-            } else if (guess < randomNumber) {
-              resultDiv.textContent = "📉 Too low! Try again.";
-            } else {
-              resultDiv.textContent = "📈 Too high! Try again.";
+        
+            function draw() {
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+              // Draw player
+              ctx.fillStyle = 'blue';
+              ctx.fillRect(playerX, canvas.height - playerHeight, playerWidth, playerHeight);
+        
+              // Draw falling object
+              ctx.fillStyle = 'red';
+              ctx.fillRect(objectX, objectY, objectSize, objectSize);
+        
+              // Draw score
+              ctx.fillStyle = 'black';
+              ctx.font = '20px Arial';
+              ctx.fillText(`Score: ${score}`, 10, 30);
+        
+              if (isGameOver) {
+                ctx.fillStyle = 'black';
+                ctx.font = '30px Arial';
+                ctx.fillText('Game Over!', canvas.width / 2 - 80, canvas.height / 2);
+              }
             }
-      
-            guessInput.value = "";
-          }
-      
-          function resetGame() {
-            randomNumber = Math.floor(Math.random() * 100) + 1;
-            attempts = 0;
-            document.getElementById("result").textContent = "";
-            document.getElementById("guessInput").value = "";
-          }
-        </script>
+        
+            function resetObject() {
+              objectX = Math.random() * (canvas.width - objectSize);
+              objectY = 0;
+            }
+        
+            function gameLoop() {
+              if (!isGameOver) {
+                update();
+                draw();
+                requestAnimationFrame(gameLoop);
+              }
+            }
+        
+            gameLoop();
+          </script>
+        </body>
 
         <h1 class="text-left my-3">Games</h1>
         <!-- Edit this line for the title of your page -->
