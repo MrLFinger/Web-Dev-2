@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript Games</title>
+    <!-- Meta data -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="JavaScript Games">
+    <!-- CSS -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- Custom -->
+    <link rel="stylesheet" href="CSS/games.css">
+    <style>
+        /* Main container to make the whole content scrollable */
+        #main-container {
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            height: 100vh; /* Viewport height */
+            padding: 10px;
+        }
+        /* Each game container will have some margin for spacing */
+        .game-container {
+            margin: 20px 0;
+        }
+
+        /* Default Stop button style */
+        .fullscreen-btn {
+            padding: 20px 40px;
+            font-size: 24px;
+            background-color: #FF5733; /* Default color */
+            color: white;
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: background-color 0.3s ease;
+        }
+        /* Change color when clicked */
+        .fullscreen-btn.clicked {
+            background-color: #28a745; /* Change this to your preferred color */
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a href="http://shakonet.isd720.com" class="navbar-brand">WebDev</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link active">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="games.html" class="nav-link">Games</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-primary" type="button">Login</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <div id="main-container">
+        <main class="m-3" id="content">
+            <!-- Reaction Time Game -->
+            <div class="game-container">
+                <h1 class="text-left my-3">Games</h1>
+                <p>Test your Reaction time!</p>
+                <p>Click on the "Start" button first, and wait until the background color changes. As soon as it changes, hit "Stop!"</p>
+                <div class="game-container" id="game-container">
+                    <form name="response">
+                        Change background color in: 
+                        <select name="bgColorChange" id="bgColorChange" onChange="changeBackgroundColor()">
+                            <option selected>deeppink</option>
+                            <option>aliceblue</option>
+                            <option>crimson</option>
+                            <option>darkkhaki</option>
+                            <option>cadetblue</option>
+                            <option>darkorchid</option>
+                            <option>coral</option>
+                        </select>
+                        <input type="button" value="Start" onClick="startit()">
+                        <input type="button" value="Stop" onClick="stopTest()" disabled>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Number Guessing Game -->
+            <div class="game-container">
+                <h1>Number Guessing Game</h1>
+                <p>Guess the number between 1 and 100!</p>
+                <input type="number" id="userGuess" placeholder="Enter your guess" min="1" max="100">
+                <input type="button" value="Submit Guess" onclick="checkGuess()">
+                <div class="message">
+                    <p id="feedback"></p>
+                    <p class="result" id="attempts"></p>
+                </div>
+                <div>
+                    <input type="button" value="Start New Game" onclick="startNewGame()" class="restart-btn" style="display: none;" id="restartBtn">
+                </div>
+            </div>
+
+            <!-- Clicks Per Second Game -->
+            <div class="game-container">
+                <h1>Clicks Per Second Game</h1>
+                <button class="button" id="startButton" onclick="startGame()">Start Game</button>
+                <button class="button" id="clickButton" onclick="registerClick()" style="display:none;">Click Me!</button>
+                <p class="score">Total Clicks: <span id="clicks">0</span></p>
+                <p class="timer">Time Left: <span id="timeLeft">5</span> seconds</p>
+                <p class="game-over" id="gameOver">Game Over! Your CPS is: <span id="finalCPS"></span></p>
+            </div>
+        </main>
+
+        <footer class="small text-center" id="footer">
+            <p>Webpage made by <a href="index.html" target="_blank">Freddie Steffen</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Reaction Time Game JavaScript
+        var startTime = new Date();
+        var endTime = new Date();
+        var startPressed = false;
+        var bgChangeStarted = false;
+        var timerID;
+        var stopBtn;
+        
+        function changeBackgroundColor() {
+            var selectedColor = document.getElementById("bgColorChange").value;
+            document.getElementById('game-container').style.backgroundColor = selectedColor;
+        }
+
+        function startTest() {
+            var currentColor = document.getElementById('game-container').style.backgroundColor;
+            document.body.style.background = currentColor;
+            bgChangeStarted = true;
+            startTime = new Date();
+        }
+
+        function remark(responseTime) {
+            var responseString = "";
+            if (responseTime < 0.20) responseString = "Well done!";
+            if (responseTime >= 0.20 && responseTime < 0.30) responseString = "Nice!";
+            if (responseTime >= 0.40 && responseTime < 0.50) responseString = "Could be better...";
+            if (responseTime >= 0.50 && responseTime < 0.80) responseString = "Keep practicing!";
+            if (responseTime >= 0.80 && responseTime < 1.1) responseString = "Have you been day dreaming again?";
+            if (responseTime >= 1.1) responseString = "Did you fall asleep?";
+            return responseString;
+        }
+
+        function stopTest() {
+            if (bgChangeStarted) {
+                endTime = new Date();
+                var responseTime = (endTime.getTime() - startTime.getTime()) / 1000;
+                document.body.style.background = "white"; 
+                alert("Your reaction time is: " + responseTime + " seconds " + "\n" + remark(responseTime));
+                document.body.removeChild(stopBtn);
+                document.getElementById('game-container').classList.remove('hidden');
+                resetGame();
+            } else {
+                if (!startPressed) {
+                    alert("Press Start first to start the test");
+                } else { 
+                    clearTimeout(timerID);
+                    startPressed = false; 
+                    alert("You pressed too early!");
+                    resetGame();
+                }
+            }
+        }
+
+        var randMULTIPLIER = 0x015a4e35;
+        var randINCREMENT = 1;
+        var today = new Date();
+        var randSeed = today.getSeconds();
+
+        function randNumber() {
+            randSeed = (randMULTIPLIER * randSeed + randINCREMENT) % (1 << 31);
+            return ((randSeed >> 15) & 0x7fff) / 32767;
+        }
+
+        function startit() {
+            if (startPressed) {
+                alert("Already started. Press stop to stop.");
+                return;
+            } else {
+                startPressed = true;
+                timerID = setTimeout('startTest()', (randNumber() * 3000) + 5000);
+                document.getElementById('game-container').style.backgroundColor = 'red';
+            }
+        }
+
+        // Number Guessing Game JavaScript
+        let secretNumber, attempts;
+
+        function startNewGame() {
+            secretNumber = Math.floor(Math.random() * 100) + 1;  // Random number between 1 and 100
+            attempts = 0;
+            document.getElementById("feedback").innerText = '';
+            document.getElementById("attempts").innerText = '';
+            document.getElementById("restartBtn").style.display = 'none';
+            document.getElementById("userGuess").value = '';
+        }
+
+        function checkGuess() {
+            const userGuess = parseInt(document.getElementById("userGuess").value);
+            const feedbackElement = document.getElementById("feedback");
+            const attemptsElement = document.getElementById("attempts");
+
+            // Ensure the guess is a valid number
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                feedbackElement.innerText = "Please enter a valid number between 1 and 100.";
+                return;
+            }
+
+            attempts++;
+
+            // Check the guess
+            if (userGuess === secretNumber) {
+                feedbackElement.innerText = "Congratulations! You guessed the correct number!";
+                feedbackElement.style.color = 'green';
+                attemptsElement.innerText = `It took you ${attempts} attempts.`;
+                document.getElementById("restartBtn").style.display = 'inline-block'; // Show the restart button
+            } else if (userGuess < secretNumber) {
+                feedbackElement.innerText = "Too low! Try again.";
+                feedbackElement.style.color = 'red';
+            } else if (userGuess > secretNumber) {
+                feedbackElement.innerText = "Too high! Try again.";
+                feedbackElement.style.color = 'red';
+            }
+
+            attemptsElement.innerText = `Attempts: ${attempts}`;
+        }
+
+        // Clicks Per Second Game JavaScript
+        let clicks = 0;              // Total clicks
+        let timeLeft = 5;            // Timer (5 seconds)
+        let timer;                   // Timer reference
+        let gameStarted = false;     // Flag to track game state
+        let gameOver = false;        // Flag to stop clicks after the game ends
+        let startButton = document.getElementById("startButton");
+        let clickButton = document.getElementById("clickButton");
+        let clicksDisplay = document.getElementById("clicks");
+        let timeLeftDisplay = document.getElementById("timeLeft");
+        let gameOverDisplay = document.getElementById("gameOver");
+        let finalCPSDisplay = document.getElementById("finalCPS");
+
+        // Start the game and begin the timer
+        function startGame() {
+            if (gameStarted) return;  // Prevent starting the game again if it's already started
+            gameStarted = true;  // Set the game state to started
+            startButton.style.display = "none";  // Hide the Start button
+            clickButton.style.display = "block";  // Show the Click Me button
+            timer = setInterval(function() {
+                timeLeft--;  // Decrease the time by 1 second
+                timeLeftDisplay.innerText = timeLeft;
+                if (timeLeft <= 0) {
+                    endGame();  // End the game when the timer reaches 0
+                }
+            }, 1000);
+        }
+
+        // Register a click when the player clicks the "Click Me!" button
+        function registerClick() {
+            if (gameOver) return;  // Prevent clicks after the game ends
+            clicks++;  // Increase click count
+            clicksDisplay.innerText = clicks;  // Update the displayed click count
+        }
+
+        // End the game and calculate CPS
+        function endGame() {
+            clearInterval(timer);  // Stop the timer
+            gameOver = true;  // Set the game to "game over" state
+            let cps = (clicks / 5).toFixed(2);  // Calculate CPS (clicks per second)
+            finalCPSDisplay.innerText = cps;  // Display CPS
+            gameOverDisplay.style.display = "block";  // Show the game over message
+        }
+    </script>
+</body>
+</html>

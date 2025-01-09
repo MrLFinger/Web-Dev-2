@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Version 5.0
+    Name:
+    Date Completed:
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+</head>
+<body>
+    <title>Bootstrap Examples</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css"> 
+    <!-- Homepage meta data -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="SHS WebDev Version 5.0 - Index Bootstrap Examples">
+
+    <!-- CSS -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Custom -->
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!-- JavaScript -->
+    <!-- These are needed to get the responsive menu to work -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <style type="text/css">
+        /* Reset some default browser styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        /* Add a hover effect to the active link */
+        .navbar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Right-aligned links in navbar */
+        .navbar-right {
+            float: right;
+        }
+
+        /* Mobile navbar (hamburger menu) */
+        .navbar .icon {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar a {
+                float: none;
+                display: block;
+                text-align: left;
+                padding: 10px;
+                width: 100%;
+            }
+
+            .navbar-right {
+                float: none;
+            }
+
+            .navbar .icon {
+                display: block;
+                float: right;
+                padding: 14px 20px;
+                background-color: #333;
+                color: white;
+                font-size: 30px;
+                cursor: pointer;
+            }
+
+            .navbar.responsive {
+                position: relative;
+            }
+
+            .navbar.responsive .navbar-right {
+                float: none;
+                width: 100%;
+                text-align: left;
+            }
+
+            .navbar.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        }
+
+        /* Add a smooth transition for the navbar links */
+        .navbar a {
+            transition: 0.3s ease;
+        }
+        footer {
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        .demo-content {
+            padding: 15px;
+            font-size: 18px;
+            background: #ffff00;
+            margin-bottom: 15px;
+        }
+        
+        .demo-content.bg-alt {
+            background: #abb1b8;
+        }
+        .table-striped > tbody > tr:nth-of-type(odd) > * {
+            --bs-table-color-type: var(--bs-table-striped-color);
+            --bs-table-bg-type: rgba(255, 0, 0, 0.3)
+        }
+        .table-striped > tbody > tr:nth-of-type(even)>* {
+            --bs-table-color-type: var(--bs-table-striped-color);
+            --bs-table-bg-type: rgba(235, 64, 52, .51)
+        }
+        footer:hover {
+            text-decoration: underline;
+            text-decoration: solid;
+            color: white
+        }
+        .text-dark:hover{
+            color: skyblue
+        }
+        /* Reset some default browser styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        /* Add a hover effect to the active link */
+        .navbar a.active {
+            background-color: #E777E1;
+            color: white;
+        }
+
+        /* Right-aligned links in navbar */
+        .navbar-right {
+            float: right;
+        }
+
+        /* Mobile navbar (hamburger menu) */
+        .navbar .icon {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar a {
+                float: none;
+                display: block;
+                text-align: left;
+                padding: 10px;
+                width: 100%;
+            }
+
+            .navbar-right {
+                float: none;
+            }
+
+            .navbar .icon {
+                display: block;
+                float: right;
+                padding: 14px 20px;
+                background-color: #333;
+                color: white;
+                font-size: 30px;
+                cursor: pointer;
+            }
+
+            .navbar.responsive {
+                position: relative;
+            }
+
+            .navbar.responsive .navbar-right {
+                float: none;
+                width: 100%;
+                text-align: left;
+            }
+
+            .navbar.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        }
+
+        /* Add a smooth transition for the navbar links */
+        .navbar a {
+            transition: 0.3s ease;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+    <!-- Navigation Bar -->
+    <div class="navbar" id="navbar">
+        <a href="#" class="active">Home</a>
+        <a href="http://127.0.0.1:5500/Version5.0/user05/game.html">Gambeling</a>
+        <a href="https://shakopee.instructure.com/">Canvas</a>
+        <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0">Other</a>
+        <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
+            &#9776; <!-- Hamburger icon -->
+        </a>
+    </div>
+<!-- Navbar -->
+            </header>
+            <!--Main Navigation-->
+        
+            <!---------Three Column Layouts------------------------------------>
+            <div class="container mt-3">
+                <!--Row with two equal columns-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="demo-content">Why is it called bootstrap</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="demo-content bg-alt"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-success btn-lg" role="button" aria-pressed="true">Wow a button</a></div>
+                    </div>
+                </div>
+                <!--Row with two columns divided in 1:2 ratio-->
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="demo-content"><button type="button" class="btn btn-outline-danger">Danger</button></div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="demo-content bg-alt">.col-md-8</div>
+                    </div>
+                </div>
+                <!--Row with two columns divided in 1:3 ratio-->
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="demo-content">.col-md-3</div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="demo-content bg-alt">.col-md-9</div>
+                    </div>
+                </div>
+
+                <!---------Auto Layout Columns--------->
+                <div class="row">
+                    <div class="col demo-content">1</div>
+                    <div class="col demo-content bg-alt">2</div>
+                    <div class="col demo-content">3</div>
+                    <div class="col demo-content bg-alt">4</div>
+                    <div class="col demo-content">5</div>
+                    <div class="col demo-content bg-alt">6</div>
+                </div>
+
+                <!---------Flexible Layouts--------->
+                <div class="row">
+                    <div class="col-md-4 col-lg-3">
+                        <div class="demo-content">.col-md-4 .col-lg-3</div>
+                    </div>
+                    <div class="col-md-8 col-lg-6">
+                        <div class="demo-content bg-alt">.col-md-8 .col-lg-6</div>
+                    </div>
+                    <div class="col-md-12 col-lg-3">
+                        <div class="demo-content">.col-md-12 .col-lg-3</div>
+                    </div>
+                </div>
+            </div>
+
+            <!---------Table-Striped------------------------------------------->
+            <!---------Table-Striped------------------------------------------->
+            <div class="container mt-3" name="table-striped">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Row</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Clark</td>
+                            <td>Kent</td>
+                            <td>clarkkent@mail.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>John</td>
+                            <td>Carter</td>
+                            <td>johncarter@mail.com</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Peter</td>
+                            <td>Parker</td>
+                            <td>peterparker@mail.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!---------List-Group---------------------------------------------->
+            <div class="container mt-3" name="list-group">
+                <div>
+                    <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">
+                        <i class="fa fa-home"></i> Home
+                    </a>
+                    <a href="https://www.facebook.com/" class="list-group-item list-group-item-action">
+                        <i class="fa-brands fa-facebook"></i> Facebook <span class="badge bg-secondary badge-pill badge-primary pull right active"></span>
+                    </a>
+                    <a href="https://www.amazon.com/" target="_blank" class="list-group-item list-group-item-action">
+                        <i class="bi-cart"></i> Amazon <span class="badge bg-secondary badge-pill badge-primary pull-right active">50</span>
+                    </a>
+                    <a href="https://www.youtube.com/" class="list-group-item list-group-item-action">
+                        <i class="bi-youtube"></i> Youtube <span class="badge bg-secondary badge-pill badge-primary pull-right">8</span>
+                    </a>
+                </div>
+            </div>
+
+            <!---------Form Button--------------------------------------------->
+            <div class="container mt-3 vstack" name="form-button"><a href="form.html" class="btn btn-success btn-lg" role="button" aria-pressed="true">Form Page</a>
+
+            </div>
+            <br>
+        </main>
+
+        <!---------------------------------- Begin the footer ------------------------------------->
+<footer class="bg-secondary text-center ">
+    <div class="container p-4">
+  
+      <section class="mb-4">
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #5462db" href="https://www.facebook.com/" role="button"><i class="fab fa-facebook-f"></i></a>
+  
+        <!-- Twitter -->
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee" href="https://x.com/home?lang=en" role="button"><i class="fab fa-twitter"></i></a>
+  
+        <!-- Google -->
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #b8c4e1" href="https://www.google.com/" role="button"><i class="fab fa-google"></i></a>
+  
+        <!-- Instagram -->
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #fb9714" href="https://www.instagram.com/" role="button"><i class="fab fa-instagram"></i></a>
+
+        <!-- Github -->
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #333333" href="https://github.com/FreddieSteffen/Web-Dev-2" role="button"><i class="fab fa-github"></i></a>
+      </section>
+      <!-- Section: Social media -->
+  
+  
+      <!-- Section: Form -->
+      <section class="">
+        <form action="">
+          <!--Grid row-->
+          <div class="row d-flex justify-content-center">
+            <!--Grid column-->
+            <div class="col-auto">
+              <p class="pt-2">
+                <strong>Message us -></strong>
+              </p>
+            </div>
+            <!--Grid column-->
+  
+            <!--Grid column-->
+            <div class="col-md-5 col-12">
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input type="email" id="form5Example2" class="form-control"/>
+              </div>
+            </div>
+            <!--Grid column-->
+  
+            <!--Grid column-->
+            <div class="col-auto">
+  
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary mb-4">
+                Submit
+              </button>
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </form>
+      </section>
+      <!-- Section: Form -->
+  
+  
+  
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Videos</h5>
+  
+            <ul class="">
+              <li>
+                <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" class="text-dark">How to make a footer</a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=iMj-TbN7ydg" class="text-dark">How to add links</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+  
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Contact</h5>
+  
+            <ul class="">
+              <li>
+                <a href="#" class="text-dark">Phone #</a>
+              </li>
+              <li>
+                <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcRwPxWjtXFjXvXPdDFcFppCDbhHhLzLCPHlDpbZHsvCMWJwMJXLDNCPQtVqlpRhfGnjHFzTg" class="text-dark">Gmail</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+  
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Info</h5>
+  
+            <ul class="">
+              <li>
+                <a href="https://docs.google.com/document/d/18iv2OIld4yHyiYrJhmoCCCUDsnN5KQtc1gyZt5kc-I0/edit?tab=t.0" class="text-dark">Terms and Conditions</a>
+              </li>
+              <li>
+                <a href="http://127.0.0.1:5500/Version5.0/user05/realvirus.html" class="text-dark">Virus Link</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Credits</h5>
+  
+            <ul class="">
+              <li>
+                <a href="" class="text-dark">Freddie Steffen</a>
+              </li>
+              <li>
+                <a href="http://127.0.0.1:5500/Version5.0/user05/realvirus.html" class="text-dark">ADD NAME HERE</a>
+              </li>
+            </ul>
+          </div>
+          
+</footer> 
+        <!---------------------------------- End the footer --------------------------------------->
+    </body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css">
+</html>
