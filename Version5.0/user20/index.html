@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Block Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Interactive Block Game</h1>
+        <div class="scoreboard">
+            <span>Score: <span id="score">0</span></span>
+            <span>High Score: <span id="high-score">0</span></span>
+        </div>
+        <div class="game-grid" id="game-grid"></div>
+        <div class="next-block" id="next-block"></div>
+        <div class="game-over" id="game-over" style="display: none;">
+            <p>Game Over!</p>
+            <button onclick="restartGame()">Restart</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

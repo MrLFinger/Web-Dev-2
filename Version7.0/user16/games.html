@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Version 5.0
+    Name:
+    Date Completed:
+-->
+
+<head>
+    <title>JavaScript Games</title>
+
+    <!-- Meta data -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="JavaScript Games">
+
+    <!-- CSS -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- Custom -->
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!-- JavaScript -->
+    <!-- These are needed to get the responsive menu to work -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <!---------------------------------- Begin the nav-bar ----------------------------------->
+    <div class="menu">
+        <nav class="navbar navbar-expand-md p-2 navbar-dark bg-dark">
+            <a href="http://shakonet.isd720.com" class="navbar-brand">WebDev</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Edit These Items in your Menu ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="#" class="nav-item nav-link">About Me</a>
+                    <a href="#" class="nav-item nav-link disabled" tabindex="-1">Music</a>
+                    <a href="#" class="nav-item nav-link disabled" tabindex="-1">Lists</a>
+                    <a href="games.html" class="nav-item nav-link active" tabindex="-1">Games</a>
+                    <a href="bootstrap.html" class="nav-item nav-link" tabindex="-1">Bootstrap</a>
+                    <a href="script.html" class="nav-item nav-link" tabindex="-1">JavaScript</a>
+                    <a href="mailto:sample@gmail.com?Subject=Hello" class="nav-item nav-link disabled" tabindex="-1">Contact</a>
+                    <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Edit These Items in your Menu ↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <a href="#" class="nav-item nav-link disabled">Login</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!---------------------------------- End the nav-bar ------------------------------------->
+
+    <main class="m-3" id="content">
+
+        <h1 class="text-left my-3">Javascript Games!!!</h1>
+        <!-- Edit this line for the title of your page -->
+
+        <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Put your content below this line ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
+        <p>
+            <script language="JavaScript">
+
+                var startTime=new Date();
+                var endTime=new Date();
+                var startPressed=false;
+                var bgChangeStarted=false;
+                var maxWait=20;
+                var timerID;
+                
+                function startTest()
+                {
+                 document.body.style.background=document.response.bgColorChange.options[document.response.bgColorChange.selectedIndex].text;
+                 bgChangeStarted=true;
+                 startTime=new Date();
+                }
+                
+                function remark(responseTime)
+                {
+                 var responseString="Amazing!!";
+                 if (responseTime < 0.20)
+                 responseString="Well done!";
+                 if (responseTime >= 0.30 && responseTime < 0.40)
+                 responseString="Nice!";
+                 if (responseTime >=0.40 && responseTime < 0.50)
+                 responseString="Not bad...";
+                 if (responseTime >=0.50 && responseTime < 0.80)
+                 responseString="Keep practicing!";
+                 if (responseTime >=0.80 && responseTime < 1.1)
+                 responseString="You get enough sleep?";
+                 if (responseTime >=1.1)
+                 responseString="Goodnight?";
+                 return responseString;
+                }
+                
+                function stopTest()
+                {
+                 if(bgChangeStarted)
+                 {
+                 endTime=new Date();
+                 var responseTime=(endTime.getTime()-startTime.getTime())/1000;
+                
+                 document.body.style.background="white"; 
+                 alert("Your response time is: " + responseTime + " seconds " + "\n" + remark(responseTime));
+                 startPressed=false;
+                 bgChangeStarted=false;
+                 }
+                 else
+                 {
+                 if (!startPressed)
+                 {
+                 alert("press start first to start test");
+                 }
+                 else
+                 { 
+                 clearTimeout(timerID);
+                 startPressed=false; 
+                 alert("try again, you pressed slightly early!");
+                 } 
+                 }
+                }
+                
+                var randMULTIPLIER=0x015a4e35;
+                var randINCREMENT=1;
+                var today=new Date();
+                var randSeed=today.getSeconds();
+                
+                function randNumber()
+                {
+                 randSeed = (randMULTIPLIER * randSeed + randINCREMENT) % (1 << 31);
+                 return((randSeed >> 15) & 0x7fff) / 32767;
+                }
+                
+                function startit()
+                {
+                 if(startPressed)
+                 {
+                 alert("You have already started. Press stop to stop");
+                 return;
+                 }
+                 else
+                 {
+                 startPressed=true; 
+                 timerID=setTimeout('startTest()', 6000*randNumber());
+                 }
+                }
+                
+                </script>
+                <p>I changed the name of the text at the top and some of the alert responses and then one of the response time frames.</p>
+                Click on "Start" first, and wait until the background color changes. As soon as it changes, hit "stop!"
+                
+                <form name="response">
+                Change background color in: 
+                <select name="bgColorChange">
+                <option selected>deeppink
+                <option>aliceblue
+                <option>crimson
+                <option>darkkhaki
+                <option>cadetblue
+                <option>darkorchid
+                <option>coral
+                </select>
+                <input type="button" value="start" onClick="startit()">
+                <input type="button" value="stop" onClick="stopTest()">
+                </form>
+        </p>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        h1 {
+            color: #3498db;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guess the Number Game</h1>
+    <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
+    <input type="number" id="guessInput" placeholder="Enter a number" min="1" max="100" />
+    <button onclick="checkGuess()">Guess</button>
+    <div id="message"></div>
+    <div id="attempts"></div>
+
+    <script>
+        // Game variables
+        let targetNumber = Math.floor(Math.random() * 100) + 1; // Random number between 1 and 100
+        let attempts = 0;
+
+        // Function to check the guess
+        function checkGuess() {
+            const guess = parseInt(document.getElementById('guessInput').value);
+            const messageElement = document.getElementById('message');
+            const attemptsElement = document.getElementById('attempts');
+            
+            if (isNaN(guess) || guess < 1 || guess > 100) {
+                messageElement.textContent = "Please enter a number between 1 and 100.";
+                return;
+            }
+
+            attempts++;
+
+            if (guess < targetNumber) {
+                messageElement.textContent = "Too low! Try again.";
+            } else if (guess > targetNumber) {
+                messageElement.textContent = "Too high! Try again.";
+            } else {
+                messageElement.textContent = `Congratulations! You guessed the number in ${attempts} attempts!`;
+                attemptsElement.textContent = "";
+                return;
+            }
+
+            attemptsElement.textContent = `Attempts: ${attempts}`;
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        h1 {
+            color: #3498db;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Coin Flip Game</h1>
+    <p>Guess whether the coin flip will be Heads or Tails!</p>
+    <button onclick="flipCoin('heads')">Heads</button>
+    <button onclick="flipCoin('tails')">Tails</button>
+    <div id="message"></div>
+
+    <script>
+        // Function to simulate the coin flip
+        function flipCoin(playerGuess) {
+            const coin = Math.random() < 0.5 ? 'heads' : 'tails'; // Randomly choose 'heads' or 'tails'
+
+            // Check if the player's guess is correct
+            const message = playerGuess === coin ? "You guessed right! It's " + coin + "!" : "Oops! It's " + coin + ". Try again!";
+            
+            // Display the message
+            document.getElementById('message').textContent = message;
+        }
+    </script>
+</body>
+</html>
+        <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Make sure all your content is above this line ↑↑↑↑↑↑↑↑↑↑↑↑-->
+    </main>
+
+    <!---------------------------------- Begin the footer ------------------------------------->
+    <footer class="small text-center" id="footer">
+        <p>
+            Webpage made by <a href="index.html" target="_blank">[your name]</a>
+        </p>
+    </footer>
+    <!---------------------------------- End the footer --------------------------------------->
+</body>
+
+</html>

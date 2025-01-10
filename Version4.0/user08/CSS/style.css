@@ -1,21 +1,157 @@
+@import url(rainbow.css);
+.button {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+.title{
+	color: red;
+	font-family: 'Trebuchet MS', sans-serif; 
+  }
+  
+  .title-large {
+	font-size: 2rem;
+  }
+  
+  .title-small {
+	font-size: .5rem;
+  }
+.button-small {
+	border-radius: -8px;
+}
+
+.button-big {
+	border-radius: 30%;
+}
+
+.red {
+	background-color: #ff0000;
+}
+
+td {
+	padding: 20px;
+}
+
 table {
-	font-family: "Marker Felt", "Comic Sans MS", fantasy;
-	color: #003366;
 	margin-left: auto;
 	margin-right: auto;
-	text-align: left;
-	border-collapse: collapse;
-	cellspacing: 0px;
 }
 
-tr {
-	border: 1px solid #ffffff;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	text-align: center;
-	background-color:#9FB6CD; 
 }
 
-th {
-	text-align: center;
-	color: #ffffff;
-	background-color: #003366;
+.myButton4 {
+	box-shadow:inset 0px 1px 0px 17px #f29c93;
+	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+	background-color:#fe1a00;
+	border-radius:42px;
+	border:12px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:32px 76px;
+	text-decoration:none;
+	text-shadow:1px 0px 2px #b23e35;
 }
+.myButton4:hover {
+	background:linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
+	background-color:#ce0100;
+}
+.myButton4:active {
+	position:relative;
+	top:1px;
+}
+
+.myButton5 {
+	box-shadow:inset 3px 14px 5px 22px #f29c93;
+	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+	background-color:#fe1a00;
+	border-radius:20px;
+	border:12px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	font-weight:bold;
+	padding:30px 70px;
+	text-decoration:none;
+	text-shadow:4px 18px 0px #b23e35;
+}
+.myButton5:hover {
+	background:linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
+	background-color:#ce0100;
+}
+.myButton5:active {
+	position:relative;
+	top:1px;
+}
+
+
+.myButton6 {
+	box-shadow:inset 3px 14px 5px 22px #f29c93;
+	background:linear-gradient(to bottom, #0015fc 5%, #614e4e 100%);
+	background-color:#0015fc;
+	border-radius:20px;
+	border:12px solid #46f25a;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	font-weight:bold;
+	padding:30px 70px;
+	text-decoration:none;
+	text-shadow:4px 18px 0px #b23e35;
+}
+.myButton6:hover {
+	background:linear-gradient(to bottom, #614e4e 5%, #0015fc 100%);
+	background-color:#614e4e;
+}
+.myButton6:active {
+	position:relative;
+	top:1px;
+}
+#footerTable {
+	background-color:#b23e35
+}
+#card{ width:33% 
+	
+}
+#knowledge > * {
+	border: 3px red solid;
+  }
+ p +  {
+	background-color: #ffa200;
+  }
+div li::marker{
+	color: red;
+  }
+  div li * ::marker{
+	content:"   🗣️🔥🔥 ";
+  }
+div li:hover {
+	background-color: black;
+  }
+td:hover {
+	background-color: rgb(81, 81, 81);
+  }
+  div:visited {
+	color: #00FF00;
+  }

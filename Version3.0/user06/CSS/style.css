@@ -1,21 +1,83 @@
-table {
-	font-family: "Marker Felt", "Comic Sans MS", fantasy;
-	color: #003366;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: left;
-	border-collapse: collapse;
-	cellspacing: 0px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-tr {
-	border: 1px solid #ffffff;
-	text-align: center;
-	background-color:#9FB6CD; 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2f2f2f;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
 }
 
-th {
-	text-align: center;
-	color: #ffffff;
-	background-color: #003366;
+.container {
+    text-align: center;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 30px;
+    width: 400px;
+}
+
+h1 {
+    color: #f2a900;
+    margin-bottom: 20px;
+}
+
+.balance {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.game-option {
+    margin-bottom: 15px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 999;
+}
+
+.modal input {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+    width: 80%;
+}
+
+.modal button {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.result {
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 20px;
 }
