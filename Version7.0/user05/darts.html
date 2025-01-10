@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Bracket Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+
+        #add, #randomize {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+            display: block;
+            margin: 20px 0;
+        }
+
+        #brackets {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .round {
+            margin: 20px;
+        }
+
+        .matchup {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .team {
+            width: 150px;
+            padding: 10px;
+            background-color: #e0e0e0;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .team.selected {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .vs {
+            font-size: 1.5em;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button-container button {
+            margin: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        h3 {
+            text-align: center;
+        }
+    </style>
+    <!-- Add jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const knownBrackets = [4, 8, 16, 32];  // Acceptable bracket sizes
+            let teams = [];
+            let bracketSize = 0;
+            let roundResults = [];
+
+            // Placeholder teams for initial setup
+            let placeholderTeams = [
+                "Team 1", "Team 2", "Team 3", "Team 4", "Team 5", "Team 6", "Team 7", "Team 8", 
+                "Team 9", "Team 10", "Team 11", "Team 12", "Team 13", "Team 14", "Team 15", "Team 16", 
+                "Team 17", "Team 18", "Team 19", "Team 20", "Team 21", "Team 22", "Team 23", "Team 24", 
+                "Team 25", "Team 26", "Team 27", "Team 28", "Team 29", "Team 30", "Team 31", "Team 32"
+            ];
+
+            // Add bracket functionality
+            $('#add').click(function() {
+                bracketSize = parseInt(prompt("Enter bracket size (4, 8, 16, 32):", 8));
+                if (knownBrackets.includes(bracketSize)) {
+                    teams = [];
+                    roundResults = [];
+                    // Collect team names from user input or use placeholder names
+                    for (let i = 0; i < bracketSize; i++) {
+                        const teamName = prompt(`Enter name for Team ${i + 1}:`) || placeholderTeams[i];
+                        teams.push(teamName);
+                    }
+                    generateBracket(bracketSize);
+                } else {
+                    alert("Invalid bracket size. Choose 4, 8, 16, or 32.");
+                }
+            });
+
+            // Randomize teams functionality
+            $('#randomize').click(function() {
+                if (teams.length > 0) {
+                    shuffleTeams();
+                    generateBracket(bracketSize); // Regenerate the bracket with randomized teams
+                } else {
+                    alert("Please add a bracket first!");
+                }
+            });
+
+            // Function to shuffle teams
+            function shuffleTeams() {
+                for (let i = teams.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [teams[i], teams[j]] = [teams[j], teams[i]]; // Swap elements
+                }
+            }
+
+            // Generate the bracket with placeholders
+            function generateBracket(size) {
+                const rounds = Math.log2(size); // Calculate the number of rounds
+                roundResults = Array.from({ length: rounds + 1 }, () => []);
+
+                let roundHTML = '';
+                for (let round = 1; round <= rounds; round++) {
+                    roundHTML += `<div class="round" id="round${round}"><h3>Round ${round}</h3>`;
+                    let matchups = size / Math.pow(2, round);
+                    for (let i = 0; i < matchups; i++) {
+                        roundHTML += `
+                            <div class="matchup" id="matchup${round}-${i}">
+                                <div class="team" contenteditable="true" id="teamA${round}-${i}">${round === 1 ? teams[i * 2] : 'Winner not added yet'}</div>
+                                <span class="vs">VS</span>
+                                <div class="team" contenteditable="true" id="teamB${round}-${i}">${round === 1 ? teams[i * 2 + 1] : 'Winner not added yet'}</div>
+                                <div class="button-container">
+                                    <button class="selectWinner" data-round="${round}" data-matchup="${i}" data-team="A">Select Winner: ${round === 1 ? teams[i * 2] : 'Winner not added yet'}</button>
+                                    <button class="selectWinner" data-round="${round}" data-matchup="${i}" data-team="B">Select Winner: ${round === 1 ? teams[i * 2 + 1] : 'Winner not added yet'}</button>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    roundHTML += '</div>';
+                }
+
+                // Final round
+                roundHTML += '<div class="round" id="roundFinal"><h3>Finals</h3><div id="finalsResult"></div></div>';
+                $('#brackets').html(roundHTML);
+            }
+
+            // Function to handle winner selection
+            $(document).on('click', '.selectWinner', function() {
+                const round = $(this).data('round');
+                const matchup = $(this).data('matchup');
+                const selectedTeam = $(this).data('team');
+                const otherTeam = selectedTeam === 'A' ? 'B' : 'A';
+
+                // Get the name of the winning team
+                const winningTeam = $(`#team${selectedTeam}${round}-${matchup}`).text();
+                const losingTeam = $(`#team${otherTeam}${round}-${matchup}`).text();
+
+                // Store the result in the roundResults
+                roundResults[round][matchup] = { winner: winningTeam, loser: losingTeam };
+
+                // Highlight the selected team
+                $(`#team${selectedTeam}${round}-${matchup}`).addClass('selected');
+                $(`#team${otherTeam}${round}-${matchup}`).removeClass('selected');
+
+                // Update the buttons text to reflect the winner and loser
+                $(this).text(`Winner: ${winningTeam}`).prop('disabled', true);
+                $(this).siblings().text(`Loser: ${losingTeam}`).prop('disabled', true);
+
+                // Move the winner to the next round
+                moveToNextRound(round, matchup, winningTeam, losingTeam);
+            });
+
+            // Function to move winner to next round
+            function moveToNextRound(round, matchup, winningTeam, losingTeam) {
+                const nextRound = round + 1;
+                const nextMatchup = Math.floor(matchup / 2);
+
+                // Store the winner and loser for the next round
+                if (!roundResults[nextRound]) {
+                    roundResults[nextRound] = [];
+                }
+
+                // If the winner is already recorded for this matchup, we do not overwrite
+                if (!roundResults[nextRound][nextMatchup]) {
+                    roundResults[nextRound][nextMatchup] = { winner: winningTeam, loser: losingTeam };
+                }
+
+                // If it's the final round, display the winner
+                if (nextRound === Math.log2(bracketSize)) {
+                    $('#finalsResult').text(`Winner: ${winningTeam}`);
+                }
+
+                // Update the team for the next round
+                const nextMatchupID = `matchup${nextRound}-${nextMatchup}`;
+                const nextTeamID = `teamA${nextRound}-${nextMatchup}`;
+
+                if ($(`#${nextTeamID}`).length === 0) {
+                    $(`#matchup${nextRound}-${nextMatchup}`).append(`
+                        <div class="team" contenteditable="true" id="teamA${nextRound}-${nextMatchup}">${roundResults[nextRound][nextMatchup].winner}</div>
+                    `);
+                } else {
+                    $(`#teamA${nextRound}-${nextMatchup}`).text(roundResults[nextRound][nextMatchup].winner);
+                }
+
+                // Ensure the second team in the next round is updated
+                const nextTeamBID = `teamB${nextRound}-${nextMatchup}`;
+                if ($(`#${nextTeamBID}`).length === 0) {
+                    $(`#matchup${nextRound}-${nextMatchup}`).append(`
+                        <div class="team" contenteditable="true" id="teamB${nextRound}-${nextMatchup}">${roundResults[nextRound][nextMatchup].loser}</div>
+                    `);
+                } else {
+                    $(`#teamB${nextRound}-${nextMatchup}`).text(roundResults[nextRound][nextMatchup].loser);
+                }
+            }
+
+        });
+    </script>
+</head>
+<body>
+
+    <h1>Tournament Bracket Generator</h1>
+
+    <div id="add">Add Bracket</div>
+    <div id="randomize">Randomize Teams</div>
+
+    <div id="brackets"></div>
+
+</body>
+</html>
