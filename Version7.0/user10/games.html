@@ -1,237 +1,193 @@
-<script language="JavaScript">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
 
-window.addEventListener("keydown", function(e) {
-    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
-        e.preventDefault();
-    }
-}, false);
+        #menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
 
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
 
-    var startTime=new Date();
-    var endTime=new Date();
-    var startPressed=false;
-    var bgChangeStarted=false;
-    var maxWait=20;
-    var timerID;
-    
-    function startTest()
-    {
-     document.body.style.background=document.response.bgColorChange.options[document.response.bgColorChange.selectedIndex].text;
-     bgChangeStarted=true;
-     startTime=new Date();
-    }
-    
-    function remark(responseTime)
-    {
-     var responseString="";
-     if (responseTime < 0.20)
-     responseString="Well done!";
-     if (responseTime >= 0.20 && responseTime < 0.30)
-     responseString="Nice!";
-     if (responseTime >=0.40 && responseTime < 0.50)
-     responseString="Could be better...";
-     if (responseTime >=0.50 && responseTime < 0.80)
-     responseString="Keep practicing!";
-     if (responseTime >=0.80 && responseTime < 1.1)
-     responseString="Have you been day dreaming again?";
-     if (responseTime >=1.1)
-     responseString="Did you fall asleep?";
-     return responseString;
-    }
-    
-    function stopTest()
-    {
-     if(bgChangeStarted)
-     {
-     endTime=new Date();
-     var responseTime=(endTime.getTime()-startTime.getTime())/1000;
-    
-     document.body.style.background="white"; 
-     alert("Your response time is: " + responseTime + " seconds " + "\n" + remark(responseTime));
-     startPressed=false;
-     bgChangeStarted=false;
-     }
-     else
-     {
-     if (!startPressed)
-     {
-     alert("press start first to start test");
-     }
-     else
-     { 
-     clearTimeout(timerID);
-     startPressed=false; 
-     alert("cheater! you pressed too early!");
-     } 
-     }
-    }
-    
-    var randMULTIPLIER=0x015a4e35;
-    var randINCREMENT=1;
-    var today=new Date();
-    var randSeed=today.getSeconds();
-    
-    function randNumber()
-    {
-     randSeed = (randMULTIPLIER * randSeed + randINCREMENT) % (1 << 31);
-     return((randSeed >> 15) & 0x7fff) / 32767;
-    }
-    
-    function startit()
-    {
-     if(startPressed)
-     {
-     alert("Already started. Press stop to stop");
-     return;
-     }
-     else
-     {
-     startPressed=true; 
-     timerID=setTimeout('startTest()', 6000*randNumber());
-     }
-    }
-    
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        canvas {
+            border: 2px solid #000;
+            display: none;
+        }
+
+        #backButton {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: none;
+        }
+
+        #backButton:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Game Hub</h1>
+    <div id="menu">
+        <button onclick="startGame('snake')">Play Snake</button>
+        <button onclick="startGame('pong')">Play Pong</button>
+        <button onclick="startGame('breakout')">Play Breakout</button>
+        <button onclick="startGame('tictactoe')">Play Tic Tac Toe</button>
+        <button onclick="startGame('memory')">Play Memory Game</button>
+        <button onclick="startGame('flappybird')">Play Flappy Bird</button>
+        <button onclick="startGame('asteroids')">Play Asteroids</button>
+        <button onclick="startGame('2048')">Play 2048</button>
+    </div>
+
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <button id="backButton" onclick="backToMenu()">Back to Menu</button>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const context = canvas.getContext('2d');
+        const backButton = document.getElementById('backButton');
+        const menu = document.getElementById('menu');
+
+        function startGame(game) {
+            menu.style.display = 'none';
+            canvas.style.display = 'block';
+            backButton.style.display = 'inline-block';
+
+            switch (game) {
+                case 'snake':
+                    startSnake();
+                    break;
+                case 'pong':
+                    startPong();
+                    break;
+                case 'breakout':
+                    startBreakout();
+                    break;
+                // Add additional cases for other games here
+                default:
+                    alert('Game not implemented yet!');
+                    backToMenu();
+            }
+        }
+
+        function backToMenu() {
+            cancelAnimationFrame(animationFrame);
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            canvas.style.display = 'none';
+            backButton.style.display = 'none';
+            menu.style.display = 'flex';
+        }
+
+        // Game implementations
+        let animationFrame;
+
+        function startSnake() {
+            let snake = [{ x: 200, y: 200 }];
+            let food = { x: 300, y: 300 };
+            let dx = 20, dy = 0;
+
+            function drawSnake() {
+                snake.forEach(part => {
+                    context.fillStyle = 'green';
+                    context.fillRect(part.x, part.y, 20, 20);
+                });
+            }
+
+            function drawFood() {
+                context.fillStyle = 'red';
+                context.fillRect(food.x, food.y, 20, 20);
+            }
+
+            function updateSnake() {
+                const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+                snake.unshift(head);
+
+                if (head.x === food.x && head.y === food.y) {
+                    food = {
+                        x: Math.floor(Math.random() * (canvas.width / 20)) * 20,
+                        y: Math.floor(Math.random() * (canvas.height / 20)) * 20
+                    };
+                } else {
+                    snake.pop();
+                }
+
+                if (
+                    head.x < 0 ||
+                    head.x >= canvas.width ||
+                    head.y < 0 ||
+                    head.y >= canvas.height ||
+                    snake.slice(1).some(part => part.x === head.x && part.y === head.y)
+                ) {
+                    alert('Game Over!');
+                    backToMenu();
+                }
+            }
+
+            function gameLoop() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                drawSnake();
+                drawFood();
+                updateSnake();
+                animationFrame = requestAnimationFrame(gameLoop);
+            }
+
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowUp' && dy === 0) { dx = 0; dy = -20; }
+                else if (e.key === 'ArrowDown' && dy === 0) { dx = 0; dy = 20; }
+                else if (e.key === 'ArrowLeft' && dx === 0) { dx = -20; dy = 0; }
+                else if (e.key === 'ArrowRight' && dx === 0) { dx = 20; dy = 0; }
+            });
+
+            gameLoop();
+        }
+
+        function startPong() {
+            // Example placeholder for Pong
+            alert('Pong game not implemented yet!');
+            backToMenu();
+        }
+
+        function startBreakout() {
+            // Example placeholder for Breakout
+            alert('Breakout game not implemented yet!');
+            backToMenu();
+        }
     </script>
-    <p>Test your Response time!</p>
-    Click on "Start" first, and wait until the background color changes. As soon as it changes, hit "stop!"
-    
-    <form name="response">
-    Change background color in: 
-    <select name="bgColorChange">
-    <option selected>deeppink
-    <option>aliceblue
-    <option>crimson
-    <option>darkkhaki
-    <option>cadetblue
-    <option>darkorchid
-    <option>coral
-    </select>
-    <input type="button" value="start" onClick="startit()">
-    <input type="button" value="stop" onClick="stopTest()">
-    </form>
-
-<script>
-// Pong Game in JavaScript using Canvas
-
-const canvas = document.createElement('canvas');
-const ctx = canvas.getContext('2d');
-
-// Set canvas dimensions
-canvas.width = 800;
-canvas.height = 600;
-document.body.appendChild(canvas);
-
-// Game properties
-const PADDLE_WIDTH = 10;
-const PADDLE_HEIGHT = 100;
-const BALL_RADIUS = 10;
-
-let leftPaddleY = (canvas.height - PADDLE_HEIGHT) / 2;
-let rightPaddleY = (canvas.height - PADDLE_HEIGHT) / 2;
-let ballX = canvas.width / 2;
-let ballY = canvas.height / 2;
-let ballDX = 4;
-let ballDY = 4;
-
-let leftScore = 0;
-let rightScore = 0;
-
-// Paddle movement
-let leftPaddleDY = 0;
-let rightPaddleDY = 0;
-const PADDLE_SPEED = 6;
-
-// Event listeners for paddle controls
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'w') leftPaddleDY = -PADDLE_SPEED;
-    if (e.key === 's') leftPaddleDY = PADDLE_SPEED;
-    if (e.key === 'ArrowUp') rightPaddleDY = -PADDLE_SPEED;
-    if (e.key === 'ArrowDown') rightPaddleDY = PADDLE_SPEED;
-});
-
-window.addEventListener('keyup', (e) => {
-    if (e.key === 'w' || e.key === 's') leftPaddleDY = 0;
-    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') rightPaddleDY = 0;
-});
-
-// Game loop
-function gameLoop() {
-    // Clear the canvas
-    ctx.fillStyle = 'black';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Draw paddles
-    ctx.fillStyle = 'white';
-    ctx.fillRect(10, leftPaddleY, PADDLE_WIDTH, PADDLE_HEIGHT);
-    ctx.fillRect(canvas.width - 20, rightPaddleY, PADDLE_WIDTH, PADDLE_HEIGHT);
-
-    // Draw ball
-    ctx.beginPath();
-    ctx.arc(ballX, ballY, BALL_RADIUS, 0, Math.PI * 2);
-    ctx.fillStyle = 'white';
-    ctx.fill();
-    ctx.closePath();
-
-    // Draw scores
-    ctx.font = '48px Arial';
-    ctx.fillText(leftScore, canvas.width / 4, 50);
-    ctx.fillText(rightScore, (3 * canvas.width) / 4, 50);
-
-    // Move paddles
-    leftPaddleY += leftPaddleDY;
-    rightPaddleY += rightPaddleDY;
-
-    // Prevent paddles from going out of bounds
-    leftPaddleY = Math.max(0, Math.min(canvas.height - PADDLE_HEIGHT, leftPaddleY));
-    rightPaddleY = Math.max(0, Math.min(canvas.height - PADDLE_HEIGHT, rightPaddleY));
-
-    // Move ball
-    ballX += ballDX;
-    ballY += ballDY;
-
-    // Ball collision with top and bottom walls
-    if (ballY - BALL_RADIUS <= 0 || ballY + BALL_RADIUS >= canvas.height) {
-        ballDY = -ballDY;
-    }
-
-    // Ball collision with paddles
-    if (
-        ballX - BALL_RADIUS <= 20 &&
-        ballY >= leftPaddleY &&
-        ballY <= leftPaddleY + PADDLE_HEIGHT
-    ) {
-        ballDX = -ballDX;
-    }
-
-    if (
-        ballX + BALL_RADIUS >= canvas.width - 20 &&
-        ballY >= rightPaddleY &&
-        ballY <= rightPaddleY + PADDLE_HEIGHT
-    ) {
-        ballDX = -ballDX;
-    }
-
-    // Ball out of bounds
-    if (ballX < 0) {
-        rightScore++;
-        resetBall();
-    }
-
-    if (ballX > canvas.width) {
-        leftScore++;
-        resetBall();
-    }
-
-    requestAnimationFrame(gameLoop);
-}
-
-function resetBall() {
-    ballX = canvas.width / 2;
-    ballY = canvas.height / 2;
-    ballDX = -ballDX;
-}
-
-// Start the game loop
-gameLoop();
-
-</script>
+</body>
+</html>
