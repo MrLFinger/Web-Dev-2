@@ -1,3 +1,4 @@
+@import url(rainbow.css);
 table {
 	font-family: "Marker Felt", "Comic Sans MS", fantasy;
 	color: #003366;
@@ -19,3 +20,145 @@ th {
 	color: #ffffff;
 	background-color: #003366;
 }
+.buttonRed {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.button1 {
+	border-radius: 8px;
+}
+
+.button2 {
+	border-radius: 30%;
+}
+
+.red {
+	background-color: #ff0000;
+}
+
+td{
+	padding:20px;
+}
+
+table{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1, h2, h3, h4, h5, h6{
+	text-align:center;
+}
+.title{
+	color: red;
+	font-family: 'Trebuchet MS', sans-serif; 
+  }
+  
+  .title-large {
+	font-size: 2rem;
+  }
+  
+  .title-small {
+	font-size: .5rem;
+  }
+  #morecontent {
+	background-color: yellow;
+  }
+ButtonRed{ 
+  Background: #fd3c3c;
+  color: #000000
+  
+}
+.myButton {
+	background-color:#ff3d3d;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+.FunnyButton {
+	background-color:#ff54dd;
+	border-radius:28px;
+	border:1px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ff0000;
+}
+.myButton:hover {
+	background-color:#ff00ff;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+.title{
+	color: red;
+	font-family: 'Trebuchet MS', sans-serif; 
+  }
+  
+  .title-large {
+	font-size: 2rem;
+  }
+  
+  .title-small {
+	font-size: .5rem;
+  }
+  inline-block{
+  .card {width: 100%}
+  }
+  #knowledge > * {
+	border: 3px red solid;
+  }
+  p + * {
+	background-color: #FFFFFF;
+  }
+  div li::marker{
+	color: red;
+  }
+  div li *::marker{
+	content:"😜 ";
+  }
+  td:hover {
+	background-color: black;
+  }
+  div li :hover {
+	color: #FFC0CB;
+  }
+  p {
+	display: none;
+	background-color: yellow;
+	padding: 20px;
+  }
+  
+  div:hover p {
+	display: block;
+  }
+  p:first-child {
+	color: plum;
+  }
