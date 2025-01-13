@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rust Gambling Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rust Gambling</h1>
+            <div class="balance">
+                <p>Balance: <span id="balance">1000</span> Coins</p>
+            </div>
+        </header>
 
+        <div class="games">
+            <!-- Game Buttons -->
+            <div class="game-option" id="gameCrash">
+                <button onclick="openCrashGame()">Crash Game</button>
+            </div>
+            <div class="game-option" id="gameRoulette">
+                <button onclick="openRouletteGame()">Roulette</button>
+            </div>
+            <div class="game-option" id="gameItemBox">
+                <button onclick="openItemBox()">Item Box</button>
+            </div>
+        </div>
+
+        <!-- Crash Game Modal -->
+        <div class="modal" id="crashGameModal">
+            <h3>Crash Game</h3>
+            <input type="number" id="crashBetAmount" placeholder="Bet Amount" min="1" />
+            <button onclick="startCrashGame()">Start Crash</button>
+            <button onclick="closeCrashGame()">Close</button>
+        </div>
+
+        <!-- Roulette Modal -->
+        <div class="modal" id="rouletteModal">
+            <h3>Roulette</h3>
+            <input type="number" id="rouletteBetAmount" placeholder="Bet Amount" min="1" />
+            <button onclick="spinRoulette()">Spin the Wheel</button>
+            <button onclick="closeRouletteGame()">Close</button>
+        </div>
+
+        <!-- Item Box Modal -->
+        <div class="modal" id="itemBoxModal">
+            <h3>Open Item Box</h3>
+            <input type="number" id="itemBoxBetAmount" placeholder="Bet Amount" min="1" />
+            <button onclick="openItemBoxLoot()">Open Box</button>
+            <button onclick="closeItemBox()">Close</button>
+        </div>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
