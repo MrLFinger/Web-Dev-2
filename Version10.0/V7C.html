@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/V7C.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
@@ -29,6 +29,45 @@
 
 </nav>
 <main>
+    <div><h1><center>Version 7 C.</center></h1></div>
+    <div><h2><center>Games with JavaScript.</center></h2></div>
+    <div><h3><center>Example Website.</center></h3></div>
+    <center>
+            <div>
+            <p><h5>Test your Response time!</h5></p>
+            Click on "Start" first, and wait until the background color changes. As soon as it changes, hit "stop!"
+            
+            <form name="response">
+            Change background color in: 
+            <select name="bgColorChange">
+            <option selected>deeppink
+            <option>aliceblue
+            <option>crimson
+            <option>darkkhaki
+            <option>cadetblue
+            <option>darkorchid
+            <option>coral
+            </select>
+            <input type="button" value="start" onClick="startit()">
+            <input type="button" value="stop" onClick="stopTest()">
+            </form>
+            </div>
+
+            <div>
+                <h5>Guess the Number!</h5>
+                <p>Guess a number between 1 and 100</p>
+                <input type="number" id="guess" placeholder="Enter your guess" />
+                <button id="submitGuess">Submit Guess</button>
+                <p id="message"></p>
+                <p id="attempts">Attempts: 0</p>
+                <button id="resetGame" style="display: none;">Play Again</button>
+            </div>
+
+            
+            
+            <script src="game.js"></script>
+    </center>
+    <div><h3><center>How to make it.</center></h3></div>
 
 </main>
 <footer>
