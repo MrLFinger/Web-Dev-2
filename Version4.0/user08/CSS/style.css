@@ -1,3 +1,4 @@
+@import url(rainbow.css);
 .button {
 	background-color: #4CAF50;
 	border: none;
@@ -131,4 +132,26 @@ h6 {
 	background-color:#b23e35
 }
 #card{ width:33% 
+	
 }
+#knowledge > * {
+	border: 3px red solid;
+  }
+ p +  {
+	background-color: #ffa200;
+  }
+div li::marker{
+	color: red;
+  }
+  div li * ::marker{
+	content:"   🗣️🔥🔥 ";
+  }
+div li:hover {
+	background-color: black;
+  }
+td:hover {
+	background-color: rgb(81, 81, 81);
+  }
+  div:visited {
+	color: #00FF00;
+  }

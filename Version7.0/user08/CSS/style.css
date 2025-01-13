@@ -1,8 +1,9 @@
-.body-wideMargin {
+.body {
     margin: 50px;
     font-size: 100%;
     line-height: 1.5;
     font-family: Roboto;
+    background-color: rgb(255, 145, 0);
 }
 
 button {
@@ -33,11 +34,34 @@ li li li li {
     list-style-type: circle;
 }
 
-h1 {
-    font-family: "Fjalla One", sans-serif;
-    font-size: 2em;
-    text-transform: uppercase;
-    font-weight: 400;
-    border-bottom: 1px solid black;
-    margin-bottom: 1em;
-}
+.bounds {
+    border: 5px rgb(255, 255, 255) solid;
+    width: 1440px;
+    height: 1440px;
+  }
+  
+  @keyframes hor-movement {
+    from {
+      margin-left: 0%;
+    }
+    to {
+      margin-left: 100%;
+    }
+  }
+  
+  @keyframes ver-movement {
+    from {
+      margin-top: 0%;
+    }
+    to {
+      margin-top: 100%;
+    }
+  }
+  
+  .image {
+    animation-name: hor-movement, ver-movement;
+    animation-duration: 3.141s, 1.414s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+  }

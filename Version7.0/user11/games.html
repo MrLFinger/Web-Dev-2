@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Version 5.0
+    Name:
+    Date Completed:
+-->
+
+<head>
+    <title>JavaScript Games</title>
+
+    <!-- Meta data -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="JavaScript Games">
+
+    <!-- CSS -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- Custom -->
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!-- JavaScript -->
+    <!-- These are needed to get the responsive menu to work -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <!---------------------------------- Begin the nav-bar ----------------------------------->
+    <div class="menu">
+        <nav class="navbar navbar-expand-md p-2 navbar-dark bg-dark">
+            <a href="http://shakonet.isd720.com" class="navbar-brand">WebDev</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Edit These Items in your Menu ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="#" class="nav-item nav-link">About Me</a>
+                    <a href="#" class="nav-item nav-link disabled" tabindex="-1">Music</a>
+                    <a href="#" class="nav-item nav-link disabled" tabindex="-1">Lists</a>
+                    <a href="games.html" class="nav-item nav-link active" tabindex="-1">Games</a>
+                    <a href="bootstrap.html" class="nav-item nav-link" tabindex="-1">Bootstrap</a>
+                    <a href="script.html" class="nav-item nav-link" tabindex="-1">JavaScript</a>
+                    <a href="mailto:sample@gmail.com?Subject=Hello" class="nav-item nav-link disabled" tabindex="-1">Contact</a>
+                    <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Edit These Items in your Menu ↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <a href="#" class="nav-item nav-link disabled">Login</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!---------------------------------- End the nav-bar ------------------------------------->
+
+    <main class="m-3" id="content">
+        <br>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Guess the Number Game</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+          }
+          #game-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          }
+          input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+            margin-bottom: 10px;
+          }
+          button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          button:hover {
+            background-color: #0056b3;
+          }
+          #result {
+            margin-top: 20px;
+            font-size: 18px;
+          }
+        </style>
+      </head>
+      <body>
+        <br>
+        <body>
+          <script>
+            // Set up the canvas and context
+            const canvas = document.createElement('canvas');
+            canvas.width = 400;
+            canvas.height = 600;
+            document.body.appendChild(canvas);
+            const ctx = canvas.getContext('2d');
+        
+            // Game variables
+            let playerX = canvas.width / 2 - 25;
+            const playerWidth = 50;
+            const playerHeight = 10;
+            const playerSpeed = 7;
+        
+            let objectX = Math.random() * (canvas.width - 20);
+            let objectY = 0;
+            const objectSize = 20;
+            const objectSpeed = 3;
+        
+            let score = 0;
+            let isGameOver = false;
+        
+            // Key press tracking
+            const keys = {
+              left: false,
+              right: false,
+              a: false,
+              d: false,
+            };
+        
+            window.addEventListener('keydown', (e) => {
+              if (e.key === 'ArrowLeft' || e.key === 'a') keys.left = true;
+              if (e.key === 'ArrowRight' || e.key === 'd') keys.right = true;
+            });
+        
+            window.addEventListener('keyup', (e) => {
+              if (e.key === 'ArrowLeft' || e.key === 'a') keys.left = false;
+              if (e.key === 'ArrowRight' || e.key === 'd') keys.right = false;
+            });
+        
+            // Game loop
+            function update() {
+              if ((keys.left || keys.a) && playerX > 0) playerX -= playerSpeed;
+              if ((keys.right || keys.d) && playerX < canvas.width - playerWidth) playerX += playerSpeed;
+        
+              objectY += objectSpeed;
+        
+              // Check collision
+              if (
+                objectY + objectSize > canvas.height - playerHeight &&
+                objectX + objectSize > playerX &&
+                objectX < playerX + playerWidth
+              ) {
+                score++;
+                resetObject();
+              }
+        
+              // Check if object hits the bottom
+              if (objectY > canvas.height) {
+                isGameOver = true;
+              }
+            }
+        
+            function draw() {
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+              // Draw player
+              ctx.fillStyle = 'blue';
+              ctx.fillRect(playerX, canvas.height - playerHeight, playerWidth, playerHeight);
+        
+              // Draw falling object
+              ctx.fillStyle = 'red';
+              ctx.fillRect(objectX, objectY, objectSize, objectSize);
+        
+              // Draw score
+              ctx.fillStyle = 'black';
+              ctx.font = '20px Arial';
+              ctx.fillText(`Score: ${score}`, 10, 30);
+        
+              if (isGameOver) {
+                ctx.fillStyle = 'black';
+                ctx.font = '30px Arial';
+                ctx.fillText('Game Over!', canvas.width / 2 - 80, canvas.height / 2);
+              }
+            }
+        
+            function resetObject() {
+              objectX = Math.random() * (canvas.width - objectSize);
+              objectY = 0;
+            }
+        
+            function gameLoop() {
+              if (!isGameOver) {
+                update();
+                draw();
+                requestAnimationFrame(gameLoop);
+              }
+            }
+        
+            gameLoop();
+          </script>
+        </body>
+
+        <h1 class="text-left my-3">Games</h1>
+        <!-- Edit this line for the title of your page -->
+
+        <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Put your content below this line ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
+        <p>
+            Come and checkout these awesome JavaScript Games!!!!
+        </p>
+        <script language="JavaScript">
+
+            var startTime=new Date();
+            var endTime=new Date();
+            var startPressed=false;
+            var bgChangeStarted=false;
+            var maxWait=20;
+            var timerID;
+            
+            function startTest()
+            {
+             document.body.style.background=document.response.bgColorChange.options[document.response.bgColorChange.selectedIndex].text;
+             bgChangeStarted=true;
+             startTime=new Date();
+            }
+            
+            function remark(responseTime)
+            {
+             var responseString="";
+             if (responseTime < 0.20)
+             responseString="Well done!";
+             if (responseTime >= 0.20 && responseTime < 0.30)
+             responseString="Nice!";
+             if (responseTime >=0.40 && responseTime < 0.50)
+             responseString="Could be better...";
+             if (responseTime >=0.50 && responseTime < 0.80)
+             responseString="Keep practicing!";
+             if (responseTime >=0.80 && responseTime < 1.1)
+             responseString="Have you been day dreaming again?";
+             if (responseTime >=1.1)
+             responseString="Did you fall asleep?";
+             return responseString;
+            }
+            
+            function stopTest()
+            {
+             if(bgChangeStarted)
+             {
+             endTime=new Date();
+             var responseTime=(endTime.getTime()-startTime.getTime())/1000;
+            
+             document.body.style.background="white"; 
+             alert("Your response time is: " + responseTime + " seconds " + "\n" + remark(responseTime));
+             startPressed=false;
+             bgChangeStarted=false;
+             }
+             else
+             {
+             if (!startPressed)
+             {
+             alert("press start first to start test");
+             }
+             else
+             { 
+             clearTimeout(timerID);
+             startPressed=false; 
+             alert("cheater! you pressed too early!");
+             } 
+             }
+            }
+            
+            var randMULTIPLIER=0x015a4e35;
+            var randINCREMENT=1;
+            var today=new Date();
+            var randSeed=today.getSeconds();
+            
+            function randNumber()
+            {
+             randSeed = (randMULTIPLIER * randSeed + randINCREMENT) % (1 << 31);
+             return((randSeed >> 15) & 0x7fff) / 32767;
+            }
+            
+            function startit()
+            {
+             if(startPressed)
+             {
+             alert("Already started. Press stop to stop");
+             return;
+             }
+             else
+             {
+             startPressed=true; 
+             timerID=setTimeout('startTest()', 6000*randNumber());
+             }
+            }
+      
+
+            </script>
+            <p>Test your Response time!</p>
+            Click on "Start" first, and wait until the background color changes. As soon as it changes, hit "stop!"
+            
+            <form name="response">
+            Change background color in: 
+            <select name="bgColorChange">
+            <option selected>deeppink
+            <option>aliceblue
+            <option>crimson
+            <option>darkkhaki
+            <option>cadetblue
+            <option>darkorchid
+            <option>coral
+            <option>jesus coin
+            </select>
+
+            <input type="button" value="start" onClick="startit()">
+            <input type="button" value="stop" onClick="stopTest()">
+            </form>
+        <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Make sure all your content is above this line ↑↑↑↑↑↑↑↑↑↑↑↑-->
+    </main>
+
+    <!---------------------------------- Begin the footer ------------------------------------->
+    <footer class="small text-center" id="footer">
+        <p>
+            Webpage made by <a href="index.html" target="_blank">[your name]</a>
+        </p>
+    </footer>
+    <!---------------------------------- End the footer --------------------------------------->
+</body>
+
+</html>

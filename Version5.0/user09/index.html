@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Survivor - 3D Survival Game</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/perlin-noise/1.0.1/perlin.min.js"></script>
+</head>
+<body>
+    <script>
+        // Basic variables
+        let scene, camera, renderer, controls, player, world, raycaster, intersects;
+        const playerSpeed = 0.1;
+        let isJumping = false;
+        let playerVelocity = new THREE.Vector3();
+        let gravity = -0.1;
+
+        // Textures for blocks
+        const textures = {
+            grass: new THREE.TextureLoader().load('https://i.imgur.com/gYql6z8.png'),
+            dirt: new THREE.TextureLoader().load('https://i.imgur.com/s7Kl0bG.png'),
+            stone: new THREE.TextureLoader().load('https://i.imgur.com/9jM8gJ0.png')
+        };
+
+        // Initialize scene
+        function init() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            // Lighting
+            const light = new THREE.DirectionalLight(0xffffff, 1);
+            light.position.set(10, 10, 10).normalize();
+            scene.add(light);
+
+            // Set up controls
+            controls = new THREE.PointerLockControls(camera, renderer.domElement);
+            document.body.addEventListener('click', () => controls.lock(), false);
+
+            // Player (a cube for now)
+            player = new THREE.Mesh(new THREE.BoxGeometry(1, 2, 1), new THREE.MeshBasicMaterial({ color: 0x00ff00 }));
+            player.position.y = 2;
+            scene.add(player);
+
+            // World setup (generate terrain)
+            world = new THREE.Group();
+            generateTerrain();
+            scene.add(world);
+
+            // Raycaster for block interaction
+            raycaster = new THREE.Raycaster();
+            document.addEventListener('mousedown', onMouseDown, false);
+
+            // Keyboard input for player movement
+            window.addEventListener('keydown', onKeyDown, false);
+
+            // Resize handling
+            window.addEventListener('resize', onWindowResize, false);
+
+            // Game loop
+            animate();
+        }
+
+        // Terrain generation using Perlin noise
+        function generateTerrain() {
+            const size = 50;
+            const scale = 0.1;
+            for (let x = -size; x < size; x++) {
+                for (let z = -size; z < size; z++) {
+                    let height = Math.floor(perlinNoise(x * scale, z * scale) * 5);
+                    createBlock(x, height, z);
+                }
+            }
+        }
+
+        // Create a block at specific coordinates
+        function createBlock(x, y, z) {
+            const geometry = new THREE.BoxGeometry(1, 1, 1);
+            let material;
+
+            if (y === 0) {
+                material = new THREE.MeshBasicMaterial({ map: textures.stone });
+            } else if (y === 1) {
+                material = new THREE.MeshBasicMaterial({ map: textures.dirt });
+            } else {
+                material = new THREE.MeshBasicMaterial({ map: textures.grass });
+            }
+
+            const block = new THREE.Mesh(geometry, material);
+            block.position.set(x, y, z);
+            world.add(block);
+        }
+
+        // Perlin noise for terrain height
+        function perlinNoise(x, y) {
+            return perlin.noise(x, y);
+        }
+
+        // Handle player movement
+        function onKeyDown(event) {
+            const forward = new THREE.Vector3();
+            camera.getWorldDirection(forward);
+            forward.y = 0; // Prevent vertical movement
+
+            switch (event.key) {
+                case 'w':
+                    player.position.add(forward.multiplyScalar(playerSpeed));
+                    break;
+                case 's':
+                    player.position.add(forward.multiplyScalar(-playerSpeed));
+                    break;
+                case 'a':
+                    camera.rotation.y -= 0.05;
+                    break;
+                case 'd':
+                    camera.rotation.y += 0.05;
+                    break;
+                case ' ':
+                    if (!isJumping) {
+                        playerVelocity.y = 2;
+                        isJumping = true;
+                    }
+                    break;
+            }
+        }
+
+        // Handle mouse click (block destruction)
+        function onMouseDown(event) {
+            const mouse = new THREE.Vector2();
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+            raycaster.updateMatrixWorld(); // Update raycaster
+            raycaster.ray.origin.setFromMatrixPosition(camera.matrixWorld);
+            raycaster.ray.direction.set(mouse.x, mouse.y, -1).unproject(camera).normalize();
+
+            // Check for block intersection
+            intersects = raycaster.intersectObjects(world.children);
+            if (intersects.length > 0) {
+                let intersectedObject = intersects[0].object;
+                world.remove(intersectedObject); // Destroy the block
+            }
+        }
+
+        // Handle player physics (jumping and gravity)
+        function handlePhysics() {
+            if (isJumping) {
+                playerVelocity.y += gravity;
+                player.position.y += playerVelocity.y;
+
+                if (player.position.y <= 2) {
+                    player.position.y = 2;
+                    playerVelocity.y = 0;
+                    isJumping = false;
+                }
+            }
+        }
+
+        // Handle window resizing
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        // Game loop (rendering and physics)
+        function animate() {
+            requestAnimationFrame(animate);
+
+            handlePhysics(); // Apply gravity and jump
+            renderer.render(scene, camera);
+        }
+
+        // Initialize the game
+        init();
+    </script>
+</body>
+</html>

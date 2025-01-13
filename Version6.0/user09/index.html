@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shoe Store</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and Container */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Product Section */
+        .products {
+            background-color: #fff;
+            padding: 50px 0;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .product-list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .product {
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            width: 22%;
+            margin-bottom: 20px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .product h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .product .price {
+            font-size: 1.2em;
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .product .buy-btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+
+        .product .buy-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Cart Section */
+        .cart {
+            background-color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .cart h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .cart .cart-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart .cart-item h3 {
+            margin: 0;
+        }
+
+        .cart .cart-item .price {
+            color: #e74c3c;
+        }
+
+        .cart .checkout-btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .cart .checkout-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 50px;
+
+    <title>The First Car Ever Made</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #dda4c9;
+            color: #2b2b2b;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #d33118;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(22, 13, 142, 0.1);
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 90vh;
+            background: url('https://via.placeholder.com/1600x900?text=First+Car') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: rgb(255, 0, 0);
+            padding: 0 20px;
+        }
+
+        #hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        #hero p {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+
+      
+
+        #hero .cta:hover {
+            background-color: #ff9a8b;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 50px 30px;
+            margin: 50px auto;
+            max-width: 1200px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: #ff6f61;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* Features Section */
+        #features {
+            background-color: #fdf6f3;
+        }
+
+        .feature-item {
+            background-color: white;
+            border: 1px solid #ff6f61;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-item strong {
+            color: #ff6f61;
+        }
+
+        /* Contact Section */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 1.2rem;
+            display: none;
+            cursor: pointer;
+        }
+
+        #backToTop:hover {
+            background-color: #ff9a8b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Shoe Store</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#cart">Cart</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Section (Homepage) -->
+    <section class="products">
+        <div class="container">
+            <h2>Our Latest Collection</h2>
+            <div class="product-list">
+                <div class="product">
+                    <img src="shoe1.jpg" alt="Shoe 1">
+                    <h3>Running Shoes</h3>
+                    <p class="price">$59.99</p>
+                    <button class="buy-btn" onclick="addToCart('Running Shoes', 59.99)">Buy Now</button>
+                </div>
+                <div class="product">
+                    <img src="shoe2.jpg" alt="Shoe 2">
+                    <h3>Leather Boots</h3>
+                    <p class="price">$99.99</p>
+                    <button class="buy-btn" onclick="addToCart('Leather Boots', 99.99)">Buy Now</button>
+                </div>
+                <div class="product">
+                    <img src="shoe3.jpg" alt="Shoe 3">
+                    <h3>Casual Sneakers</h3>
+                    <p class="price">$49.99</p>
+                    <button class="buy-btn" onclick="addToCart('Casual Sneakers', 49.99)">Buy Now</button>
+                </div>
+                <div class="product">
+                    <img src="shoe4.jpg" alt="Shoe 4">
+                    <h3>High Heels</h3>
+                    <p class="price">$79.99</p>
+                    <button class="buy-btn" onclick="addToCart('High Heels', 79.99)">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart" id="cart">
+        <div class="container">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Shoe Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to add items to the cart and store them in localStorage
+        function addToCart(productName, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Add item to cart
+            cart.push({ productName, price });
+
+            // Save updated cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Redirect to cart page
+            window.location.href = '#cart';
+        }
+
+        // Function to display items in the cart
+        function displayCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Clear any existing cart items
+            cartItemsContainer.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Your cart is empty!</p>';
+                return;
+            }
+
+            cart.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.innerHTML = `<h3>${item.productName}</h3><p class="price">$${item.price.toFixed(2)}</p>`;
+                cartItemsContainer.appendChild(itemDiv);
+            });
+        }
+
+        // Display cart items when the page loads
+        if (window.location.hash === '#cart') {
+            displayCart();
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cart</title>
+    <style>
+        /* Add your styles here */
+        .cart-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Cart</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="cart">
+        <div id="cart-items"></div>
+        <button onclick="checkout()">Proceed to Checkout</button>
+    <
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Cart</title>
+        <style>
+            /* Add your styles here */
+            .cart-item {
+                padding: 10px;
+                border: 1px solid #ddd;
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+    
+            .price {
+                color: #e74c3c;
+            }
+    
+            .remove-btn {
+                background-color: #e74c3c;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+    
+            .remove-btn:hover {
+                background-color: #c0392b;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Your Cart</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <section class="cart">
+            <div id="cart-items"></div>
+            <button onclick="checkout()">Proceed to Checkout</button>
+        </section>
+    
+        <script>
+            // Function to display items in the cart
+            function displayCart() {
+                const cartItemsContainer = document.getElementById('cart-items');
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+                // If the cart is empty, display a message
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p>Your cart is empty!</p>';
+                    return;
+                }
+    
+                // Clear previous cart items
+                cartItemsContainer.innerHTML = '';
+    
+                // Loop through the cart and display each item
+                cart.forEach((item, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('cart-item');
+                    itemDiv.innerHTML = `
+                        <span>${item.productName}</span>
+                        <span class="price">$${item.price.toFixed(2)}</span>
+                        <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+                    `;
+                    cartItemsContainer.appendChild(itemDiv);
+                });
+            }
+    
+            // Call the displayCart function when the page loads
+            displayCart();
+    
+            // Function to remove item from the cart
+            function removeFromCart(index) {
+                // Get the current cart from localStorage
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+                // Remove the item at the specified index
+                cart.splice(index, 1);
+    
+                // Update localStorage with the updated cart
+                localStorage.setItem('cart', JSON.stringify(cart));
+    
+                // Re-render the cart to reflect the changes
+                displayCart();
+            }
+    
+            // Function for proceeding to checkout (for now it just logs the cart)
+            function checkout() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                if (cart.length === 0) {
+                    alert('Your cart is empty. Please add items to your cart.');
+                } else {
+                    alert('Proceeding to checkout...');
+                }
+            }
+        </script>
+    </body>
+    </html>
+    
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>The First Car Ever Made</h1>
+        <p>Discover the story of the automobile that started it all.</p>
+        <a href="#about" class="cta">Learn More</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About the Benz Patent-Motorwagen</h2>
+        <p>The Benz Patent-Motorwagen, created in 1885, was the world's first gasoline-powered automobile.</p>
+        <p>One of the remarkable aspects of the Motorwagen was its engineering ingenuity, offering a paradigm shift in personal transportation.</p>
+        <p>In 1888, Bertha Benz embarked on a historic journey to prove the vehicle's reliability. This journey not only showcased the potential of the Motorwagen but also became one of the first public relations stunts in history.</p>
+        <p>The Motorwagen paved the way for further innovations, leading to mass production techniques that made automobiles essential in modern life.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <h2>Key Features of the Benz Patent-Motorwagen</h2>
+        <div class="feature-item">
+            <strong>Single-Cylinder Internal Combustion Engine:</strong> Powered by a 0.75-horsepower engine using gasoline.
+        </div>
+        <div class="feature-item">
+            <strong>Lightweight Chassis Design:</strong> Made of tubular steel for durability and ease of maneuverability.
+        </div>
+        <div class="feature-item">
+            <strong>Innovative Steering Mechanism:</strong> A tiller guided its front wheels.
+        </div>
+        <div class="feature-item">
+            <strong>Rubber Tires:</strong> Reduced friction and enhanced ride comfort.
+        </div>
+        <div class="feature-item">
+            <strong>Manual Drive Chain:</strong> Transmitted power to rear wheels via a manual chain-drive system.
+        </div>
+        <div class="feature-item">
+            <strong>Carburetor for Fuel Efficiency:</strong> Allowed efficient fuel combustion, a precursor to modern fuel systems.
+        </div>
+        <div class="feature-item">
+            <strong>Cooling System:</strong> Water-cooled engine to prevent overheating.
+        </div>
+        <div class="feature-item">
+            <strong>Compact Fuel Tank:</strong> Efficiently designed and located at the rear.
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Reach out for more information!</p>
+        <form>
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="email" id="email" placeholder="Your Email">
+            <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Blank Page Section -->
+    <section id="blank-page" style="height: 100vh; background-color: white;">
+    </section>
+
+    <button id="backToTop" onclick="scrollToTop()">↑</button>
+</body>
+</html> 
+

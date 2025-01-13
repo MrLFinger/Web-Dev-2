@@ -1,21 +1,186 @@
+@import url(rainbow.css);
+
+#knowledge > * {
+  border: 3px red solid;
+}
+div li::marker{
+	color: red;
+  }
+  div li * ::marker{
+	content:"🌚🌚🌚";
+  }
+div li:hover {
+	background-color: rgb(0, 8, 255);
+  }
+td:hover {
+	background-color: rgb(81, 81, 81);
+  }
+  div:visited {
+	color: #ff00f7;
+  }
+p + * {
+  background-color: #ffff00;
+}
+div li::marker {
+  color: red;
+}
+td:hover {
+  background-color: rgb(173, 45, 45);
+}
+p:first-child i {
+  color: blue;
+}
 table {
-	font-family: "Marker Felt", "Comic Sans MS", fantasy;
-	color: #003366;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: left;
-	border-collapse: collapse;
-	cellspacing: 0px;
+  font-family: "Marker Felt", "Comic Sans MS", fantasy;
+  color: #ff0000;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 tr {
-	border: 1px solid #ffffff;
-	text-align: center;
-	background-color:#9FB6CD; 
+  border: 1px solid #ffffff;
+  text-align: center;
+  background-color: #9fb6cd;
 }
 
 th {
-	text-align: center;
-	color: #ffffff;
-	background-color: #003366;
+  text-align: center;
+  color: #925a5a;
+  background-color: #003366;
+}
+
+.button {
+  background-color: #ff00c3;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {
+  border-radius: 8px;
+}
+
+.button2 {
+  border-radius: 30%;
+}
+
+.red {
+  background-color: #ff0000;
+}
+
+.xbox {
+  background-color: #44c767;
+  border-radius: 28px;
+  border: 1px solid #18ab29;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 16px 31px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+}
+.xbox:hover {
+  background-color: #5cbf2a;
+}
+.xbox:active {
+  position: relative;
+  top: 1px;
+}
+
+.playstation {
+  box-shadow: inset 0px -3px 7px 0px #29bbff;
+  background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+  background-color: #2dabf9;
+  border-radius: 3px;
+  border: 1px solid #0b0e07;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  padding: 9px 23px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #263666;
+}
+.playstation:hover {
+  background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+  background-color: #0688fa;
+}
+.playstation:active {
+  position: relative;
+  top: 1px;
+}
+
+.nintendo {
+  box-shadow: 3px 4px 0px 0px #8a2a21;
+  background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+  background-color: #c62d1f;
+  border-radius: 18px;
+  border: 1px solid #d02718;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 7px 25px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #810e05;
+}
+.nintendo:hover {
+  background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+  background-color: #f24437;
+}
+.nintendo:active {
+  position: relative;
+  top: 1px;
+}
+
+td {
+  padding: 20px;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+}
+
+.title {
+  color: red;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+.title-large {
+  font-size: 2rem;
+}
+
+.title-small {
+  font-size: 0.5rem;
+}
+
+#morecontent {
+  background-color: yellow;
+}
+
+#hireButtons {
+	column-gap: 0cap;
+	font-size:xx-large;
+	color: #5cbf2a;
 }
