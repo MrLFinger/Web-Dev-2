@@ -29,7 +29,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!-- External JS -->
     <script src="JS/script.js"></script>
-    
 </head>
 
 <body>
@@ -95,6 +94,20 @@
                 </div>
                 <div class="col-sm-4" style="background-color:lightpink;">
                     <center><button onclick="scrollToTop()">Scroll to Top</button></center>
+                </div>
+                <!-- New Added Features -->
+                <div class="col-sm-4" style="background-color:lightseagreen;">
+                    <center><h3>Guess the Number Game</h3>
+                        <p id="gameMessage">Guess a number between 1 and 100</p>
+                        <input type="number" id="userGuess" placeholder="Enter a number" class="form-control mb-2">
+                        <button onclick="playGuessingGame()" class="btn btn-primary">Submit Guess</button>
+                    </center>
+                </div>
+                <div class="col-sm-4" style="background-color:lightgray;">
+                    <center><h3>Click Counter</h3>
+                        <button onclick="incrementCounter()" class="btn btn-success">Click Me!</button>
+                        <p id="clickCount">Clicks: 0</p>
+                    </center>
                 </div>
             </div>
         </div>

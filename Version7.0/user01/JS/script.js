@@ -1,5 +1,6 @@
+// Change Text when Button is Clicked
 function changeText() {
-    document.getElementById("textChange").innerHTML="Thanks for liking my Webpage";
+    document.getElementById("textChange").innerHTML = "Hello, you clicked the button!";
 }
 
 // Countdown Timer
@@ -80,4 +81,28 @@ function getJoke() {
 // Scroll to Top Button
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Guessing Game
+let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+function playGuessingGame() {
+    const userGuess = parseInt(document.getElementById("userGuess").value);
+    const message = document.getElementById("gameMessage");
+
+    if (userGuess === randomNumber) {
+        message.innerHTML = "Congratulations! You guessed the right number!";
+    } else if (userGuess < randomNumber) {
+        message.innerHTML = "Try higher!";
+    } else {
+        message.innerHTML = "Try lower!";
+    }
+}
+
+// Click Counter
+let clickCount = 0;
+
+function incrementCounter() {
+    clickCount++;
+    document.getElementById("clickCount").innerHTML = "Clicks: " + clickCount;
 }
