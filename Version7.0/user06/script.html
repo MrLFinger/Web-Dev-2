@@ -79,20 +79,56 @@
                 <div class="col-sm-4" style="background-color:yellow;">PUT YOUR CODE HERE</div>
                 <h2>The onclick Attribute</h2>
 
-                <p>Click the button to trigger a function.</p>
-
-                <button onclick="myFunction()">Click me</button>
-                <h1>My First JavaScript</h1>
-                <p id="demo">This is a paragraph.</p>
-
-                <button type="button" onclick="displayDate()">Display Date</button>
-                <p onmousedown="show_coords(event)">
-                    Click this paragraph to display the x and y coordinates of the mouse pointer.</p>
-                    
-                    <p id="demo"></p>
+               `
 
 
                 <p id="demo"></p>
+                <p>Click the button to trigger a function:</p>
+                <button onclick="myFunction()">Click me</button>
+                <p id="message"></p>
+            
+                <p>Click the button below to display the current date:</p>
+                <button type="button" onclick="displayDate()">Display Date</button>
+                <p id="date"></p>
+            
+                <p>Click this paragraph to display the x and y coordinates of the mouse pointer:</p>
+                <p onmousedown="showCoords(event)">Move your mouse here.</p>
+                <p id="coords"></p>
+            
+                <p>Click on this paragraph. An alert box will tell you if you pressed the Shift key:</p>
+                <p onclick="checkShiftKey(event)">Click here.</p>
+            
+                <p>A function is triggered when the user is pressing a key in the input field:</p>
+                <input type="text" onkeypress="keyPressHandler(event)" placeholder="Type something">
+                <p id="keypress"></p>
+                <script>
+                    function myFunction() {
+                        document.getElementById("message").innerText = "Button was clicked!";
+                    }
+            
+                    function displayDate() {
+                        const currentDate = new Date();
+                        document.getElementById("date").innerText = "Current Date: " + currentDate;
+                    }
+            
+                    function showCoords(event) {
+                        const x = event.clientX;
+                        const y = event.clientY;
+                        document.getElementById("coords").innerText = `Mouse coordinates: X=${x}, Y=${y}`;
+                    }
+            
+                    function checkShiftKey(event) {
+                        const message = event.shiftKey 
+                            ? "You pressed the Shift key!" 
+                            : "You did not press the Shift key.";
+                        alert(message);
+                    }
+            
+                    function keyPressHandler(event) {
+                        document.getElementById("keypress").innerText = `You pressed: ${event.key}`;
+                    }
+                </script>
+                
             </div>
         </div>
     </main>
