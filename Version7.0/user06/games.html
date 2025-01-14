@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Version 5.0
+    Name:
+    Date Completed:
+-->
+
+<head>
+    <title>JavaScript Games</title>
+
+    <!-- Meta data -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="JavaScript Games">
+
+    <!-- CSS -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- Custom -->
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!-- JavaScript -->
+    <!-- These are needed to get the responsive menu to work -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <br>
+  
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Car Game</title>
+      <style>
+        body {
+          margin: 0;
+          overflow: hidden;
+          font-family: Arial, sans-serif;
+        }
+        canvas {
+          display: block;
+          background-color: #333;
+        }
+      </style>
+    </head>
+    <body>
+      <canvas id="gameCanvas"></canvas>
+      <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+    
+        // Set canvas size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    
+        // Car settings
+        const car = {
+          x: canvas.width / 2 - 25,
+          y: canvas.height - 100,
+          width: 50,
+          height: 100,
+          color: 'red',
+          speed: 10
+        };
+    
+        // Obstacle settings
+        const obstacles = [];
+        const obstacleWidth = 50;
+        const obstacleHeight = 100;
+        const obstacleSpeed = 9;
+    
+        // Key state tracking
+        const keys = {
+          ArrowLeft: false,
+          ArrowRight: false
+        };
+    
+        // Listen for keydown and keyup events
+        window.addEventListener('keydown', (e) => {
+          if (e.key in keys) keys[e.key] = true;
+        });
+    
+        window.addEventListener('keyup', (e) => {
+          if (e.key in keys) keys[e.key] = false;
+        });
+    
+        // Generate obstacles
+        function generateObstacle() {
+          const x = Math.random() * (canvas.width - obstacleWidth);
+          obstacles.push({ x, y: -obstacleHeight });
+        }
+    
+        // Update car and obstacles
+        function update() {
+          // Move car left and right
+          if (keys.ArrowLeft) car.x -= car.speed;
+          if (keys.ArrowRight) car.x += car.speed;
+    
+          // Keep car within canvas boundaries
+          car.x = Math.max(0, Math.min(canvas.width - car.width, car.x));
+    
+          // Move obstacles
+          for (let i = obstacles.length - 1; i >= 0; i--) {
+            obstacles[i].y += obstacleSpeed;
+    
+            // Remove obstacles that go off screen
+            if (obstacles[i].y > canvas.height) {
+              obstacles.splice(i, 1);
+            }
+    
+            // Check collision with car
+            if (
+              car.x < obstacles[i].x + obstacleWidth &&
+              car.x + car.width > obstacles[i].x &&
+              car.y < obstacles[i].y + obstacleHeight &&
+              car.y + car.height > obstacles[i].y
+            ) {
+              alert('Game Over!');
+              document.location.reload();
+            }
+          }
+        }
+    
+        // Draw car and obstacles
+        function draw() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+          // Draw car
+          ctx.fillStyle = car.color;
+          ctx.fillRect(car.x, car.y, car.width, car.height);
+    
+          // Draw obstacles
+          ctx.fillStyle = 'white';
+          obstacles.forEach(obstacle => {
+            ctx.fillRect(obstacle.x, obstacle.y, obstacleWidth, obstacleHeight);
+          });
+        }
+    
+        // Game loop
+        function gameLoop() {
+          update();
+          draw();
+          requestAnimationFrame(gameLoop);
+        }
+    
+        // Start the game
+        setInterval(generateObstacle, 1500); // Generate a new obstacle every 1.5 seconds
+        gameLoop();
+      </script>
+    </body>
+    </html>
+    
+</body>
+
+</html>
+
+<script language="JavaScript">
+
+    var startTime=new Date();
+    var endTime=new Date();
+    var startPressed=false;
+    var bgChangeStarted=false;
+    var maxWait=20;
+    var timerID;
+    
+    function startTest()
+    {
+     document.body.style.background=document.response.bgColorChange.options[document.response.bgColorChange.selectedIndex].text;
+     bgChangeStarted=true;
+     startTime=new Date();
+    }
+    
+    function remark(responseTime)
+    {
+     var responseString="";
+     if (responseTime < 0.20)
+     responseString="Well done!";
+     if (responseTime >= 0.20 && responseTime < 0.30)
+     responseString="Nice!";
+     if (responseTime >=0.40 && responseTime < 0.50)
+     responseString="Could be better...";
+     if (responseTime >=0.50 && responseTime < 0.80)
+     responseString="Keep practicing!";
+     if (responseTime >=0.80 && responseTime < 1.1)
+     responseString="Have you been day dreaming again?";
+     if (responseTime >=1.1)
+     responseString="Did you fall asleep?";
+     return responseString;
+    }
+    
+    function stopTest()
+    {
+     if(bgChangeStarted)
+     {
+     endTime=new Date();
+     var responseTime=(endTime.getTime()-startTime.getTime())/1000;
+    
+     document.body.style.background="white"; 
+     alert("Your response time is: " + responseTime + " seconds " + "\n" + remark(responseTime));
+     startPressed=false;
+     bgChangeStarted=false;
+     }
+     else
+     {
+     if (!startPressed)
+     {
+     alert("press start first to start test");
+     }
+     else
+     { 
+     clearTimeout(timerID);
+     startPressed=false; 
+     alert("cheater! you pressed too early!");
+     } 
+     }
+    }
+    
+    var randMULTIPLIER=0x015a4e35;
+    var randINCREMENT=1;
+    var today=new Date();
+    var randSeed=today.getSeconds();
+    
+    function randNumber()
+    {
+     randSeed = (randMULTIPLIER * randSeed + randINCREMENT) % (1 << 31);
+     return((randSeed >> 15) & 0x7fff) / 32767;
+    }
+    
+    function startit()
+    {
+     if(startPressed)
+     {
+     alert("Already started. Press stop to stop");
+     return;
+     }
+     else
+     {
+     startPressed=true; 
+     timerID=setTimeout('startTest()', 6000*randNumber());
+     }
+    }
+    
+    </script>
+    <p>Test your Response time!</p>
+    Click on "Start" first, and wait until the background color changes. As soon as it changes, hit "stop!"
+    
+    <form name="response">
+    Change background color in: 
+    <select name="bgColorChange">
+    <option selected>deeppink
+    <option>aliceblue
+    <option>crimson
+    <option>darkkhaki
+    <option>cadetblue
+    <option>darkorchid
+    <option>coral
+    </select>
+    <input type="button" class="btn btn-success" value="start" onClick="startit()">
+    <input type="button" class="btn btn-danger" value="stop" onClick="stopTest()">
+    </form>
