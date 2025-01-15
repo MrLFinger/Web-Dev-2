@@ -27,14 +27,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- External JS -->
     <script src="JS/script.js"></script>
-
-    <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Put your .js files here ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
-
-    <!-- Custom styles for this template -->
-    <style type="text/css">
-
-    </style>
 </head>
 
 <body>
@@ -48,7 +42,6 @@
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Edit These Items in your Menu ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
                     <a href="index.html" class="nav-item nav-link">Home</a>
                     <a href="#" class="nav-item nav-link">About Me</a>
                     <a href="#" class="nav-item nav-link disabled" tabindex="-1">Music</a>
@@ -57,7 +50,6 @@
                     <a href="bootstrap.html" class="nav-item nav-link" tabindex="-1">Bootstrap</a>
                     <a href="script.html" class="nav-item nav-link active" tabindex="-1">JavaScript</a>
                     <a href="mailto:sample@gmail.com?Subject=Hello" class="nav-item nav-link disabled" tabindex="-1">Contact</a>
-                    <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Edit These Items in your Menu ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
                 </div>
                 <div class="navbar-nav ms-auto">
                     <a href="#" class="nav-item nav-link disabled">Login</a>
@@ -69,18 +61,57 @@
 
     <main class="m-3" id="content">
         <h1 class="text-left my-3">My JavaScript Examples</h1>
-        <!-- Edit this line for the title of your page -->
-        <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Put your content below this line ↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-4" style="background-color:yellow;">PUT YOUR CODE HERE</div>
-                <div class="col-sm-4" style="background-color:orange;">PUT YOUR CODE HERE</div>
-                <div class="col-sm-4" style="background-color:yellow;">PUT YOUR CODE HERE</div>
+                <div class="col-sm-4" style="background-color:yellow;">
+                    <center><p id="textChange"> My name is User 01</p></center>
+                </div>
+                <div class="col-sm-4" style="background-color:orange;">
+                    <center><button type="button" onclick="changeText()">Click if you like</button></center>
+                </div>
+                <div class="col-sm-4" style="background-color:lightblue;">
+                    <center><h2>Countdown Timer</h2><p id="countdown"></p></center>
+                </div>
+                <div class="col-sm-4" style="background-color:lightgreen;">
+                    <center><h3>Simple Form</h3>
+                        <form id="myForm" onsubmit="return validateForm()">
+                            <input type="text" id="nameInput" placeholder="Enter your name" class="form-control mb-2">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                        <p id="formError" style="color:red;"></p>
+                    </center>
+                </div>
+                <div class="col-sm-4" style="background-color:lightcoral;">
+                    <center><button onclick="openModal()">Open Modal</button></center>
+                </div>
+                <div class="col-sm-4" style="background-color:lightgoldenrodyellow;">
+                    <center><h3>Image Slideshow</h3></center>
+                    <img id="slideshow" src="https://via.placeholder.com/300x200?text=Image+1" class="img-fluid" />
+                </div>
+                <div class="col-sm-4" style="background-color:lightcyan;">
+                    <center><button onclick="getJoke()">Get Random Joke</button></center>
+                    <p id="joke"></p>
+                </div>
+                <div class="col-sm-4" style="background-color:lightpink;">
+                    <center><button onclick="scrollToTop()">Scroll to Top</button></center>
+                </div>
+                <!-- New Added Features -->
+                <div class="col-sm-4" style="background-color:lightseagreen;">
+                    <center><h3>Guess the Number Game</h3>
+                        <p id="gameMessage">Guess a number between 1 and 100</p>
+                        <input type="number" id="userGuess" placeholder="Enter a number" class="form-control mb-2">
+                        <button onclick="playGuessingGame()" class="btn btn-primary">Submit Guess</button>
+                    </center>
+                </div>
+                <div class="col-sm-4" style="background-color:lightgray;">
+                    <center><h3>Click Counter</h3>
+                        <button onclick="incrementCounter()" class="btn btn-success">Click Me!</button>
+                        <p id="clickCount">Clicks: 0</p>
+                    </center>
+                </div>
             </div>
         </div>
     </main>
-    <!--↑↑↑↑↑↑↑↑↑↑ Make sure all your content is above this line ↑↑↑↑↑↑↑↑↑↑-->
-
 
     <!---------------------------------- Begin the footer ------------->
     <footer class="small text-center" id="footer">
