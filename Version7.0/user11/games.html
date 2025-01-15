@@ -72,6 +72,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Guess the Number Game</title>
         <style>
+          
           body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -112,8 +113,96 @@
         </style>
       </head>
       <body>
+        <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess the Number Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+    #game-container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 80%;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <h1>Guess the Number</h1>
+    <p>I am thinking of a number between 1 and 100.</p>
+    <p>Can you guess what it is?</p>
+    <input id="guessInput" type="number" placeholder="Enter your guess" min="1" max="100">
+    <button onclick="checkGuess()">Submit Guess</button>
+    <button onclick="resetGame()">Restart Game</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    let randomNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+
+    function checkGuess() {
+      const guessInput = document.getElementById("guessInput");
+      const resultDiv = document.getElementById("result");
+      const guess = Number(guessInput.value);
+
+      if (!guess || guess < 1 || guess > 100) {
+        resultDiv.textContent = "Please enter a valid number between 1 and 100.";
+        return;
+      }
+
+      attempts++;
+
+      if (guess === randomNumber) {
+        resultDiv.textContent = `🎉 Congratulations! You guessed it in ${attempts} attempts.`;
+      } else if (guess < randomNumber) {
+        resultDiv.textContent = "📉 Too low! Try again.";
+      } else {
+        resultDiv.textContent = "📈 Too high! Try again.";
+      }
+
+      guessInput.value = "";
+    }
+
+    function resetGame() {
+      randomNumber = Math.floor(Math.random() * 100) + 1;
+      attempts = 0;
+      document.getElementById("result").textContent = "";
+      document.getElementById("guessInput").value = "";
+    }
+  </script>
         <br>
-        <body>
+        
           <script>
             // Set up the canvas and context
             const canvas = document.createElement('canvas');
@@ -215,7 +304,7 @@
         
             gameLoop();
           </script>
-        </body>
+       
 
         <h1 class="text-left my-3">Games</h1>
         <!-- Edit this line for the title of your page -->
