@@ -1,4 +1,25 @@
 h3 {
     color: rgb(192, 43, 43);
     font-family: "Orbitron", Arial;
+    text-align: center;
+}
+h1 {
+    color: rgb(71, 120, 80);
+    font-family: "Orbitron", Arial;
+}
+b {
+    color: rgb(0, 0, 0);
+    font-family: "Orbitron", Arial;
+}
+.column {
+    float: left;
+    width: 33.33%;
+    margin: 0 1.5%;
+    border-block: double;
+    text-align: center;
+}
+
+.row:after {
+    display: table;
+    clear: both;
 }
