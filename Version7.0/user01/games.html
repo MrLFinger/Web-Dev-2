@@ -3,75 +3,145 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Typing Speed Game</title>
+    <title>Typing Speed Game & Guess The Number</title>
     <style>
+      /* Global Styles */
       body {
         font-family: Arial, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+        background-color: #f4f4f9;
         margin: 0;
-        background-color: #f4f4f4;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center everything vertically */
+        align-items: center; /* Center everything horizontally */
+        height: 100vh;
+        text-align: center; /* Center all text */
       }
-      .game-container {
-        text-align: center;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      }
+
       h1 {
-        font-size: 2em;
+        font-size: 2.5em;
+        color: #333;
+        margin-bottom: 20px;
       }
+
+      p {
+        color: #555;
+        font-size: 1.2em;
+        margin-bottom: 20px;
+      }
+
+      /* Game Container Styles */
+      .game-container {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        width: 80%;
+        max-width: 500px;
+        margin-top: 20px;
+      }
+
+      .game-container h2 {
+        font-size: 2em;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
       .word {
         font-size: 2.5em;
         font-weight: bold;
         margin: 20px 0;
+        color: #555;
       }
+
+      .form {
+        margin-bottom: 20px;
+      }
+
       input {
         font-size: 1.2em;
         padding: 10px;
-        margin-top: 20px;
+        width: 100%;
+        margin-top: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
       }
-      .result {
+
+      .guessSubmit {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        border-radius: 5px;
+        margin-top: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .guessSubmit:hover {
+        background-color: #45a049;
+      }
+
+      .result,
+      .rank {
         margin-top: 20px;
         font-size: 1.5em;
         font-weight: bold;
+        color: #333;
       }
+
       .rank {
         font-size: 1.2em;
         margin-top: 10px;
+        color: #555;
+      }
+
+      /* Typing Speed Game Styles */
+      #wordInput {
+        font-size: 1.2em;
+        padding: 10px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2em;
+        }
+
+        .game-container {
+          padding: 20px;
+        }
+
+        .word {
+          font-size: 2em;
+        }
       }
     </style>
   </head>
   <body>
     <h1>Guess The Number</h1>
-    <p>
-      We have selected a random number between 1 - 10. See if you can guess it.
-    </p>
+    <p>We have selected a random number between 1 - 10. See if you can guess it!</p>
 
-    <div class="form">
-      <label for="guessField"> Enter a guess: </label>
-
-      <input type="text" id="guessField" class="guessField" />
-
-      <input
-        type="submit"
-        value="Submit guess"
-        class="guessSubmit"
-        id="submitguess"
-      />
+    <div class="game-container">
+      <h2>Make Your Guess!</h2>
+      <div class="form">
+        <label for="guessField">Enter a guess:</label>
+        <input type="number" id="guessField" class="guessField" min="1" max="10" />
+        <input type="submit" value="Submit guess" class="guessSubmit" id="submitguess" />
+      </div>
     </div>
 
     <script type="text/javascript">
       // Generate a Random Number
       let y = Math.floor(Math.random() * 10 + 1);
 
-      // Counting the number of guesses
-      // made for correct Guess
+      // Counting the number of guesses made for correct Guess
       let guess = 1;
 
       document.getElementById("submitguess").onclick = function () {
@@ -80,11 +150,9 @@
 
         if (x == y) {
           alert(
-            "CONGRATULATIONS!!! YOU GUESSED IT RIGHT IN " + guess + " GUESS "
+            "CONGRATULATIONS!!! YOU GUESSED IT RIGHT IN " + guess + " GUESS"
           );
         } else if (x > y) {
-
-        /* If guessed number is greater than actual number*/
           guess++;
           alert("OOPS SORRY!! TRY A SMALLER NUMBER");
         } else {
@@ -93,8 +161,9 @@
         }
       };
     </script>
+
     <div class="game-container">
-      <h1>Typing Speed Game</h1>
+      <h2>Typing Speed Game</h2>
       <div class="word" id="wordDisplay">Loading...</div>
       <input
         type="text"
