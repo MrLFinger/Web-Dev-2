@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--Version 10.0
-   Name:
-   Date Completed:
+    Name: Freddie Steffen
+    Date Started: 1/15/25
+    Date Completed: 1/15/25
 -->
 <head>
    <title>Web Dev 2 Group Project</title>
@@ -21,6 +22,12 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+   <style>
+        xmp{
+        background-color: gray;
+        }
+   </style>
 </head>
 
 <body>
@@ -97,12 +104,59 @@
 </body>
 
 <main>
-    <div><h1><center>Version _-_.</center></h1></div>
+    <div><h1><center>Version 7-A.</center></h1></div>
         <div><h2><center>AssignmentTitleHere</center></h2></div>
         <div><h3><center>Example Website.</center></h3></div>
-        <div><center>Do the full assignment here.</center></div>
+        <div><center>ExampleHere</center></div>
         <div><h3><center>How to make it.</center></h3></div>
-        <div><center>Explain and guide them through it here.</center></div>
+        <center>
+            <div>First add the head tag to put in titles.</div>
+            <div>Then make a body tag and within the body tag have a Nav, Main and Footer tag in that order.</div>
+            <div>Now that you have this done go to the <a href="http://127.0.0.1:5500/Version10.0/navbar.html" target="_blank">Navbar</a> page to add a Navbar or copy paste your own.</div>
+            <div>Then do the same thing with the <a href="http://127.0.0.1:5500/Version10.0/footer.html" target="_blank">Footer</a> page.</div>
+        </center>
+        <div><center>Now go to <a href="https://github.com/rmainhar/SHS_WebDevelopment/blob/master/Version7.0/user00/index.html" target="_blank">this repository </a>and copy paste into a new html file.</center></div>
+        <div><center>Go to <a href="https://github.com/rmainhar/SHS_WebDevelopment/blob/master/Version7.0/user00/CSS/style.css" target="_blank">this repository </a>and copy paste into a new css file and then link it in with.</center></div>
+        <div><xmp><link rel="stylesheet" href="CSS/style.css"></xmp></div>
+        <div><center>Copy paste this code into where</center>
+            <xmp>
+                <h1 onMouseover="alert('GO Sabers!');" value="Click Me!">Shakopee High School</h1>
+            </xmp>
+            <center>is instead of</center>
+            <xmp>
+                <script>
+                    alert('Go Sabers!');
+                </script>
+            </xmp>
+            <center>Then add this in the same script tags.</center>
+            <xmp>
+                <script>
+                    function printWindow() {
+                        window.print();
+                    }
+                </script>
+            </xmp>
+        </div>
+        <div><center>Now that we have that all in, we want to add in another piece of code to show how the length function works.</center>
+            <xmp>
+                <script>
+                    function getLength() {
+                        document.getElementById("length").innerHTML = document.title.length;
+                    }
+                </script>
+            </xmp>
+        </div>
+        <div><center>Now just copy paste this code and your assignment will be complete.</center>
+            <xmp>
+                function secondSelector() {
+                    var x = document.querySelectorAll("#nestedList>li");
+                    var i;
+                    for (i = 0; i < x.length; i++) {
+                    x[i].style.backgroundColor = "#17a2b8";
+                    }
+                }
+            </xmp>
+        </div>
 </main>
 
 <footer>
