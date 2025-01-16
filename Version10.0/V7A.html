@@ -7,29 +7,24 @@
 -->
 <head>
    <title>Web Dev 2 Group Project</title>
-
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <meta name="description" content="SHS WebDev Version 5.0 - Index Bootstrap Examples">
-
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
    <link rel="stylesheet" href="CSS/style.css">
    <link rel="icon" type="image/x-icon" href="images/favicon2.ico">
-
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-
    <style>
         xmp{
         background-color: gray;
         }
    </style>
 </head>
-
 <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container-fluid">
@@ -37,11 +32,8 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-
                <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav me-auto">
-                       <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Edit These Items in your NavBar ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
                        <li class="nav-item">
                            <a href="index.html" class="nav-link active">Home</a>
                        </li>
@@ -93,7 +85,6 @@
                                <li><a class="dropdown-item" href="V7C.html">Version 7-C</a></li>
                            </ul>
                        </li>
-                       <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Edit These Items in your NavBar ↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
                    </ul>
                    <form class="d-flex">
                        <button class="btn btn-primary" type="button">Login</button>
@@ -101,13 +92,147 @@
                </div>
            </div>
        </nav>
-</body>
-
-<main>
+<main class="container-fluid mt-3">
     <div><h1><center>Version 7-A.</center></h1></div>
-        <div><h2><center>AssignmentTitleHere</center></h2></div>
+        <div><h2><center>The dynamic Web-Page</center></h2></div>
         <div><h3><center>Example Website.</center></h3></div>
-        <div><center>ExampleHere</center></div>
+        <div><h4><center>How to make below.</center></h4></div>
+        <div id="built-in-functions">
+            <h1 onMouseover="alert('GO Sabers!');" value="Click Me!">Shakopee High School</h1>
+            <script>
+                function printWindow() {
+                    window.print();
+                }
+                function getLength() {
+                    document.getElementById("length").innerHTML = document.title.length;
+                }
+                function getFocus() {
+                    document.getElementById("focusButton").focus();
+                }
+                function clickSimulation() {
+                    document.getElementById("Check").click();
+                }
+                function getDate() {
+                    document.getElementById("date").innerHTML = Date();
+                }
+                function firstSelector() {
+                document.querySelector("#nestedList>li").style.backgroundColor = "#dc3545";
+                }
+                function secondSelector() {
+                    var x = document.querySelectorAll("#nestedList>li");
+                    var i;
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.backgroundColor = "#17a2b8";
+                }
+                }
+                function thirdSelector() {
+                    document.querySelector("#nestedList ol li").style.backgroundColor = "#6c757d";
+                }
+                const list = document.querySelector('#shoppingList');
+                const input = document.getElementById('item');
+                const button = document.getElementById('aggregating-list');
+                button.onclick = function() {
+                    let myItem = input.value;
+                    input.value = '';
+                    const listItem = document.createElement('li');
+                    const listText = document.createElement('span');
+                    const listBtn = document.createElement('button');
+                    listItem.appendChild(listText);
+                    listText.textContent = myItem;
+                    listItem.appendChild(listBtn);
+                    listBtn.textContent = 'Delete';
+                    list.appendChild(listItem);
+                    listBtn.onclick = function(e) {
+                    list.removeChild(listItem);
+                }
+                input.focus();
+                }
+            </script>
+            <div class="container-fluid mt-3 mb-3">
+                <div class="row">
+                    <div class="col-md-1">
+                        <button class="btn btn-dark btn-md" value="print this page" onclick="printWindow()">Print this
+                            page</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-dark btn-md" onclick="getLength()">The title has this many
+                            characters</button>
+                    </div>
+                    <div class="col-md-1">
+                        <p id="length"></p>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn btn-dark btn-md" onclick="getFocus()">Focus</button>
+                    </div>
+                    <div class="col-md-1">
+                        <form>
+                            <input type="checkbox" id="Check" onmouseover="clickSimulation()">
+                            <input type="checkbox" id="Check" onmouseover="clickSimulation()">
+                        </form>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn btn-dark btn-md" onclick="getDate()">Get Date</button>
+                    </div>
+                    <div class="col-md-3">
+                        <p id="date"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-5">
+                    <h1>Heading for a long list</h1>
+                    <ol id="nestedList">
+                        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                        <li>Aliquam tincidunt mauris eu risus.</li>
+                        <li>Vestibulum auctor dapibus neque.
+                            <ol>
+                                <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                                <li>Aliquam tincidunt mauris eu risus.
+                                    <ol>
+                                        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                            <ol>
+                                                <li>Lorem ipsum dolor sit amet, consectetuer.</li>
+                                            </ol>
+                                        </li>
+                                        <li>Aliquam tincidunt mauris eu risus.</li>
+                                        <li>Vestibulum auctor dapibus neque.</li>
+                                    </ol>
+                                </li>
+                                <li>Vestibulum auctor dapibus neque.</li>
+                                <li>Aliquam tincidunt mauris eu risus.</li>
+                            </ol>
+                        </li>
+                        <li>Aliquam tincidunt mauris eu risus.</li>
+                        <li>Vestibulum auctor dapibus neque.</li>
+                    </ol>
+                </div>
+                <div class="col-md-2 text-center">
+                    <button class="btn btn-danger btn-lg mt-3 container" onclick="firstSelector()">Try it
+                        1</button>
+                    <button class="btn btn-info btn-lg mt-3 container" onclick="secondSelector()">Try it
+                        2</button>
+                    <button class="btn btn-secondary btn-lg mt-3 container" onclick="thirdSelector()">Try it
+                        3</button>
+                    <button class="btn btn-primary btn-lg mt-3 container" onclick="window.location.reload()">Try
+                        it
+                        4</button>
+                </div>
+                <div class="col-md-5" id="shoppingList">
+                    <h1>My shopping list</h1>
+                    <div>
+                        <label for="item">Enter a new item:</label>
+                        <input type="text" name="item" id="item">
+                        <button id="aggregating-list">Add item</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="container" style="height: 3000px; width: 1000px;">
+            <a href="#"><button type="button" id="focusButton" style="margin-top: 3000px;">You focused on me!</button></a>
+        </div>
         <div><h3><center>How to make it.</center></h3></div>
         <center>
             <div>First add the head tag to put in titles.</div>
@@ -128,39 +253,67 @@
                     alert('Go Sabers!');
                 </script>
             </xmp>
-            <center>Then add this in the same script tags.</center>
-            <xmp>
-                <script>
-                    function printWindow() {
-                        window.print();
-                    }
-                </script>
-            </xmp>
-        </div>
-        <div><center>Now that we have that all in, we want to add in another piece of code to show how the length function works.</center>
-            <xmp>
-                <script>
-                    function getLength() {
-                        document.getElementById("length").innerHTML = document.title.length;
-                    }
-                </script>
-            </xmp>
-        </div>
-        <div><center>Now just copy paste this code and your assignment will be complete.</center>
-            <xmp>
-                function secondSelector() {
-                    var x = document.querySelectorAll("#nestedList>li");
-                    var i;
-                    for (i = 0; i < x.length; i++) {
-                    x[i].style.backgroundColor = "#17a2b8";
-                    }
-                }
-            </xmp>
         </div>
 </main>
-
-<footer>
-    
-</footer>
-
+    <footer class="text-center text-lg-start bg-body-tertiary text-muted">
+        <div class="container py-4" id="footerTable">
+        <ul class="list-unstyled d-flex justify-content-center">
+            <li class="mx-3">
+            <a href="https://www.facebook.com/">
+            <i class="fa-brands fa-facebook fa-3x" aria-hidden="true"></i>
+            </a>
+            </li>
+            <li class="mx-3">
+            <a href="https://x.com/?lang=en">
+            <i class="fa-brands fa-x-twitter fa-3x" aria-hidden="true"></i>
+            </a>
+            </li>
+            <li class="mx-3"> 
+            <a href="https://www.instagram.com/">
+            <i class="fa-brands fa-instagram fa-3x" aria-hidden="true"></i>
+            </a>
+            </li>
+            <li class="mx-3">
+            <a href="https://blocked.syd-1.linewize.net/blocked?url=www.tiktok.com&deviceid=PHYS-SMIC-US-0000-1568&user=237662&rule=QmxvY2sgLSBTb2NpYWwgTWVkaWEgfCBTZWNfRFdfU3R1ZGVudHM=&ruleid=69ef194a-7b73-4621-a4c4-69934c283572&path=&method=rule_match">
+            <i class="fa-brands fa-tiktok fa-3x" aria-hidden="true"></i>
+            </a>
+            </li>
+        </ul>
+        </div>
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <div class="me-5 d-none d-lg-block">
+        </div>
+    </section>
+    <section class="">
+        <div class="container text-center text-md-start mt-5">
+        <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+                <i class="fas fa-gem me-3"></i>Shakopee high school
+            </h6>
+            <p>
+                Block 2 Web-Dev Class Website
+            </p>
+            </div>
+            <img style="width:10%; height: 5%;" src="https://www.shakopee.k12.mn.us/cms/lib/MN01909221/Centricity/Domain/2346/Science_Technology_JPG.jpg">    
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> Shakopee minnesota USA</p>
+            <p>
+                <i class="fas fa-envelope me-3"></i>
+                @LFinger.gmail
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01(952)496-5152</p>
+            </div>
+        </div>
+        </div>
+    </section>
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        ©2025 Copyright:
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    </footer>
+</body>
 </html>
