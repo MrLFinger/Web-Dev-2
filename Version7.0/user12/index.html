@@ -291,12 +291,44 @@
         
         </body>
         </html>
+        <head>
+            <script>
+            function myFunction() {
+              alert("You pressed a key inside the input field");
+            }
+            </script>
+            </head>
+            <body>
+            <h1>JavaScript HTML Events</h1>
+            <h2>The onkeypress Attribute</h2>
+            
+            <p>A function is triggered when the user is pressing a key in the input field.</p>
+            
+            <input type="text" onkeypress="myFunction()">
+            
+            </body>
+            <head>
+                <script>
+                function myFunction() {
+                  const x = document.getElementById("fname");
+                  x.value = x.value.toUpperCase();
+                }
+                </script>
+                </head>
+                <body>
+                <h1>JavaScript HTML Events</h1>
+                <h2>The onblur Attribute</h2>
+                
+                Enter your name: <input type="text" id="fname" onblur="myFunction()">
+                
+                <p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+                
+                </body>
         
-        
-    </main>
     <div id="container" style="height: 3000px; width: 1000px;">
         <a href="#"><button type="button" id="focusButton" style="margin-top: 3000px;">You focused on me!</button></a>
     </div>
+
 </body>
 
 </html>

@@ -37,7 +37,7 @@ img {
     height: 320px;
 }
 .container:hover .flipper {
-    transform: rotateY(180deg);
+    transform: rotateY(19980deg);
   }
   a {
     color: black;
