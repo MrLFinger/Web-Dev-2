@@ -6,6 +6,7 @@
         padding: 10px;
         border-style: solid;
         border-color: black;
+        display: inline-block;
     }
 
     .boxlive {
@@ -13,6 +14,7 @@
         text-align: left;
         margin: 20px;
         padding: 10px;
+        display: inline-block;
     }
 
     .container {
@@ -20,23 +22,64 @@
         border: 20%;
         border-color: black;
         border-radius: 10%;
+        
     }
+    .button {
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            
+            .button1 {
+                border-radius: 8px;
+            }
+            
+            .button2 {
+                border-radius: 30%;
+            }
 </style>
 
 
 
 <div class="container">
-    <div class="boxexample">
+    <div class="boxexample ">
         <xmp>
+            .button {
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            
+            .button1 {
+                border-radius: 8px;
+            }
+            
+            .button2 {
+                border-radius: 30%;
+            }
             <td>
-                <button>Text you want on your button</button>
+                <button class="button">Text you want on your button</button>
             </td>
         </xmp>
 
     </div>
     <div class="boxlive">
         <td>
-            <button>Text you want on your button</button>
+            <button class="button">Text you want on your button</button>
         </td>
 
 
