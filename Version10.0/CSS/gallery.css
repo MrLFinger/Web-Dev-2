@@ -29,6 +29,16 @@
 .back{
     transform:rotateY(180deg);
 }
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+
+  }
+
 img {
     width: 100%;
   }
@@ -37,7 +47,7 @@ img {
     height: 320px;
 }
 .container:hover .flipper {
-    transform: rotateY(19980deg);
+    transform: rotateY(180deg);
   }
   a {
     color: black;
