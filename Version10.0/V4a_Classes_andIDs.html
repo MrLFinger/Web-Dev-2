@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html>
+<link rel="stylesheet" href="CSS/v4a_specific_dnd.css">
+
+
+<hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+
+<style>
+   body { background-color: rgb(254, 256, 256); }
+   
+   div {
+      margin-top: 100px; 
+   }
+
+   #CustomScrollLeft {
+      font-size: 20px;
+      color: rgb(78, 167, 109);
+      font-family: "Orbitron", Arial;
+   }
+
+   #CustomScrollRight {
+      font-size: 20px;
+      color: rgb(230, 50, 30);
+      font-family: "Orbitron", 'Times New Roman', Times, serif;
+   }
+
+   #PointingArrow {
+      font-size: 20px;
+      color: rgb(0, 0, 0);
+      font-family: "Orbitron", Arial;
+      text-align: center;
+      margin-left: -22%;
+      margin-top: -7%;
+   }
+   #marqueeEx {
+      font-size: 16px;
+      color: rgb(0, 0, 0);
+      font-family: "Orbitron", Arial;
+      text-align: left;
+      
+   }
+   #idEx {
+      font-size: 16px;
+      color: rgb(0, 0, 0);
+      font-family: "Orbitron", Arial;
+      text-align: left;
+      
+   }
+</style>
+
+
+<head>
+   <h3>Classes and ID's</h3>
+   <h1>(▀̿Ĺ̯▀̿ ̿)</h1>
+</head> 
+
+<hr style="height:0.5px;border-width:0;color:gray;background-color:gray">
+
+<body>
+
+
+   <div class="row">
+      <div class="column" style="background-color:#cfc9c9;">
+         <h2>What is an ID?</h2>
+         <b>In HTML, an ID is an attribute that uniquely identifies an element within a document and is referenced</b>
+         <b>in CSS and JavaScript. The pros of using IDs include their uniqueness, allowing for specific styling or</b>
+         <b>scripting without affecting other elements, and improved performance due to quicker lookups in the</b>
+         <b>DOM. However, the cons include that an ID can only be used once per page, which can limit reusability</b>
+         <b>compared to classes, and over-reliance on IDs can lead to less flexible designs and harder-to-maintain</b>
+         <b>code.</b>
+      </div>
+   </div>
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+   <h3>Example:</h3>
+   <h1>☜(˚▽˚)☞</h1>
+
+   
+
+   <marquee scrollamount="3" behavior="scroll" direction="left">
+      <p id="CustomScrollLeft">An ID was applied to this scrolling text!</p>
+   </marquee>
+   <marquee scrollamount="3" behavior="scroll" direction="right">
+      <p id="CustomScrollRight">An ID was applied to this scrolling text!</p>
+   </marquee>
+
+   <hr style="height:0.5px;border-width:0;color:gray;background-color:gray;">
+
+   <h3>Code Snippets:</h3>
+   <strong>
+      <p id="marqueeEx">The scrolling text was made and animated using the "Marquee" element:</p>
+   </strong>
+   <xmp>
+      <marquee scrollamount="3" behavior="scroll" direction="left">
+         <p id="CustomScrollLeft">An ID was applied to this scrolling text!</p>
+      </marquee>
+      <marquee scrollamount="3" behavior="scroll" direction="right">
+         <p id="CustomScrollRight">An ID was applied to this scrolling text!</p>
+      </marquee>
+   </xmp>
+
+   <hr style="height:0.5px;border-width:0;color:gray;background-color:gray;">
+
+   <strong>
+      <p id="marqueeEx">The styling was done using IDs:</p>
+   </strong>
+
+   <xmp>
+
+      #CustomScrollLeft {
+         font-size: 20px;
+         color: rgb(78, 167, 109);
+         font-family: "Orbitron", Arial;
+      }
+   
+      #CustomScrollRight {
+         font-size: 20px;
+         color: rgb(230, 50, 30);
+         font-family: "Orbitron", 'Times New Roman', Times, serif;
+      }
+   
+      #PointingArrow {
+         font-size: 20px;
+         color: rgb(0, 0, 0);
+         font-family: "Orbitron", Arial;
+         text-align: center;
+         margin-left: -22%;
+         margin-top: -7%;
+      }
+      #marqueeEx {
+         font-size: 16px;
+         color: rgb(0, 0, 0);
+         font-family: "Orbitron", Arial;
+         text-align: left;
+         
+      }
+      #idEx {
+         font-size: 16px;
+         color: rgb(0, 0, 0);
+         font-family: "Orbitron", Arial;
+         text-align: left;
+         
+      }
+
+   </xmp>
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+   <div class="row">
+      <div class="column" style="background-color:#cfc9c9;">
+         <h2>What is a class?</h2>
+         <b>In HTML, a class is an attribute that can be assigned to elements to apply CSS styles consistently</b>
+         <b>across multiple elements. Pros of using classes include reusability—allowing multiple elements to share</b>
+         <b>the same styles, which promotes consistency and reduces redundancy in code. They also enable easier</b>
+         <b>maintenance and updates, as changes in a class definition will automatically reflect on all elements</b>
+         <b>using it. However, cons include the potential for overly complex and bloated CSS if too many classes</b>
+         <b>are used, which can lead to specificity issues and difficulty in maintaining styles. Additionally, over-</b>
+         <b>reliance on classes can make the HTML structure less semantic and harder to understand.</b>
+      </div>
+   </div>
+
+   <h3>Example:</h3>
+
+   
+   
+   <div class="wrapper">
+      <div class="head"><p>⚆ _ ⚆</p></div>
+      <div class="torso"></div> 
+      <div class="leftarm"><c>help...</c></div>
+      <div class="rightarm"></div>
+      <div class="leftleg"></div>
+      <div class="rightleg"></div>
+   </div>
+   
+   <p id="PointingArrow"> <<< This little guy uses a total of 7 classes!  :O</p>
+   
+   <hr style="height:0.5px;border-width:0;color:gray;background-color:gray;margin-top:11%">
+
+   <h3>Code Snippets:</h3>
+
+   <strong>
+      <p id="marqueeEx">All of the classes use type of animation called "Transformation" in order to move objects (e.g. arms, head):</p>
+   </strong>
+
+   <xmp>
+
+      .wrapper {
+         width: 300px;
+         height: 300px;
+         display: block;
+         position: relative;
+     }
+     
+     .head {
+         width: 50px;
+         height: 60px;
+         border: 5px solid black;
+         border-radius: 50%;
+         display: block;
+         position: absolute;
+         top: 21px;
+         left: 133px;
+         z-index: 1;
+         animation: rock 1s alternate infinite ease-in-out;
+         transform-origin: center bottom;
+     }
+     
+     @keyframes rock {
+         0% {
+         transform: rotate(-10deg);
+         }
+         100% {
+         transform: rotate(10deg);
+         }
+     }
+     
+     .torso {
+         width: 6px;
+         height: 100px;
+         border: 3px solid black;
+         display: block;
+         position: absolute;
+         top: 80px;
+         left: 156px;
+     }
+     
+     .leftleg {
+         width: 6px;
+         height: 100px;
+         border: 3px solid black;
+         display: block;
+         position: absolute;
+         top: 175px;
+         left: 155px;
+         transform: rotate(12deg);
+         transform-origin: top;
+     }
+     
+     .rightleg {
+         width: 6px;
+         height: 100px;
+         border: 3px solid black;
+         display: block;
+         position: absolute;
+         top: 175px;
+         left: 157px;
+         transform: rotate(-12deg);
+         transform-origin: top;
+     }
+     
+     .leftarm {
+         width: 100px;
+         height: 6px;
+         border: 3px solid black;
+         display: block;
+         position: absolute;
+         top: 86px;
+         left: 57px;
+         animation: wave 1s alternate infinite ease-in-out;
+         transform-origin: 100%;
+     }
+     
+     @keyframes wave {
+         0% {
+         transform: rotate(-20deg);
+         }
+         100% {
+         transform: rotate(40deg);
+         }
+     }
+     
+     .rightarm {
+         width: 100px;
+         height: 6px;
+         border: 3px solid black;
+         display: block;
+         position: absolute;
+         top: 86px;
+         left: 161px;
+         animation: wave2 1s alternate infinite ease-in-out;
+         transform-origin: 0%;
+     }
+     
+     @keyframes wave2 {
+         0% {
+         transform: rotate(20deg);
+         }
+         100% {
+         transform: rotate(-40deg);
+         }
+     }
+     .centered-text {
+         text-align: center;
+         text-indent: -10px; 
+     }
+
+   </xmp>
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray;margin-top:11%">
+</body>
+
+
+
+
+
+
+
+
+</html>
