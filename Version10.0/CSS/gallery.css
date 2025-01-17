@@ -48,6 +48,7 @@ img {
 }
 .container:hover .flipper {
     transform: rotateY(180deg);
+   
   }
   a {
     color: black;
@@ -69,3 +70,63 @@ img {
     padding: 0 20px 20px 20px;
     text-align: left;
   }
+
+    #rainbow {
+        width: 100%;
+    }
+
+    /* Bounce Animation */
+    .bounce {
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    /* Fade Animation */
+    .fade {
+        animation: fade 3s infinite;
+    }
+
+    @keyframes fade {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
+    }
+
+    /* Spin Animation */
+    .spin {
+        animation: spin 2s infinite linear;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Slide Animation */
+    .slide {
+        animation: slide 3s infinite;
+    }
+
+    @keyframes slide {
+        0%, 100% {
+            transform: translateX(0);
+        }
+        50% {
+            transform: translateX(20px);
+        }
+    }

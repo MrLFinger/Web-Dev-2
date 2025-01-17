@@ -49,7 +49,79 @@
 
 <body>
     <!---------------------------------- Begin the nav-bar ------------->
-    
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a href="http://shakonet.isd720.com" class="navbar-brand">WebDev</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto">
+                    <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Edit These Items in your NavBar ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a  class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" >Version 1</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="V1.html">Version 1-A</a></li>
+                            <li><a class="dropdown-item" href="#">Version 1-B</a></li>
+                            <li><a class="dropdown-item" href="#">Version 1-C</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a  class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" >Version 2</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="v2.html">Version 2-A</a></li>
+                            <li><a class="dropdown-item" href="V2B.html">Version 2-B</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a  class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" >Version 3</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tables.html">Version 3-A</a></li>
+                            <li><a class="dropdown-item" href="#">Version 3-B</a></li>
+                            <li><a class="dropdown-item" href="V3C.html">Version 3-C</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a  class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" >Version 4</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Version 4-A</a></li>
+                            <li><a class="dropdown-item" href="#">Version 4-B</a></li>
+                            <li><a class="dropdown-item" href="#">Version 4-C</a></li>
+                            <li><a class="dropdown-item" href="animatedcards.html">Version 4-D</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a  class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" >Version 5</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="V5A.html">Version 5-A</a></li>
+                            <li><a class="dropdown-item" href="footer.html">Version 5-B</a></li>
+                            <li><a class="dropdown-item" href="navbar.html">Version 5-C</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a  class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" >Version 7</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="V7A.html">V5a</a></li>
+                            <li><a class="dropdown-item" href="V7B.html">Add text here</a></li>
+                            <li><a class="dropdown-item" href="V7C.html">Add text here</a></li>
+                           
+                        </ul>
+                    </li>
+                   
+                    <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Edit These Items in your NavBar ↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
+                </ul>
+                <form class="d-flex">
+                    <button class="btn btn-primary" type="button">Login</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</body>
+aud
     <!---------------------------------- End the nav-bar ------------------------------------->
 
     <main class="container-fluid mt-3">
@@ -61,8 +133,8 @@
 
         <div id="gallery">
             <p>Hover over the images to get the answer</p>
-            <div class="container bounce">
-                <div class="flipper">
+            <div class="container">
+                <div class="bounce">
                     <div class="front">
                         <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFRUXFxcXFhgXGBgYGBcYFxUXGBcVGBoYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGy0lICUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAKwBJQMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAACAwEEAAUGBwj/xAA9EAABAwIEAwYEBQMDAwUAAAABAAIRAyEEEjFBUWFxBQYigZGhEzKx8BRCwdHhI1LxB2KCcpLSJDNDU3P/xAAZAQADAQEBAAAAAAAAAAAAAAAAAQIDBAX/xAAjEQACAgICAwEAAwEAAAAAAAAAAQIREiExUQMTQWEycZEi/9oADAMBAAIRAxEAPwDqm00wMTmUlYbhz06r0XM89RKzKaa2mrLKQ+9ExjeAUOZWIhlJNbS4p+Xn6LAxTkPGgWtHBMhSGow1Q2UBlRBqYGog1JsaQsMRhqYGqQFLkWoghqnKjAUwpseIGVTCOFCLHRELIVfEYwNsBmP3uqpxjzsAqUGyXNI2JKpV+0Gj5fEfOP5VOpmdqSfvghFMbrWPjS5M35G+DMTjXutOUctfVVDSm6tuI2CAsJWqaXBm03yVRSWGnxTy1RlTyBRKpYsFNWHEDglPrDZPJ/ApIB1JLNPmsfVKU4lNWLRLwBukueicClkD+4JgA6oUpxKcGg6GUYYEN0FFQUydFPwDuVZLkME7+ilyY6E/BAQEAJ2TmodT5qbHQls8FKaGrErHR1jXcBCkNUhqY1qxssBrEwNRhqMNUuQ8QGtRhqMNRhqTkPEANRBqIBFCmylEEBEApKgFIqiYUqJQkoAOVBelOqJTrqlETkMq1uCr1Hk6lEQgc8BWkQ3YAp8kihiWVASxwcA5zTyc1xa5pBuCCCmurLT4Wk2liaxE/wBdramtppktfA/50z/y5LRWRo25CW6AluqFK1VUTY51XoEl1XqVORZ8NGg2LNQ9Esk8VZFFSWAbj1RkgxKfw+Sj4KtyP8LC1GY1FFP4SVUtoFec1IqU+KFIMTU1yTz4D9UsYIlbFzQNLlU6rnEwD+0LVT6JcexRo5TcpgeOKruYSm08KU3+iS6HNIKkkI20oUikSsm0aJCpQOcjy8pQOSHQIaSsUZgoRY6O2a1Ma1E0KTbUx1suWzSjAEYCruxtMfnH1+iW7tSmNJPQfunjJ/BZRX0vAKVqqnajj8jY63UtxtT/AG+ifqkL2RNqFK17cad4QVMW47/oheNh7EbJA6q0akeq1prOOpKXCpePsT8nRsXYpvH0SXYrkquVYXcFagicmWPxHJLfiClAEo24cp1FCtsW6oUJkq2MMjFAIzQYspBip9sUy1ra3/0uDnf/AJnwVJ5Bri7qwLd/DCx1AOBaRLXAg8wRBU5jwK34cdVPwVS7ExB+DkcRnoOdReTvk+V3/JhYfNQcW25DS7rbzsmrYOkXXADUgeah+m0LTVJeZP8AhW8NgtyqcEuWSp3whlVpeI2RUcANm3VpjQOal9XyHJRk+EXS+gHDQJLgOQ1SXOARl6U5Jfof0KefuVXqAp5QEqrFRVcwofgeSe5x4oHEp2FEMw/ASpewDU+SW6Tuhc6OP30RsZlR56JT4Ta9B7AC9paCAQSDBB0uq0lCCgsxiNuZsk5R1RFhOqFwGkoHQUDj9FiTn5LECNqHnYwpElPZh04NAWuSMcWVmUSnspQmLCVOTY6RIU5kApkpzcMUm0NJgF6kOVlmEThQA1UuaKwZTaCmMpuKca7Bpfoo/FE6N9f4SyfQ6QTaBRigEDXPPAJrSdyobZSoJrAiAQZgsLypGMDVnhG8pQUgJDGH0SMTiGN1dfgsq1I0uVrThSTJ91UYp8ik+jU16wGMzflxDcp5VaQlvqyR/wAQto3Dqn3hwf8AQc9pAfTLajCf7mm31IhM7O7wYasQ1j4c6MrHAtLjlLiGz80Qbjgtb1oiuy/TpNCZmUwhc5RZVAuKGeKFz+SgHj9+iAJceCU9G986CEqq9IGgVjaZOillQDUZvNZUxBOjQEbBIF1MDUz0/fRIeB96eu61vaXbjKW4eeAIgdTotDU7QxOIBNJhywYiGNNtA5xl08p1TRVHQYztGjT+Z1+AuVz+J7UfifBQpEibumw5Fx8I9yuY7s4/42K+FXZlE/IYBJbPhdmE66i2y9IDoAGgGjRAAHAAJp2D0KweLxNJrfHmaImk5z3ssZhpsYtppsZC6Dsn8Ni6XxHNOEq+IFhcIsTDxIgtOsCCtI6oNUtz5+7KXELAzTr13/hLefU7WROcDv8Af6oZHXzWlkCnTwlQjIPH3hYnYUzqw1G2nwCsNpje6e0clk5jUCo3CuOqfTwgHNFUrtbqfLdIfinH5be5RcmFRRbDGjgOqS/Fj8onnoFUNMan1JUtc3mUYhY1+KceXT+UGRzuJ6pjCOAT86LrgKvkUzDc01rQFBKkBKx0iZUhY1qx1SLBIAg1C+oBqfLdC5xPJAymOCADFfgCgqPKezoPO6Aho1v7IsKK4CINKKpU5KvXr5QXHQAlVyI5vt7tB9VkZX0Wy4Fr4zEgkAmDEEQRfRwJ1XJvpmkG1qdVzqrHhzZgix0lsATcRBtutj3h7Tf/AE3Zc9WpFSTdtKmXPbTa0G0kMzFx4xxVF2LLmNc4Bwc10gXLXCYE6jY5dD7hxmoypluDcbR6ThcYKrG1GfK9ocOUiYPRa2r2/SJikfiwYLgYpiNfHBnyBC8j7T+I0kscTSqNzlkkBwcZM/3gEOseSdV7dcMOKTBD3GSR+VpH11V+tEWep9j94aOIc9rJzMtqCDGpatg+rwsvHu7mNNB4cDEixOk7TyN1cxffLFvJHxMkTZrWgawYNz7qn41eiVJnqnxD/KoYjtOkz5ng8m3+mnmvKMR2zV+apWc7/rcSPQrcdj4WtiWNqDJTpOmHTmc6DBhg0uDqRpol665Kuzoe0u9QaPDDRxMf4+q0uNxmLdSfVDXFjRJzktm4EtabkXmYAhbzA9i0qRBDc7x+d/iI6bN8gk96BGHLyCQ0tLuAaXAOceIAJJ6IdAjTdyK9LECoazA6vTfobtyn5XNabHTUztpK7Iun7+4XjtKvVw1UvAcIJAew2jUb6cuBXp3Y/bDcVSbVZIklrh/a4RI5i49VC4GzQ94e6fxC6tTgPLi7Jtr9TraIndXO73a7qjjSe02Ag+Lww3xU3Odq8WI3IMroGfe6q1MG0uzOkeMVAMxDc4YWBxaNTBNzy4BHAWOdA/zqoLjvYb/5UEmdbIS3nHLSTwTsRmXeRb73KU98XP8ACTVxZcYABjpA89Er4Dj89o4fuqrsV9BvxTfzE8oUoGNAsAepgkrEaFs7l2KcdLDl+6B7jq5xjqq1TEHawSshPNJRE2WHYpo0A87oPxDjuY5WQswys08OU7ihbYlvmrNMSn08KFZbRUPyItRE0qSe2mmMYmNYVk5FpCxTUp7aPFNFAcFORWJVDCUTcIeiuNpQhqYpreaWT+DxX0rtwhRVKTW6lV62KJ3hVjUlUk3yTaHVao2SHPQlR7BWkSaLvF3mZhmuABqVQJDBYTwc79BK47Dd+6lao1lVjqbXPaIFxBOvyjfiu17UqUHSyvQp1I0ddro28TdbRqufw/ZeE/E0XUg9pFQOyOcHtIZLnDQEeFp4pLyIvAq946Zw9NjSXVMzxUpE/K0Mz030J1tnJB/3DTU6cYt7mlziBpDQBtbQbCy7Xt+m1lB1GplIzzRc6PCSYAM7kGLaw1cE7s4g1A3NmBaA5xGVwMFx8gfVsLJRt2aqkIxbwadMSM7XVgRxBdTy/R612Iwj2ND2wZF510VzG4WDawOUETmvkGczwLs0coV7Dt8JBiLW3XoxSkjjk8WcvSxZMOIzN4jiNQeB/ddJ2B2E7EjNBayYLyT6CNT09lZ7E7EbVrOa6BTZ43xqZsB5xc8B0XeAWytGVoEADwgDkBoorAr+R5r3/fQwjG4SlSaTUAfUe+XPyh3hhxvJcHchGl1q+6ve2thWCk1rKtNrnQ10tcM3iBDhoJmxBVj/AFM7JNKqysC9zajYl7nPIe0uJbLiYEOBA5HgtN2XTAA4rGKcpbNHSiezYTFfEY2o05g4TIsOdtr8Ux1MGQYIIgg8Dx4rje6XaRY4UyfA8/8Aa42BHWwPkuvfWaB8zQNyTKucXF0QnZwHfTu05hacPTzUyLtYCSx7RAIiTlLQBp+QLad1OyMThqhBcw0HNLo/NmLWRm4EQRYx83ELphiqU/MCfZYcSw6EQopjsIboKk8ISTi23EnyCB2MbsDwhPFiGfDmY8ygFMC5kyec+6W7GEjZvlMfoq1TEzo4zxO3kAqSkGh7zOgy30EFBWeBq4A87+y19Ss7+6/X3jRCa9osT0n1VYCJfiWD8zvKyxINSDo2d7A/opWgUelswoGqa2kOCsNZxTWMXE5lYiWUVYZR5J9NgG0lWWE7QFDmy1ERSwpT24XiUwIi+FDky6RDaICJoA2VarioVV+IPFNRbC0jYOxLRuq1XGcFSdU5pLqitQJci3Urk6lIc/gkZ1Dqv2VaRFjSeawvA0WuxnaLKfzG+zRr6futPie2XO+UBvW59NAqSA31bEgXnz0HqVqsX2u3RsuPLT138lrRSfUMkOdzNh7rlcZ3uYyu+iaTh8N+Wo50CAD4i0CZtJGidpCUbOlxtdz2F3uPoi7ldl1DWdiaohrWllJp1cX/ADPg7BoIHHM7gi7C7ZweKDhQrWZdzXAsIb/d4tua6HCYhobEyyLOHMa8wsZQt2jVS1QvvHhWlgBEi1jfQyNeBA9Fx2KEL0D4Qr04tmG0zMc4Eriu1sIWEgiCEkxnL9oPEiEGFDT4nQC2wJMCDboquPrRUjgjfjhRoOdq9wJHKdPMyuzxyqDMPIraJ7n9plvaDiXDI8uo3sD/AGxzzAeq9NqOB091433P8Nam+o/KwPaSXG0g5pvppqvWnVgQCDmBEggyCDoRGqzi8tltJFLvN2a3E4d9JzmiRLSfyvF2n72JXktKg+mSxwLXNMEHZevPplxBI0+9FUx/ZVF4zVQDFgdD0BF/JU49ckqX+HI9jN8UO3Hh3nbboV19IANBDSZVTAdl0WHNTbH+5xJMcp0Wye4C8wBHIK3JvklRV6ApUriRAE2191NWlIsALdFTxWOEkD1/RUKuMc4XcjGT2DaRsa7mtED6/sqTid5jgAd9+iVTe42Bg8tY5z0VipVc0QHEu9frZqNrQclepXJsBYcfuEmbyXAdE6u/8zj4jtb6bqqXQbjab2H0VJiE1KnitJHNKDTOpF7nZG/EW/U/pxSX1TxJ9ldsQ2o5oNisSvEdisSso91awdSnNnayZ8NSXgLy7OijGUgmSqz8UBoFXfiSd/RCTYWi+7EAbqpVxcqm9/NCXq1FEOQ51ZJc9JqVQLkgdTGtgFynfHH0mP8Ahio5lSpTmuQ9wDaAMjwAx8R0QHASGzxC1jGyWzrs0weKr4vHU2fM8eVz6C65XsPDYl9POaj2CsGvIcTmAI8LY1BiJk3Kbj+w3Cm4062R4Y6PC0ibXOawgA+qB0X8T25NqbSTxP8A4hJYMS83JaDx8PpF1xncXtmq2u74zic7Yc5x/wDbg8NGgkQbDSV6K+sMuYEOtIM2PCDw5praDg8+p94f/UfBdRcIq/DeCYebgEtaBrcEXM+a9BbhabPlaOE6+5Xmffbs6t+J/FUcwp1jSqMeDlk/AphwaZn52kyOI4pWA7frMrUKIquLxVPxGuc5zWuJDGtfeTEmROo6IXGwZ6yPReQf6jdj1vjPrhkh4cHmmLNGYBmbi7LqeK9e7MpuqVKbHgSXeKCYgXME30C0v+rdTJQcBaSGgaKJbaRUPrPEe7sNxFJxaHhtRhc1wkEZhII35c4X0BUqDa8Lwzu7QJxlAATmqsHkXCfa/kvbQfM8E46JmUsR2wcO41HlwaS3xWyt1EQBaPDrMydMpW6qdp4bFsDapDXR4arbjzjULVY+g2rTcx7czTsDBkbgzYry/vVTq4HFPoUzUFORkLi2btBIcGQAZzDTQKJpWVB6LnenAmhiXNdBFi0gy17eIO4WodhnVvE85KQMlx/MeDG6uO1rcSFd7w4atTLG5/i+DM1xbpnuW3J3laehSq1KgDyXHaVordQE6X/Q7teg40hUohzQwxGpDCPmMDWRfryXY/6f4mq/Cw4EAOOUkRmbbTzlN7Aw+QtG4uei3VaqdzoLRYeS3wxdIyyyWyzGUS4zwVXE12GZE/RINQR80nmDbzmFWNW8DfeNE1HYMc55PICw/YBIxZIAk/eyDPaGzOsoQ0m5cD7R0VcDSFGoXCBYb6SsptZFz4hpHuhxtcBtz0A9yf5SKNeGExBHvvrsE9tCqmQ+vln8vAbk8kptSRmvckETdEaecg67/wAo8NVGbLN/I+sJNpIRJDpmI6m/7quyk2c0zrbieitV6YklztdOnBJqR8jbDf8AZTkXQPwW5Scoe+DAuY9StIKzjIkn9E/tSrUaYDiG8Aq2HZOoHVawVK2RJ7oa2q8fnPr+yxEKTfzGOgWJ5IVM9/qYknSyQ+rxJSHkoAeMLzEkbtjjVnRDKQ6uEDq5VJElglKL0rOhDvNUAvtOo0UarqjBUYGwWHR5dYU76z9AVxfZXZWIxLm1KzGspPcKlQkgvr5T/Tpho+WiABYrtMdhxVY1jicofnIG5y5YJ4X+ql3p09laaoQTqpOgWm7z48UMO93lOwMHXlIA81tA8jZUe3MIK9B9NoZnIhpfOVhPhJtvlLvVAzSdwMFlY6sQc1TQ6GDB9xl9St729ifh4eq4RIbYkBwBJABgnxRMxvCjs7Ctw9JtJry8N0JAEbx4QN+N1mLaKjCxwlrhBHJHIHM90MdisRiX1cVUFUU6Qps8DWsALhlDWtECzXfulYLsF3451R9NrWMIqCoP/keSXGxJOsSui7N7PpYemKVJsNbxJJncknVPqkWMoUEDkX+zMZkrseTYOv0Nj7ErXf64UP6VFw0fUieYaTCG50Su1MKMQxlOs5zmsMtBJABgj6FOUdpoIy1RxfdHskms2rfLSvI3eRAaOkz/AJXeudAiDO8pWFa2m3JT2sA3Qc7i3qprNcbkQeN7oSoT2TRrkObAkAiQOq8y71tqnG4hhcXf1qhY1rTLw5xcxx3JIIK9KDzHPh97qs9vjLwxvxCA0ugZsomAT5lGKbtjjLFBYjD03sZmsQ0CY0sLEb3Wuqdnf7xGtmwfdXqrxHi+xxVd1doGk8JKpRXIrfAOHgNIaIE3J1Pmhr1QGm/iiyRUrSLmOUfVU8VUdUNrAfd1so2yLSQ7D5T8z5i5ASC7O8geFg1O8fuVUpNi4/yrdUWIloBHVxjeVo1TJWyKlaxiQBHW+nmk0GGZkEwd453lPbSYGguNzoD9TuqdZpBEnpsP5KSrhFD30JIkA9LjbgoeznA6WS6brje+uw++CfisSIHiBjjcel5KhtjSQt+JOjbbE/sl1aseIAD6+n7o3Ypo8LQC/cZSPSDZLfTk38PuPWFIxznB0WM84gW1115LHNyReXEWjYcfqsZh3MAgh03HKOPFMp7+IHjG1uazbLX6ak0XGRBcZmQPvaVMhpIDDHBw8XAncDdXcTjGwN4Fthx6rWYrGOfvbSJt/KtNsh0WazwIy+cyfK2ixa9lYjiVieIWj2v4phDnkKu6qoa8nXRctFj2uJQu9+iVmuibfiECMDuqnMhdZKkCT7KhDn23WZBx9f2QsfOg/RLdUAm6QFgkffFLJn7+qjDFzrNHUmAAiLItH7I4GVKzrgAfyoDTxyjmn1nCNBzvryhID2E2PONVaegoP8PIif39Et1HLcjzMphqt0v9FXrYnyFkk5MGkNawbx1WOiZ19wPJUjXBn3KUKwiTIV4is2JqNI/tGhuAI++CXVeAR4wJ2nX1WnOM39AfrdU62Kic150vtyA0VLxCyN+9sXNSJ2gSq7ngA+KIOnhnrELlamNMyBba5soD3zMkT5LT0v6yfYujfukgkG06u36JTaQvdvWT6aLWDEtgNmfVRUrEgAe6MWTaLbg2SSSRp4fpfRYa1PZhA+9b3UYJoc3KCeLpAjlebbqvjqwYAKZDnTcxI6D90rt0VWrHuxDSYmOFok87WSqmNZp4dT16k7+Vlq8Y86lwMbCw9tUqk0EyQY3j+VooKrJyZs2U2Ekl0na4AHK9yoNME3MDeekqm9zZF4HAXMcyd+ikYhpGRsg2vJc0dZAj0S2Ui06sIIb4eLhsOXO2yU/D0pEFwA1JEE7nafNA2oZcAQIJnSDzt0KTiq+SJvIB5JV0Mt0q9NpsHAajX33KN+IIF44iQIj1kfVaT8WZsByVnD1wZzTpa54pSgCY4vv895udT9bo8TSBmCYne0jiSN9UdLL7aCJ9SEisXCZAcBxsfZRZVCqlMQAZtuobhxuZQ08W0m4IPHX63CtOBG09NUNtAkhQot4H3UpjATeD5rFnkx4npgEKWiUkm4Ul5kjb+FmMdLRz+iZ8UG8e9lUqG4GyYXkDok0AzP8AeiS1pm/1TmDNqsdvyRkKjGgcbIXNaL2++qxrvdajtDFua5zRG3VOKbYPRsX4sDQJFXtIgG0fr0WixONfG10tzpAHCFuvF2Q5lmtjqjiTsOlkqnXBMTfqbqSwZWjYkk89VRxI8ZsFpGnoht8lxld1wXettlWaZtJJ+iCmcxg3hXKoysMcj5qm6BbJ+IWEAXG5mymtVMwZPIa33PBIoYkgiwPM+aMViRoBAOk363UN7LQGU6fKNb2P7pFejmuPUzHlv6qzTogiTra/mpx5hhAtYoy2PHRpqmJySGgf9R1E8OCr0xJkyf181t8HhWEEkTtdVXUQSJnX05BaKaIcBDh/aOSdkkRExz1ngoa4t0+7qo55kmbiYStsdG6rjKyIganz4kKlLR8oudeJ6cFYwdUvYC69ifSP3RF0zoI4LBOtGjVlSlgzAdbpH1lTiMONRIPEAR6IzJgSYM6coRFst1I8Yb5FGTsVJGtpYTO+Gnz4cuCsnAuy5WgDidZ46JFJ5+I0SYzgR/yV/CNlVOckKKRSbhCw8tZCzG02ubB+YC208lugfCduY++ZXO1tUoTcnZTSWjW5TcRfTmhzOCv0vE6+3BB2nSDeemvRbZbojETSqTqQrD8VIEAzI52utSx5Tmusk0CZYME8+acKrsuVugO5Np1A4BVhdBMzdS9jTHGqd9eqxbfD4SmJBptdpd0z7ELFi5ovCR//2Q=="
                             alt="ATX_Motherboard">
@@ -78,11 +150,11 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="container">
-                <div class="flipper">
+                <div class="slide">
                     <div class="front">
-                        <img src="https://preview.redd.it/how-would-you-react-to-these-three-being-added-v0-3559uorgc7sd1.jpg?width=640&crop=smart&auto=webp&s=17ac7fa4add4b184b96f6f2938d176c89faf9dd4" alt="RAM Stick">
+                        <img src="https://assets2.ignimgs.com/2014/09/16/rszsupim2014003covjpg-20f13f_160w.jpg?width=1280" alt="RAM Stick">
                         <p class="caption">slide</p>
                     </div>
                     <div class="back">
@@ -111,12 +183,13 @@
             </div>
         
         <div class="container">
-            <div class="flipper">
+            <div class="fade">
                 <div class="front">
-                    <img src="https://warfarehistorynetwork.com/wp-content/uploads/2021/11/M-Win22-Weapons-1-LEAD.jpg"
+                    <img src="https://img.redbull.com/images/c_crop,x_217,y_0,h_2133,w_1707/c_fill,w_450,h_600/q_auto:low,f_auto/redbullcom/2018/06/18/cae41691-8bcb-4d6d-8c0e-43310f90dba9/fortnite-battle-royale-ninja-blevins"
                         alt="ATX_Motherboard">
                     <p class="caption">fade</p>
                 </div>
+               
                 <div class="back">
                    
                         <h2 class="mh-100">Fade </h2>
@@ -133,12 +206,17 @@
                     alt="ATX_Motherboard">
                 <p class="caption">america</p>
             </div>
+            <audio autoplay>
+                <source src="iron.mp3" type="audio/mpeg">
+              </audio>
+              
             <div class="back">
                 <a href="https://en.wikipedia.org/wiki/Fairchild_Republic_A-10_Thunderbolt_II" target="_blank">
                     <h2 class="mh-100">fredom </h2>
                 </a>
                 <p class="description">the a-10 is full of terrorist ass kickory. if you want to deliver freedom at
-                    a large scale buy the a-10 thunderbolt with the gau-8 avenger machine gun with a fire rate of 3,900 rpm. for a low price of 18.8 mill</p>
+                    a large scale buy the a-10 thunderbolt with the gau-8 avenger machine gun with a fire rate of 3,900 rpm. for a low price of 18.8 mill
+                </p>
             </div>
         </div>
     </div>
@@ -148,28 +226,118 @@
     </main>
 
     <!---------------------------------- Begin the footer ------------->
-    <footer>
-        <span class="title d-block">Example of a Footer Title</span>
-        <div class="container py-1" id="footerTable">
-            <ul class="list-unstyled d-flex justify-content-center">
-                <li class="mx-3">
-                    <i class="fa-brands fa-facebook fa-3x" aria-hidden="true"></i>
-                </li>
-                <li class="mx-3">
-                    <i class="fa-brands fa-x-twitter fa-3x" aria-hidden="true"></i>
-                </li>
-                <li class="mx-3">
-                    <i class="fa-brands fa-instagram fa-3x" aria-hidden="true"></i>
-                </li>
-                <li class="mx-3">
-                    <i class="fa-brands fa-github fa-3x" aria-hidden="true"></i>
-                </li>
-                <li class="mx-3">
-                    <i class="fa-brands fa-tiktok fa-3x" aria-hidden="true"></i>
-                </li>
-            </ul>
-        </div>
-    </footer>
+</ul>
+<form class="d-flex">
+    <button class="btn btn-primary" type="button">Login</button>
+</form>
+</div>
+</div>
+</nav>
+</body>
+<main>
+<audio autoplay>
+<source src="daytona-song.mp3" type="audio/mpeg">
+</audio>
+</main>
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+<span class="title">Example of a footer useing bootstrap</span>
+
+<!-- Section: Social media -->
+<section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+<!-- Left -->
+<div class="me-5 d-none d-lg-block">
+
+</div>
+<!-- Left -->
+
+<!-- Right -->
+
+<!-- Right -->
+</section>
+<!-- Section: Social media -->
+
+<!-- Section: Links  -->
+<section class="">
+<div class="container text-center text-md-start mt-5">
+<!-- Grid row -->
+<div class="row mt-3">
+<!-- Grid column -->
+<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+<!-- Content -->
+<h6 class="text-uppercase fw-bold mb-4">
+  <i class="fas fa-gem me-3"></i>Shakopee high school
+</h6>
+<p>
+  Block 2 Web-Dev Class Website
+</p>
+<div class="container py-4" id="footerTable">
+  <ul class="list-unstyled d-flex justify-content-center">
+    <li class="mx-3">
+      <a href="https://www.facebook.com/">
+      <i class="fa-brands fa-facebook fa-3x" aria-hidden="true"></i>
+    </a>
+    </li>
+    <li class="mx-3">
+      <a href="https://x.com/?lang=en">
+      <i class="fa-brands fa-x-twitter fa-3x" aria-hidden="true"></i>
+    </a>
+    </li>
+    <li class="mx-3"> 
+      <a href="https://www.instagram.com/">
+      <i class="fa-brands fa-instagram fa-3x" aria-hidden="true"></i>
+    </a>
+    </li>
+
+   
+    <li class="mx-3">
+      <a href="https://blocked.syd-1.linewize.net/blocked?url=www.tiktok.com&deviceid=PHYS-SMIC-US-0000-1568&user=237662&rule=QmxvY2sgLSBTb2NpYWwgTWVkaWEgfCBTZWNfRFdfU3R1ZGVudHM=&ruleid=69ef194a-7b73-4621-a4c4-69934c283572&path=&method=rule_match">
+      <i class="fa-brands fa-tiktok fa-3x" aria-hidden="true"></i>
+    </a>
+    </li>
+
+  </ul>
+</div>
+</div>
+<!-- Grid column -->
+<img style="width:10%; height: 5%;" src="https://www.shakopee.k12.mn.us/cms/lib/MN01909221/Centricity/Domain/2346/Science_Technology_JPG.jpg">    
+<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+<!-- Links -->
+
+<!-- Grid column -->
+
+<!-- Grid column -->
+<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+<!-- Links -->
+
+<!-- Grid column -->
+
+<!-- Grid column -->
+<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+<!-- Links -->
+<h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+<p><i class="fas fa-home me-3"></i> Shakopee Minnesota USA</p>
+<p>
+  <i class="fas fa-envelope me-3"></i>
+  @LFinger.gmail
+</p>
+<p><i class="fas fa-phone me-3"></i> + 01(952)496-5152</p>
+
+</div>
+<!-- Grid column -->
+</div>
+<!-- Grid row -->
+</div>
+</section>
+<!-- Section: Links  -->
+
+<!-- Copyright -->
+<div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+©2025 Copyright:
+<a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+</div>
+<!-- Copyright -->
+</footer>
+
     <!---------------------------------- End the footer ------------->
 </body>
 
