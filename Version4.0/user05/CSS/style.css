@@ -116,6 +116,9 @@ ButtonRed{
 .myButton:active {
 	position:relative;
 	top:1px;
+<<<<<<< HEAD
+}
+=======
 }
 .title{
 	color: red;
@@ -162,3 +165,4 @@ ButtonRed{
   p:first-child {
 	color: plum;
   }
+>>>>>>> 9e7431bc09aa60e00afbde4c49bcf99ec7a12e7a
