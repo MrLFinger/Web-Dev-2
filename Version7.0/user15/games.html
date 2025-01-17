@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>games</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    nav {
+      background-color: #222;
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    header {
+      margin-top: 60px; /* Offset for fixed navbar */
+      text-align: center;
+      padding: 20px;
+    }
+
+    section {
+      margin: 20px;
+      text-align: center;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    select, input {
+      margin: 5px;
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    canvas {
+      border: 2px solid white;
+      margin-top: 20px;
+    }
+
+    .game-info {
+      margin: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">games</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>games</h1>
+    <p>Choose a game to play and enjoy!</p>
+  </header>
+
+  <!-- Response Time Tester -->
+  <section id="response-time-tester">
+    <h2>Response Time Tester</h2>
+    <p>Click "Start" and wait for the background color to change. Hit "Stop" as fast as you can after the change!</p>
+    <form name="response">
+      <label for="bgColorChange">Change background color to:</label>
+      <select name="bgColorChange" id="bgColorChange">
+        <option value="deeppink" selected>Deep Pink</option>
+        <option value="aliceblue">Alice Blue</option>
+        <option value="crimson">Crimson</option>
+        <option value="darkkhaki">Dark Khaki</option>
+        <option value="cadetblue">Cadet Blue</option>
+        <option value="darkorchid">Dark Orchid</option>
+        <option value="coral">Coral</option>
+      </select>
+      <input type="button" value="Start" onclick="startit()">
+      <input type="button" value="Stop" onclick="stopTest()">
+    </form>
+  </section>
+
+  <!-- Snake Game -->
+  <section id="snake-game">
+    <h2>Snake Game</h2>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+  </section>
+
+  <!-- Target Game -->
+  <section id="target-game">
+    <h2>Click the Target Game</h2>
+    <p>Click on the moving target as many times as you can in 30 seconds!</p>
+    <canvas id="targetCanvas" width="400" height="400"></canvas>
+    <div class="game-info">Score: <span id="targetScore">0</span></div>
+  </section>
+
+  <script>
+    // RESPONSE TIME TESTER
+    let startTime, endTime, timerID, startPressed = false, bgChangeStarted = false;
+
+    function startTest() {
+      document.body.style.background = document.response.bgColorChange.value;
+      bgChangeStarted = true;
+      startTime = new Date();
+    }
+
+    function stopTest() {
+      if (bgChangeStarted) {
+        endTime = new Date();
+        const responseTime = (endTime.getTime() - startTime.getTime()) / 1000;
+        document.body.style.background = "white";
+        alert(`Your response time is: ${responseTime} seconds`);
+        startPressed = false;
+        bgChangeStarted = false;
+      } else {
+        if (!startPressed) {
+          alert("Press Start first!");
+        } else {
+          clearTimeout(timerID);
+          startPressed = false;
+          alert("Cheater! You pressed too early!");
+        }
+      }
+    }
+
+    function startit() {
+      if (startPressed) {
+        alert("Already started. Press Stop to stop.");
+        return;
+      }
+      startPressed = true;
+      timerID = setTimeout(startTest, Math.random() * 5000 + 1000);
+    }
+
+    // SNAKE GAME
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const gridSize = 20;
+    const tileCount = canvas.width / gridSize;
+    let snake = [{ x: 10, y: 10 }];
+    let food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
+    let direction = { x: 0, y: 0 };
+    let score = 0;
+
+    function drawSnake() {
+      ctx.fillStyle = "lime";
+      snake.forEach(segment => ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize));
+    }
+
+    function drawFood() {
+      ctx.fillStyle = "red";
+      ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize, gridSize);
+    }
+
+    function updateSnake() {
+      const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+      snake.unshift(head);
+
+      if (head.x === food.x && head.y === food.y) {
+        food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
+      } else {
+        snake.pop();
+      }
+    }
+
+    function gameLoop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawSnake();
+      drawFood();
+      updateSnake();
+      setTimeout(gameLoop, 100);
+    }
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "ArrowUp") direction = { x: 0, y: -1 };
+      if (event.key === "ArrowDown") direction = { x: 0, y: 1 };
+      if (event.key === "ArrowLeft") direction = { x: -1, y: 0 };
+      if (event.key === "ArrowRight") direction = { x: 1, y: 0 };
+    });
+
+    gameLoop();
+
+    // TARGET GAME
+    const targetCanvas = document.getElementById("targetCanvas");
+    const targetCtx = targetCanvas.getContext("2d");
+
+    let targetScore = 0, targetX = 200, targetY = 200, targetGameInterval;
+    function drawTarget() {
+      targetCtx.clearRect(0, 0, targetCanvas.width, targetCanvas.height);
+      targetCtx.fillStyle = "yellow";
+      targetCtx.beginPath();
+      targetCtx.arc(targetX, targetY, 20, 0, Math.PI * 2);
+      targetCtx.fill();
+    }
+
+    targetCanvas.addEventListener("click", e => {
+      const rect = targetCanvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+
+      if (Math.hypot(clickX - targetX, clickY - targetY) <= 20) {
+        targetScore++;
+        document.getElementById("targetScore").innerText = targetScore;
+        targetX = Math.random() * (targetCanvas.width - 40) + 20;
+        targetY = Math.random() * (targetCanvas.height - 40) + 20;
+      }
+    });
+
+    function startTargetGame() {
+      targetGameInterval = setInterval(drawTarget, 100);
+      setTimeout(() => {
+        clearInterval(targetGameInterval);
+        alert(`Game Over! Your score is: ${targetScore}`);
+      }, 30000);
+    }
+
+    drawTarget();
+    startTargetGame();
+  </script>
+</body>
+</html>

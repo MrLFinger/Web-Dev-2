@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Bracket</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+    }
+    .bracket {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .round {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .match {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .player {
+      padding: 10px;
+      background-color: lightgray;
+      border: 1px solid black;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .player:hover {
+      background-color: lightblue;
+    }
+    .loser {
+      text-decoration: line-through;
+      background-color: lightcoral !important;
+      pointer-events: none;
+    }
+    .winner {
+      background-color: lightgreen !important;
+      pointer-events: none;
+    }
+    .ultimate-winner {
+      margin-top: 20px;
+      padding: 20px;
+      border: 2px solid black;
+      background-color: gold;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="bracket" id="bracket"></div>
+  <div id="ultimate-winner" class="ultimate-winner" style="display: none;">Ultimate Winner: </div>
+
+  <script>
+    const players = [
+      "Finger", "Freddie", "Justin", "Jon", "Andrew", "Logan", "Danyil", "Jack",
+      "Matt", "Quad", "Rodolfo", "Jose", "Aiden", "Preston", "Ryan", "Redemption"
+    ];
+
+    function createBracket(players) {
+      const bracket = document.getElementById("bracket");
+      const rounds = Math.log2(players.length);
+
+      let currentPlayers = players;
+      const allRounds = [];
+
+      for (let i = 0; i <= rounds; i++) {
+        const roundDiv = document.createElement("div");
+        roundDiv.className = "round";
+        bracket.appendChild(roundDiv);
+        allRounds.push(roundDiv);
+
+        const nextRound = [];
+
+        currentPlayers.forEach((player, index) => {
+          if (i < rounds) {
+            if (index % 2 === 0) {
+              const matchDiv = document.createElement("div");
+              matchDiv.className = "match";
+
+              const player1 = document.createElement("div");
+              player1.className = "player";
+              player1.textContent = currentPlayers[index];
+              player1.onclick = () => advancePlayer(player1, player2, nextRound, matchDiv, i + 1);
+
+              const player2 = document.createElement("div");
+              player2.className = "player";
+              player2.textContent = currentPlayers[index + 1];
+              player2.onclick = () => advancePlayer(player2, player1, nextRound, matchDiv, i + 1);
+
+              matchDiv.append(player1, player2);
+              roundDiv.appendChild(matchDiv);
+            }
+          } else if (i === rounds && currentPlayers.length === 1) {
+            const winnerDiv = document.createElement("div");
+            winnerDiv.className = "player winner";
+            winnerDiv.textContent = currentPlayers[0];
+            roundDiv.appendChild(winnerDiv);
+
+            const ultimateWinnerDiv = document.getElementById("ultimate-winner");
+            ultimateWinnerDiv.textContent = `Ultimate Winner: ${currentPlayers[0]}`;
+            ultimateWinnerDiv.style.display = "block";
+          }
+        });
+
+        currentPlayers = nextRound;
+      }
+    }
+
+    function advancePlayer(winner, loser, nextRound, matchDiv, nextRoundIndex) {
+      nextRound.push(winner.textContent);
+
+      matchDiv.querySelectorAll(".player").forEach(p => {
+        if (p === winner) {
+          p.classList.add("winner");
+        } else {
+          p.classList.add("loser");
+        }
+      });
+
+      updateNextRound(nextRound, nextRoundIndex);
+    }
+
+    function updateNextRound(nextRound, roundIndex) {
+      const roundDivs = document.querySelectorAll(".round");
+
+      if (roundIndex < roundDivs.length) {
+        const roundDiv = roundDivs[roundIndex];
+        roundDiv.innerHTML = "";
+
+        nextRound.forEach((player, index) => {
+          if (index % 2 === 0) {
+            const matchDiv = document.createElement("div");
+            matchDiv.className = "match";
+
+            const player1 = document.createElement("div");
+            player1.className = "player";
+            player1.textContent = nextRound[index];
+            player1.onclick = () => advancePlayer(player1, player2, [], matchDiv, roundIndex + 1);
+
+            const player2 = document.createElement("div");
+            player2.className = "player";
+            player2.textContent = nextRound[index + 1];
+            player2.onclick = () => advancePlayer(player2, player1, [], matchDiv, roundIndex + 1);
+
+            matchDiv.append(player1, player2);
+            roundDiv.appendChild(matchDiv);
+          }
+        });
+      }
+    }
+
+    createBracket(players);
+  </script>
+</body>
+</html>

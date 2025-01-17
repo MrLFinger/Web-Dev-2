@@ -1,0 +1,88 @@
+/* Body & Global Styles */
+body {
+    font-family: 'Press Start 2P', cursive; /* Pixel font for retro vibe */
+    background-color: #002f6c; /* Sonic blue background */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #f1c40f; /* Bright yellow for title */
+    text-align: center;
+    margin-top: 50px;
+    font-size: 3rem;
+}
+
+.footer-links a {
+    color: #f1c40f;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #3498db; /* Highlight color on hover */
+}
+
+/* Embed Container */
+.embed-container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1000px;
+    min-height: 700px;
+}
+
+.embed-container embed {
+    width: 100%;
+    height: 700px;
+    border: none;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #003366; /* Sonic blue navbar */
+    padding: 10px;
+}
+
+.navbar-nav .nav-link {
+    color: #f1c40f; /* Yellow text for links */
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', cursive; /* Pixel font for retro vibe */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #3498db; /* Blue highlight on hover */
+}
+
+.navbar-brand {
+    color: #f1c40f;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.8rem;
+}
+
+.navbar-toggler-icon {
+    background-color: #f1c40f; /* Yellow icon for mobile */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #0d3e6f; /* Dark footer background */
+    color: white;
+    padding: 20px;
+}
+
+footer .social-media a {
+    color: #f1c40f;
+    margin-right: 15px;
+    font-size: 1.5rem;
+}
+
+footer .social-media a:hover {
+    color: #3498db;
+}
+
+footer .container {
+    font-size: 1.1rem;
+}
