@@ -170,7 +170,204 @@
               Padding example: This box has 20px padding
             </div></xmp>
  <div class="container"
- 
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Image on Hover</title>
+    <style>
+        #hiddenImage {
+            display: none;
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+</div>
+<h1>Border example:</h1>
+
+<button onmouseover="showImage()" onmouseout="hideImage()">Hover over me</button>
+
+<img id="hiddenImage" src="images/V3C.jpeg" alt="Hidden Image">
+
+<script>
+    function showImage() {
+        const image = document.getElementById('hiddenImage');
+        image.style.display = 'block';
+    }
+
+    function hideImage() {
+        const image = document.getElementById('hiddenImage');
+        image.style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slideshow</title>
+</head>
+<body>
+
+<h1>Image Slideshow</h1>
+
+<img id="slideshow" src="https://via.placeholder.com/300x200" alt="Slideshow Image">
+
+<script>
+    const images = [
+        'https://via.placeholder.com/300x200/ff0000/ffffff?text=Image+1',
+        'https://via.placeholder.com/300x200/00ff00/ffffff?text=Image+2',
+        'https://via.placeholder.com/300x200/0000ff/ffffff?text=Image+3'
+    ];
+
+    let currentIndex = 0;
+
+    function changeSlide() {
+        const image = document.getElementById('slideshow');
+        image.src = images[currentIndex];
+        currentIndex = (currentIndex + 1) % images.length;
+    }
+
+    setInterval(changeSlide, 3000); // Change image every 3 seconds
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom Image</title>
+    <style>
+        img {
+            transition: transform 0.3s ease;
+        }
+        img.zoomed {
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+<body>
+
+<h1>Click the image to zoom in!</h1>
+
+<img id="zoomImage" src="https://via.placeholder.com/300x200" alt="Zoomable Image" onclick="zoomImage()">
+
+<script>
+    function zoomImage() {
+        const image = document.getElementById('zoomImage');
+        image.classList.toggle('zoomed');
+    }
+</script>
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+    <span class="title">Example of a footer useing bootstrap</span>
+
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+
+      </div>
+      <!-- Left -->
+
+      <!-- Right -->
+
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Shakopee high school
+            </h6>
+            <p>
+              Block 2 Web-Dev Class Website
+            </p>
+            <div class="container py-4" id="footerTable">
+              <ul class="list-unstyled d-flex justify-content-center">
+                <li class="mx-3">
+                  <a href="https://www.facebook.com/">
+                    <i class="fa-brands fa-facebook fa-3x" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li class="mx-3">
+                  <a href="https://x.com/?lang=en">
+                    <i class="fa-brands fa-x-twitter fa-3x" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li class="mx-3">
+                  <a href="https://www.instagram.com/">
+                    <i class="fa-brands fa-instagram fa-3x" aria-hidden="true"></i>
+                  </a>
+                </li>
+
+
+                <li class="mx-3">
+                  <a
+                    href="https://blocked.syd-1.linewize.net/blocked?url=www.tiktok.com&deviceid=PHYS-SMIC-US-0000-1568&user=237662&rule=QmxvY2sgLSBTb2NpYWwgTWVkaWEgfCBTZWNfRFdfU3R1ZGVudHM=&ruleid=69ef194a-7b73-4621-a4c4-69934c283572&path=&method=rule_match">
+                    <i class="fa-brands fa-tiktok fa-3x" aria-hidden="true"></i>
+                  </a>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+          <!-- Grid column -->
+          <img style="width:10%; height: 5%;"
+            src="https://www.shakopee.k12.mn.us/cms/lib/MN01909221/Centricity/Domain/2346/Science_Technology_JPG.jpg">
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+
+              <!-- Grid column -->
+
+              <!-- Grid column -->
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                <p><i class="fas fa-home me-3"></i> Shakopee Minnesota USA</p>
+                <p>
+                  <i class="fas fa-envelope me-3"></i>
+                  @LFinger.gmail
+                </p>
+                <p><i class="fas fa-phone me-3"></i> + 01(952)496-5152</p>
+
+              </div>
+              <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+          </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      ©2025 Copyright:
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+</body>
+
+</html>
 
 
 
